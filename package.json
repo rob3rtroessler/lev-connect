@@ -1,0 +1,25 @@
+{
+  "name": "letter-project",
+  "version": "1.0.0",
+  "description": "Literary scholars interested in literary circles/author collectives typically have to deal with thousands of documents, especially correspondences, when trying to understand how the various authors relate to each other. Were some of them very close friends, were some of them rivals? Were there some sub circles of authors within the larger circle? How do personal relationships change over time? Were there more or less intense periods of collaboration/change of ideas? As the materials quickly get untamable, literary scholars typically reduce their questions to specific 1:1 relations within a circle, e.g. the correspondence of authors X and Y. It is only in these kind of narrow projects when scholars consider and consult all materials available.  However, when it comes to portraying a whole literary circle, i.e. finding a narrative for the complex constellation over time, it is common practice to cherry pick specific letters, focus on relations of authors that are already canonized, and work rather qualitatively overall.  Attending this methodological difficulty, the proposed projects tries to approach the question of modelling networks of authors over time utilizing computational techniques. Starting with a corpus of digitized correspondences of selected authors from a known or synthesized circle, the idea is to use sentiment analysis in order to evaluate the relations among the authors. Based on the sentiment in the letters, as well as on the frequency of the communication between two corresponding authors relative to other correspondents, the goal of the project is to develop a model that is able to visualize the literary circle over time. Importantly, we would like to note we are prioritizing the construction of the model rather than the formatting and digitization of the letters and thus we may choose to create a mock letter set for the purposes of this project. The idea is to develop a website that provides the user not only with some historical background and biographical information but also with a tool that visualizes the constellations within the literary circle over time. For this goal the JavaScript library D3 will be utilized in order to come up with a force directed graph as the core feature (example: https://bl.ocks.org/mbostock/4062045). We also plan to use node and express for sending data back and forth from a server. Additionally we plan to use the tokenize functions from class for letter analysis. Also we plan to use Vue or React for page design. We also plan to use the fullpage.js library. Ultimately, the user will be enabled to play around with certain parameters to narrow his or her search, i.e. he or she will be able to look at specific years, select specific authors etc.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cs276/letter-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cs276/letter-project/issues"
+  },
+  "homepage": "https://github.com/cs276/letter-project#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "pg": "^7.7.1"
+  }
+}
