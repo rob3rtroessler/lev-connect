@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>HLB Digital</title>
+<head>
+    <meta charset="UTF-8">
+    <title>Lev Connect</title>
+
+    <!-- google font -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+    <!-- bootrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
-        <!-- CSS -->
-        
+    <!-- own css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-        <!-- google font -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<body>
+    <div class="container-fluid" style="height: 100%; background-color: darkgray">
+        <div class="row" style="height: 20%"><h1 style="text-align: center">HEADER</h1></div>
+        <div class="row" style="height: 80%;">
+            <div class="col-2">left</div>
+            <div class="col-8" style="background-color: white">
 
-        <!-- bootrap css -->
+                <!-- breadcrumbs here -->
+                <div class="row" id="breadcrumb" style="border: thin solid grey; height: 10%"></div>
 
-        <!-- own css -->
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+                <!-- sunburst full horizontal container -->
+                <div class="row" style="border: thin solid grey; height: 60%">
+                    <div class="col-8"><div class="row" id="sunburstDIV" style="height: 100%"></div></div>
+                    <div class="col-4"></div>
+                </div>
 
-    <body>
-
-
-
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
+                <!-- show people -->
+                <div class="row" id="people" style="border: thin solid grey; height: 30%"></div>
 
 
+            </div>
+            <div class="col-2">right</div>
+        </div>
+    </div>
 
 
-    </body>
+    <!-- SCRIPTS -->
 
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- own scripts -->
+
+    <script src="js/sunburst.js"></script>
+</body>
 </html>
