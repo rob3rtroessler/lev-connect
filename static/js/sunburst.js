@@ -46,6 +46,7 @@ d3.json("data/data.json").then(function(root) {
         .enter().append("path")
         .attr("d", arc)
         .attr("class", "arcTile" )
+        .attr("stroke", "#494949")
         .style("fill", function(d) {
             console.log(d);
             return d.data.color

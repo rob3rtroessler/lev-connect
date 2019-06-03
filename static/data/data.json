@@ -4,65 +4,65 @@
   "children": [
     {
       "name": "category 1",
-      "color": "blue",
+      "color": "#80b1d3",
       "children": [
         {
           "name": "cat1sub1",
-          "color": "blue",
+          "color": "#80b1d3",
           "children": [
-            {"name": "cat1sub1sel1", "color": "blue", "size": 3938},
-            {"name": "cat1sub1sel2", "color": "blue", "size": 3812},
-            {"name": "cat1sub1sel3", "color": "blue", "size": 6714}
+            {"name": "cat1sub1sel1", "color": "#80b1d3", "size": 3938},
+            {"name": "cat1sub1sel2", "color": "#80b1d3", "size": 3812},
+            {"name": "cat1sub1sel3", "color": "#80b1d3", "size": 6714}
           ]
         },
         {
           "name": "cat1sub2",
-          "color": "blue",
+          "color": "#80b1d3",
           "children": [
-            {"name": "cat1sub2sel1", "size": 3534},
-            {"name": "cat1sub2sel2", "size": 5731}
+            {"name": "cat1sub2sel1", "color": "#80b1d3", "size": 3534},
+            {"name": "cat1sub2sel2", "color": "#80b1d3", "size": 5731}
           ]
         },
         {
           "name": "cat1sub3",
-          "color": "blue",
+          "color": "#80b1d3",
           "children": [
-            {"name": "cat1sub3sel1", "size": 7074}
+            {"name": "cat1sub3sel1", "color": "#80b1d3", "size": 7074}
           ]
         }
       ]
     },
     {
       "name": "category 2",
-      "color": "red",
+      "color": "#fb8072",
       "children": [
-        {"name": "Easing", "size": 17010},
-        {"name": "FunctionSequence", "size": 5842},
-        {"name": "Transitioner", "size": 19975},
-        {"name": "TransitionEvent", "size": 1116},
-        {"name": "Tween", "size": 6006}
+        {"name": "Easing", "color": "#fb8072", "size": 17010},
+        {"name": "FunctionSequence", "color": "#fb8072", "size": 5842},
+        {"name": "Transitioner", "color": "#fb8072", "size": 19975},
+        {"name": "TransitionEvent", "color": "#fb8072", "size": 1116},
+        {"name": "Tween", "color": "#fb8072", "size": 6006}
       ]
     },
     {
       "name": "category 3",
-      "color": "#238b45",
+      "color": "#ffffb3",
       "children": [
         {
           "name": "converters",
-          "color": "#238b45",
+          "color": "#ffffb3",
           "children": [
-            {"name": "Converters", "color": "#41ae76", "size": 721},
-            {"name": "DelimitedTextConverter", "color": "#66c2a4", "size": 4294},
-            {"name": "GraphMLConverter", "color": "#99d8c9", "size": 9800},
-            {"name": "IDataConverter", "color": "#ccece6", "size": 1314},
-            {"name": "JSONConverter", "color": "#e5f5f9", "size": 2220}
+            {"name": "Converters", "color": "#ffffb3", "size": 721},
+            {"name": "DelimitedTextConverter", "color": "#ffffb3", "size": 4294},
+            {"name": "GraphMLConverter", "color": "#ffffb3", "size": 9800},
+            {"name": "IDataConverter", "color": "#ffffb3", "size": 1314},
+            {"name": "JSONConverter", "color": "#ffffb3", "size": 2220}
           ]
         },
-        {"name": "DataField", "color": "#41ae76", "size": 1759},
-        {"name": "DataSchema", "color": "#66c2a4", "size": 2165},
-        {"name": "DataSet", "color": "#99d8c9", "size": 586},
-        {"name": "DataSource", "color": "#ccece6", "size": 3331},
-        {"name": "DataTable", "color": "#e5f5f9", "size": 772}
+        {"name": "DataField", "color": "#ffffb3", "size": 1759},
+        {"name": "DataSchema", "color": "#ffffb3", "size": 2165},
+        {"name": "DataSet", "color": "#ffffb3", "size": 586},
+        {"name": "DataSource", "color": "#ffffb3", "size": 3331},
+        {"name": "DataTable", "color": "#ffffb3", "size": 772}
       ]
     }
   ]

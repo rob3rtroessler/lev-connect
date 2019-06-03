@@ -1,38 +1,55 @@
-console.log('--------- initialization done ---------');
 
-async function INITIALIZER (data){
-    console.log('loading the data');
-    ServerData = data;
+// Typeahead
+let substringMatcher = function(strs) {
+    return function findMatches(q, cb) {
+        let matches, substringRegex;
 
-}
+        // an array that will be populated with substring matches
+        matches = [];
 
-// initializing asynchronously...
-console.log('loading YoungVienna Example. Loading data and updating page asynchronously');
+        // regex used to determine if a string contains the substring `q`
+        substrRegex = new RegExp(q, 'i');
 
-// go!
-INITIALIZER(YoungViennaData)
-    .then(initSliders([1890, 1900]))
-    .then(parseAndPrepareLetters(ServerData.letters))
-    .then(wrangleServerData(parsedLetters, selectedRange))
-    .then( DrawNetwork() )
-    .then(initSliderEvents())
-    //.then(console.log('no need to update Timeslider', TimeSlider))
-    .then(initLineChart())
-    .then(console.log('DONE'));
+        // iterate through the pool of strings and for any string that
+        // contains the substring `q`, add it to the `matches` array
+        $.each(strs, function(i, str) {
+            if (substrRegex.test(str)) {
+                matches.push(str);
+            }
+        });
+
+        cb(matches);
+    };
+};
+
+let states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+    'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+    'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+    'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+    'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+    'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+    'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+    'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+    'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+];
+
+$('#categoryOne').typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+    },
+    {
+        name: 'states',
+        source: substringMatcher(states)
+    });
 
 
-// enabling user to select other data set with other range
-function selectExample(data, rangeStart, rangeEnd) {
 
-    INITIALIZER(data)
-        .then(updateTimeSlider(TimeSlider, [rangeStart,rangeEnd]))
-        .then(parseAndPrepareLetters(ServerData.letters))
-        .then(wrangleServerData(parsedLetters, selectedRange))
-        .then( DrawNetwork() )
-        .then(initSliderEvents());
-        //.then(removeLineChart())
-        //.then(initLineChart);
-}
+
+
+
+
+
 
 
 
