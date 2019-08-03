@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+        <div style="width: 100%;" id="svg-area"></div>
+
+        <script src="static/js/libs/d3.js"></script>
+        <script>
+
+            let svg = d3.select("#svg-area").append('svg');
+
+            // append rect
+            svg.append('rect')
+                .attr('x', 20)
+                .attr('y', 20)
+                .attr('width', 100)
+                .attr('height', 50)
+                .attr('fill', '#4f1d10');
+
+            svg.append('path')
+                .attr('x0',50)
+                .attr('x1',60)
+                .attr('y0',20)
+                .attr('y1',30)
+                .attr('stroke', '#00FF00')
+                .attr('fill', "#00FF00")
+
+        </script>
+    </body>
+</html>

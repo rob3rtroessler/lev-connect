@@ -44,6 +44,16 @@ $('#categoryOne').typeahead({
     });
 
 
+$('#categoryTwo').typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+    },
+    {
+        name: 'states',
+        source: substringMatcher(states)
+    });
+
 
 
 

@@ -52,7 +52,13 @@ d3.json("data/data.json").then(function(root) {
             return d.data.color
             // return color((d.children ? d : d.parent).data.name);
         })
-        .on("click", click)
+        .on("click", function(d){
+            console.log(d);
+            if(d.data.final === true){
+                console.log('true')
+            }
+            click(d)
+        })
         .append("title")
         .text(function(d) { return d.data.name + "\n" + formatNumber(d.value); });
 });

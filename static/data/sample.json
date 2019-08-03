@@ -1,0 +1,25 @@
+{
+  "data": {
+    "academics": {
+      "concentration" : {
+        "African and American Studies": ["name 1", "name 2", "name 3"],
+        "Anthropology": ["name 2", "name 4"],
+        "Chemistry": ["name 3", "name 4"]
+      },
+      "secondary": {
+
+      },
+      "other academic tracks": {
+
+      }
+    }
+  },
+  "opportunities and resources": {
+    "research opportunity in": {
+
+    },
+    "harvard affiliated programs": {
+
+    }
+  }
+}

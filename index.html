@@ -20,43 +20,90 @@
 
 <body>
     <div class="container-fluid" style="height: 100%; background-color: darkgray">
-        <div class="row" style="height: 20%"><h1 style="text-align: center">HEADER</h1></div>
+
+        <!-- OPEN SCHOLAR -->
+        <div class="row" style="height: 20%"><h1 style="text-align: center">OPEN SCHOLAR HEADER</h1></div>
         <div class="row" style="height: 80%;">
-            <div class="col-2">left</div>
-            <div class="col-8" style="background-color: white">
+            <!--<div class="col-2">left</div>-->
+
+            <!-- LEV CONNECT -->
+            <div class="col-12" style="background-color: white">
 
                 <!-- breadcrumbs here -->
-                <div class="row" id="breadcrumb" style="border: thin solid grey; height: 10%"></div>
+                <div class="row" id="breadcrumb" style="height: 10%"></div>
 
                 <!-- sunburst full horizontal container -->
-                <div class="row" style="border: thin solid grey; height: 70%">
+                <div class="row" style="height: 90%">
                     <div class="col-8"><div class="row" id="sunburstDIV" style="height: 100%"></div></div>
-                    <div class="col-4">
+                    <div class="col-4"><!--
                         <div class="row filterHeader">category 1</div>
-                        <div class="row" style="height: 10%; border: thin solid grey">
+                        <div class="row" style="height: 10%">
                                 <input id="categoryOne" class="typeahead" type="text" placeholder="Test" style="width: 100%; height: 100%">
                         </div>
                         <div class="row filterHeader">category 2</div>
-                        <div class="row" style="height: 10%; border: thin solid grey">
+                        <div class="row" style="height: 10%">
                             <input id="categoryTwo" class="typeahead" type="text" placeholder="Test" style="width: 100%; height: 100%">
+                        </div>
+
+                        &lt;!&ndash; collapsibles &ndash;&gt;-->
+                        <div id="accordion">
+
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Collapsible Parent Category #1
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body">Test</div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Collapsible Parent Category #2
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body">contents cat #2, i.e. search fields</div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            Collapsible Parent Category #3
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                    <div class="card-body">contents cat #3</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- show people -->
-                <div class="row" style="border: thin solid grey; height: 20%; overflow-y: scroll">
-                    <div class="col-2" style="border: thin solid red"><img src="img/female-placeholder.jpg" style="max-width: 100%; height: auto; display: block; border-radius: 50%"></div>
-                    <div class="col-2" style="border: thin solid red"><img src="img/female-placeholder.jpg" style="max-width: 100%; height: auto; display: block; border-radius: 50%"></div>
-                    <div class="col-2" style="border: thin solid red"><img src="img/female-placeholder.jpg" style="max-width: 100%; height: auto; display: block; border-radius: 50%"></div>
-                    <div class="col-2" style="border: thin solid red"><img src="img/female-placeholder.jpg" style="max-width: 100%; height: auto; display: block; border-radius: 50%"></div>
-                    <div class="col-2" style="border: thin solid red"><img src="img/female-placeholder.jpg" style="max-width: 100%; height: auto; display: block; border-radius: 50%"></div>
-                    <div class="col-2" style="border: thin solid red"><img src="img/female-placeholder.jpg" style="max-width: 100%; height: auto; display: block; border-radius: 50%"></div>
-                </div>
-
-
-
+               <!-- <div class="row" style="height: 20%; overflow-y: scroll">
+                    <div class="col-2"><img src="img/female-placeholder.jpg" style="max-width: 100%; height: auto; display: block; border-radius: 50%"></div>
+                    <div class="col-2"><img src="img/female-placeholder.jpg" style="max-width: 100%; height: auto; display: block; border-radius: 50%"></div>
+                    <div class="col-2"><img src="img/female-placeholder.jpg" style="max-width: 100%; height: auto; display: block; border-radius: 50%"></div>
+                    <div class="col-2"><img src="img/female-placeholder.jpg" style="max-width: 100%; height: auto; display: block; border-radius: 50%"></div>
+                    <div class="col-2"><img src="img/female-placeholder.jpg" style="max-width: 100%; height: auto; display: block; border-radius: 50%"></div>
+                    <div class="col-2"><img src="img/female-placeholder.jpg" style="max-width: 100%; height: auto; display: block; border-radius: 50%"></div>
+                </div>-->
             </div>
-            <div class="col-2">right</div>
+            <!-- LEV CONNECT -->
+
+<!--
+            <div class="col-2">right</div>-->
         </div>
     </div>
 
@@ -64,7 +111,9 @@
     <!-- SCRIPTS -->
 
     <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
 
