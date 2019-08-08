@@ -1,86 +1,45 @@
-h1 {
-  text-align: center;
-  font-family: 'Crimson Text', serif;
-  font-weight: 200;
-  font-size: 50px;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  color: black;
-}
-
-
-h2 {
-  text-align: center;
-  font-family: 'Crimson Text', serif;
-  font-size: 50px;
-  margin-bottom: 2%;
-}
-
-h3 {
-  text-align: center;
-  font-family: 'Crimson Text', serif;
-  font-size: 18px;
-}
-
-h5 {
-    text-align: left;
-    font-family: Roboto;
-    font-size: 10px;
-    color: rgba(17, 20, 114, 0.8);
-}
-
-/*#FDG-AuthorNetwork {
-  border: thin solid green;
-}*/
-
 
 /*
-    PAGE STYLES
-*/
-
-#CoverPage {
-  /*background: rgba(250, 250, 250, 0.80);*/
-  background: rgba(250, 250, 250, 0.8);
-}
-
-#mainApp {
-  /*background: rgba(250, 250, 250, 0.85);*/
-  background: rgba(250, 250, 250, 0.9);
-}
-
-#mainApp-left,
-#mainApp-right,
-#mainApp-bottom {
-  background: rgba(240, 240, 240, 0.90);
-}
-
-
-/*
-    TEXT STYLES
+   #1 - FONT STYLES
 */
 
 h1 {
-  font-family: Roboto;
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 100;
   text-align: center;
   font-size: 50px;
   margin-bottom: 2%;
+
+  color: rgb(0,90,50);
 }
 
 h2 {
   font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  text-align: center;
+  text-align: right;
   font-weight: lighter;
   font-size: 36px;
-  color: #727272;
-  margin-bottom: 3%;
+  color: rgb(0,90,50);
 }
 
-h3{
-  font-family: Roboto;
-  font-weight: 100;
-  font-size: 20px;
+
+h3 {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: left;
+  font-weight: lighter;
+  font-size: 25px;
+  color: rgb(0,90,50);
 }
+
+
+h4 {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: left;
+  font-weight: lighter;
+  font-size: 20px;
+  color: rgb(0,90,50);
+}
+
+
 
 
 /*
@@ -94,16 +53,244 @@ body {
 
 
 
-.arcTile {
-  opacity: 1
+
+/*
+    TOP ROW - HEADING / HOME
+*/
+#logo {
+  background-image: url('../img/logo_2018.png');
+  background-repeat: no-repeat;
+  background-position: center
 }
 
-.arcTile:hover {
-  opacity: 0.6;
-  border: thin solid red
+
+
+
+
+/*
+  accordion cards
+*/
+
+.btn-link {
+  color: rgba(0, 90, 50, 0.99);;
 }
 
-.filterHeader {
-  height: 10%;
+
+
+/*
+  CAROUSEL INDICATORS
+*/
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 20px;
+  height: 5px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 100);
+  border: 0.4px solid #000000;
+}
+
+.carousel-indicators .active {
+  width: 20px;
+  height: 5px;
+  margin: 0;
+  background-color: rgb(73, 73, 73);
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #c7e9c0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 101, 60);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0,90,50);
+}
+
+
+
+/* * * * * * * * * * * * * * *
+*                            *
+*           PROFILE          *
+*                            *
+* * * * * * * * * * * * * * */
+
+/* Scrolling */
+.scrollable {
+  overflow-y: scroll;
+}
+
+/* Student List */
+#studentList {
+  direction : rtl;
+}
+
+.portraitMini {
+  position: center;
+  width: 70%;
+  border-radius: 50%;
+}
+
+
+
+
+.student-list-item {
+  height: 15.0%;
+  background: #c7e9c0;
+  border-bottom: thin solid green;
+  border-right: thin solid green;
+  cursor: pointer;
+}
+
+.student-list-item-active {
+  background: #a1d99b;
+  border-right: thin solid #a1d99b;
+}
+
+
+
+.sl-parent {
+  display: table;
+  width: 100%;
+  height: 100%;
+
+  border-left: 10px solid transparent;
+}
+.sl-child {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+
+
+
+.parent {
+  display: table;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+}
+.child {
+  display: table-cell;
+  vertical-align: bottom;
+  width: 100%;
+}
+
+.row-heading {
+  border-bottom: thin solid green;
+}
+
+.parent-dl {
+  display: table;
+  width: 100%;
+  height: 100%;
   text-align: center;
+}
+.child-dl {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.dl-text {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+  font-size: 2vh;
+  color: rgb(0,90,50);
+  text-decoration: none;
+}
+
+.dl-text:hover {
+   font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+   font-weight: lighter;
+   font-size: 2.1vh;
+   color: rgb(0, 79, 43);
+   text-decoration: none;
+ }
+
+.dl-text:link {
+  text-decoration: none;
+}
+
+.dl-text:visited {
+  text-decoration: none;
+}
+
+.dl-text:hover {
+  text-decoration: none;
+}
+
+.dl-text:active {
+  text-decoration: none;
+}
+
+
+/* * * * * * * * * * * * * * *
+*                            *
+*        CLOSE BUTTON        *
+*                            *
+* * * * * * * * * * * * * * */
+
+
+#exitBox {
+  height: 33%;
+  border-left: thin solid green;
+  border-right: thin solid green;
+  border-top: thin solid green;
+  background: white;
+  background-image: url("../img/back.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: none;
+}
+
+
+/* * * * * * * * * * * * * * *
+*                            *
+*      FULL-TEXT SEARCH      *
+*                            *
+* * * * * * * * * * * * * * */
+
+#textSearch input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid rgba(0, 90, 50, 0.81);;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+#textSearch button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: rgba(0, 90, 50, 0.81);
+  color: white;
+  font-size: 17px;
+  border: 1px solid rgba(0, 90, 50, 0.81);;
+  border-left: none;
+  cursor: pointer;
+}
+
+#textSearch button:hover {
+  background: rgba(0, 90, 50, 0.99);;
+}
+
+#textSearch::after {
+  content: "";
+  clear: both;
+  display: table;
 }

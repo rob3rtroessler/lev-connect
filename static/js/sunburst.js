@@ -3,7 +3,7 @@ console.log('sunburst is running');
 let sunburstDIV = $('#sunburstDIV'),
     width = sunburstDIV.width(),
     height = sunburstDIV.height(),
-    radius = (Math.min(width, height) / 2) - 10;
+    radius = (Math.min(width, height) / 2 - 60);
 
 let formatNumber = d3.format(",d");
 

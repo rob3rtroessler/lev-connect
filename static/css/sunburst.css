@@ -1,0 +1,8 @@
+.arcTile {
+    opacity: 1
+}
+
+.arcTile:hover {
+    opacity: 0.6;
+    border: thin solid red
+}

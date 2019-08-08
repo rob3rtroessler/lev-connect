@@ -1,3 +1,16 @@
+function toProfile(){
+        $('#carousel').carousel(1);
+        $('#exitBox').show();
+}
+
+function toSunburst(){
+    $('#carousel').carousel(0);
+    $('#exitBox').hide();
+}
+
+
+
+
 
 // Typeahead
 let substringMatcher = function(strs) {
@@ -55,6 +68,11 @@ $('#categoryTwo').typeahead({
     });
 
 
+
+
+$('.carousel').carousel({
+    interval: false
+});
 
 
 
