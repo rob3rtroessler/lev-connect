@@ -1,5 +1,12 @@
-console.log('sunburst is running');
 
+/* * * * * * * * * * * * * * * * * *
+*                                  *
+*         SUNBURST VIEW            *
+*                                  *
+* * * * * * * * * * * * * * * * *  */
+
+
+// define dimensions
 let sunburstDIV = $('#sunburstDIV'),
     width = sunburstDIV.width(),
     height = sunburstDIV.height(),
@@ -15,6 +22,7 @@ let y = d3.scaleSqrt()
 
 // let color = d3.scaleOrdinal(d3.schemeCategory20);
 
+// prepare sunburst by using d3.partition layout
 let partition = d3.partition();
 
 // define the path, i.e. the partition
@@ -25,20 +33,30 @@ let arc = d3.arc()
     .outerRadius(function(d) { return Math.max(0, y(d.y1)); });
 
 
+// append svg drawing area with origin in the center
 let svg = d3.select("#sunburstDIV").append("svg")
     .attr("width", width)
     .attr("height", height)
     .append("g")
     .attr("transform", "translate(" + width / 2 + "," + (height / 2) + ")");
 
-d3.json("data/data.json").then(function(root) {
-    root = d3.hierarchy(root);
 
-    console.log('root', root);
+
+
+function drawSunburst(data) {
+
+    console.log('data for sunburst here', data);
+    let root = d3.hierarchy(data);
+
+    //console.log('root', root);
 
     root.sum(function(d) { return d.size; });
 
-    console.log(partition(root).descendants()) ;
+    //console.log(partition(root).descendants()) ;
+
+    //d.depth shows level!
+    // this.data.name shows name.
+    // this.parent shows parent item
 
     // create
     svg.selectAll("path")
@@ -48,20 +66,29 @@ d3.json("data/data.json").then(function(root) {
         .attr("class", "arcTile" )
         .attr("stroke", "#494949")
         .style("fill", function(d) {
-            console.log(d);
+            //console.log(d);
             return d.data.color
             // return color((d.children ? d : d.parent).data.name);
         })
+
+        // on click, fire click function!
         .on("click", function(d){
-            console.log(d);
+            console.log('click event fired', d);
             if(d.data.final === true){
                 console.log('true')
             }
             click(d)
         })
+        .on('mouseover', function(d){
+            // gather data and build array;
+            buildAncestors(d);
+            drawBreadcrumbs();
+        })
         .append("title")
         .text(function(d) { return d.data.name + "\n" + formatNumber(d.value); });
-});
+
+}
+
 
 function click(d) {
     svg.transition()

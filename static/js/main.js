@@ -1,3 +1,12 @@
+
+async function chainThings() {
+    console.log('start')
+}
+
+chainThings()
+    .then(createDataStructure);
+
+
 function toProfile(){
         $('#carousel').carousel(1);
         $('#exitBox').show();

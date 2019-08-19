@@ -1,0 +1,89 @@
+{
+  "name": "select",
+  "color": "white",
+  "children": [
+    {
+      "name": "Academic Pathways",
+      "color": "#e41a1c",
+      "children": [
+        {
+          "name": "Concentrations/Secondaries",
+          "color": "#e41a1c",
+          "children": [
+            {"name": "Arts/Humanities", "color": "#e41a1c", "children": []},
+            {"name": "Science/Engineering", "color": "#e41a1c", "children": []},
+            {"name": "Social Sciences", "color": "#e41a1c", "children": []}
+          ]
+        },
+        {
+          "name": "Research",
+          "color": "#e41a1c",
+          "children": [
+            {"name": "Arts/Humanities", "color": "#e41a1c", "children": []},
+            {"name": "Life/Health Sciences", "color": "#e41a1c", "children": []},
+            {"name": "Science/Engineering", "color": "#e41a1c", "children": []},
+            {"name": "Social Science/Professional Fields", "color": "#e41a1c", "children": []}
+          ]
+        },
+        {
+          "name": "Other Pathways",
+          "color": "#e41a1c",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Work & Graduate School",
+      "color": "#377eb8",
+      "children": [
+        {"name": "Internships/Careers", "color": "#377eb8", "children":
+          [
+            {"name": "Arts / Entertainment / Media", "color": "#377eb8", "children": []},
+            {"name": "Business / Entrepreneurship", "color": "#377eb8", "children": []},
+            {"name": "Gov / Law / Ed / Non-profit", "color": "#377eb8", "children": []},
+            {"name": "Health / Life Sciences", "color": "#377eb8", "children": []},
+            {"name": "Tech / Engineering / Environment / Architecture", "color": "#377eb8", "children": []}
+          ]
+        },
+        {"name": "Graduate School", "color": "#377eb8", "children":
+          [
+            {"name": "Arts / Humanities / Social Sciences", "color": "#377eb8", "children": []},
+            {"name": "Professional Graduate School", "color": "#377eb8", "children": []},
+            {"name": "Sciences/Engineering Graduate School", "color": "#377eb8", "children": []}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Travel & Languages",
+      "color": "#4daf4a",
+      "children": [
+        {
+          "name": "Countries",
+          "color": "#4daf4a",
+          "children": [
+            {"name": "Africa", "color": "#4daf4a", "children": []},
+            {"name": "Americas", "color": "#4daf4a", "children": []},
+            {"name": "Asia", "color": "#4daf4a", "children": []},
+            {"name": "Australia/Oceania", "color": "#4daf4a", "children": []},
+            {"name": "Europe", "color": "#4daf4a", "children": []}
+          ]
+        },
+        {"name": "Languages", "color": "#4daf4a", "children":[]}
+      ]
+    },
+    {
+      "name": "Peer Advising",
+      "color": "#984ea3",
+      "children": [
+        {
+          "name": "Sth",
+          "color": "#984ea3",
+          "children": [
+            {"name": "Africa", "color": "#984ea3", "children": []}
+          ]
+        },
+        {"name": "Sth Else", "color": "#984ea3", "children":[]}
+      ]
+    }]
+}

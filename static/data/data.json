@@ -3,32 +3,32 @@
   "color": "white",
   "children": [
     {
-      "name": "category 1",
+      "name": "Academic Pathways",
       "color": "#e41a1c",
       "children": [
         {
-          "name": "cat1sub1",
+          "name": "Concentrations/Secondaries",
           "color": "#e41a1c",
           "children": [
-            {"name": "cat1sub1sel1", "color": "#e41a1c", "size": 3938},
-            {"name": "cat1sub1sel2", "color": "#e41a1c", "size": 3812},
-            {"name": "cat1sub1sel3", "color": "#e41a1c", "size": 6714}
+            {"name": "Arts/Humanities", "color": "#e41a1c", "children": []},
+            {"name": "Science/Engineering", "color": "#e41a1c", "children": []},
+            {"name": "Social Sciences", "color": "#e41a1c", "children": []},
+            {"name": "Social Sciences", "color": "#e41a1c", "size": 1}
           ]
         },
         {
-          "name": "cat1sub2",
+          "name": "Research",
           "color": "#e41a1c",
           "children": [
-            {"name": "cat1sub2sel1", "color": "#e41a1c", "size": 3534},
-            {"name": "cat1sub2sel2", "color": "#e41a1c", "size": 5731}
+            {"name": "Arts/Humanities", "color": "#e41a1c", "children": []},
+            {"name": "Life/Health Sciences", "color": "#e41a1c", "children": []},
+            {"name": "Life/Health Sciences", "color": "#e41a1c", "children": []}
           ]
         },
         {
-          "name": "cat1sub3",
+          "name": "Other Pathways",
           "color": "#e41a1c",
-          "children": [
-            {"name": "cat1sub3sel1", "color": "#e41a1c", "size": 7074}
-          ]
+          "children": []
         }
       ]
     },
@@ -36,11 +36,11 @@
       "name": "category 2",
       "color": "#377eb8",
       "children": [
-        {"name": "Easing", "color": "#377eb8", "size": 17010},
-        {"name": "FunctionSequence", "color": "#377eb8", "size": 5842},
-        {"name": "Transitioner", "color": "#377eb8", "size": 19975},
-        {"name": "TransitionEvent", "color": "#377eb8", "size": 1116},
-        {"name": "Tween", "color": "#377eb8", "size": 6006}
+        {"name": "Easing", "color": "#377eb8", "size": 1},
+        {"name": "FunctionSequence", "color": "#377eb8", "size": 1},
+        {"name": "Transitioner", "color": "#377eb8", "size": 1},
+        {"name": "TransitionEvent", "color": "#377eb8", "size": 1},
+        {"name": "Tween", "color": "#377eb8", "size": 1}
       ]
     },
     {
@@ -51,18 +51,18 @@
           "name": "converters",
           "color": "#4daf4a",
           "children": [
-            {"name": "Converters", "color": "#4daf4a", "size": 721, "final": true},
-            {"name": "DelimitedTextConverter", "color": "#4daf4a", "size": 4294},
-            {"name": "GraphMLConverter", "color": "#4daf4a", "size": 9800},
-            {"name": "IDataConverter", "color": "#4daf4a", "size": 1314},
-            {"name": "JSONConverter", "color": "#4daf4a", "size": 2220}
+            {"name": "Converters", "color": "#4daf4a", "size": 1, "final": true},
+            {"name": "DelimitedTextConverter", "color": "#4daf4a", "size": 1},
+            {"name": "GraphMLConverter", "color": "#4daf4a", "size": 1},
+            {"name": "IDataConverter", "color": "#4daf4a", "size": 1},
+            {"name": "JSONConverter", "color": "#4daf4a", "size": 1}
           ]
         },
-        {"name": "DataField", "color": "#4daf4a", "size": 1759},
-        {"name": "DataSchema", "color": "#4daf4a", "size": 2165},
-        {"name": "DataSet", "color": "#4daf4a", "size": 586},
-        {"name": "DataSource", "color": "#4daf4a", "size": 3331},
-        {"name": "DataTable", "color": "#4daf4a", "size": 772}
+        {"name": "DataField", "color": "#4daf4a", "size": 1},
+        {"name": "DataSchema", "color": "#4daf4a", "size": 1},
+        {"name": "DataSet", "color": "#4daf4a", "size": 1},
+        {"name": "DataSource", "color": "#4daf4a", "size": 1},
+        {"name": "DataTable", "color": "#4daf4a", "size": 1}
       ]
     },
     {
@@ -73,22 +73,22 @@
           "name": "cat1sub1",
           "color": "#984ea3",
           "children": [
-            {"name": "cat1sub1sel1", "color": "#984ea3", "size": 3938}
+            {"name": "cat1sub1sel1", "color": "#984ea3", "size": 1}
           ]
         },
         {
           "name": "cat1sub2",
           "color": "#984ea3",
           "children": [
-            {"name": "cat1sub2sel1", "color": "#984ea3", "size": 3534},
-            {"name": "cat1sub2sel2", "color": "#984ea3", "size": 5731}
+            {"name": "cat1sub2sel1", "color": "#984ea3", "size": 1},
+            {"name": "cat1sub2sel2", "color": "#984ea3", "size": 1}
           ]
         },
         {
           "name": "cat1sub3",
           "color": "#984ea3",
           "children": [
-            {"name": "cat1sub3sel1", "color": "#984ea3", "size": 7074}
+            {"name": "cat1sub3sel1", "color": "#984ea3", "size": 1}
           ]
         }
       ]
