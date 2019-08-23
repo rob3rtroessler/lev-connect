@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/toggle.css">
     <link rel="stylesheet" href="css/sunburst.css">
+    <link rel="stylesheet" href="css/accordion.css">
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 
 <body>
@@ -94,9 +96,9 @@
 
                                             </div>
                                             <div class="card">
-                                                <div class="card-header" id="headingOne" style="background-color: #c7e9c0;">
+                                                <div class="card-header p-0" id="headingOne" style="background-color: #c7e9c0;">
                                                     <h5 class="mb-0">
-                                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        <button class="btn btn-link" data-toggle="collapse" data-target="#Academic Pathways" aria-expanded="true" aria-controls="collapseOne">
                                                             Academics
                                                         </button>
                                                     </h5>
@@ -107,7 +109,7 @@
                                             </div>
 
                                             <div class="card">
-                                                <div class="card-header" id="headingTwo" style="background-color: #c7e9c0;">
+                                                <div class="card-header p-0" id="headingTwo" style="background-color: #c7e9c0;">
                                                     <h5 class="mb-0">
                                                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                                             Work and Grad School
@@ -120,7 +122,7 @@
                                             </div>
 
                                             <div class="card">
-                                                <div class="card-header" id="headingThree" style="background-color: #c7e9c0;">
+                                                <div class="card-header p-0" id="headingThree" style="background-color: #c7e9c0;">
                                                     <h5 class="mb-0">
                                                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                                             International Expertise
@@ -133,7 +135,7 @@
                                             </div>
 
                                             <div class="card">
-                                                <div class="card-header" id="headingFour" style="background-color: #c7e9c0;">
+                                                <div class="card-header p-0" id="headingFour" style="background-color: #c7e9c0;">
                                                     <h5 class="mb-0">
                                                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
                                                             Affiliation and Peer Advising
@@ -147,6 +149,7 @@
                                         </div>
 
                                         <button style="height: 50px" onclick="toProfile()">click</button>
+                                        <button style="height: 50px" onclick="toAcc('collapseTwo')">click two</button>
 
 
                                     </div>
@@ -164,18 +167,18 @@
 
                                     <!-- LEFT SIDE - STUDENT LIST -->
                                     <div class="col-3" id='studentList' style="background: #c7e9c0">
-                                        <!-- DYNAMICALLY FILLED - htmlAutomats.js -->
+                                        <!-- DYNAMICALLY FILLED - studentList.js -->
                                     </div>
 
                                     <!-- RIGHT SIDE - PROFILE -->
                                     <div class="col-9" style="background: #a1d99b;">
-                                        <div class="row" id='profile' style="height: 100%; border-left: 10px solid #a1d99b">
+                                        <div class="row" id='profile' style="height: 100%; border-left: 10px solid #a1d99b;">
                                             <div class="col-9">
 
                                                 <!-- NAME HEADING -->
                                                 <div class="row" style="height: 20%">
                                                     <div class="parent" style="height: 100%">
-                                                        <div class="child"><h2 id="profile_nameField"></h2></div>
+                                                        <div class="child"><h2 id="profile_nameField">ROBERT ROESSLER</h2></div>
                                                     </div>
                                                 </div>
 
@@ -186,17 +189,112 @@
                                                     </div>
                                                 </div>
                                                 <!-- INNER - ACADEMIC PATHWAYS -->
-                                                <div class="row" style="height: 40%;">pathways</div>
+                                                <div class="row" style="margin-bottom: 4%;">
+
+                                                    <div class="col-4" style="border-right: thin dotted green">
+                                                        <div class="row">
+                                                            <div class="parent" style="height: 100%">
+                                                                <div class="child"><h5>Concentrations and Secondaries</h5></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span class="profileTxt" id="profile_concentrations">
+                                                                History, Near Eastern Languages and Civilizations, Religion,
+                                                                Comparative Study of, Romance Languages and Literatures,
+                                                                South Asian Studies, Educational Studies, European History,
+                                                                Politics, Societies, Government, History, Near Eastern Languages and
+                                                                Civilizations, Social Studies, South Asian Studies
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-4">
+                                                        <div class="row">
+                                                            <div class="parent" style="height: 100%">
+                                                                <div class="child"><h5>Research</h5></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="border-left: 5px solid #a1d99b; border-right: 5px solid #a1d99b">
+                                                            <span class="profileTxt" id="profile_research">
+                                                                word word word word word word word
+                                                                word word word word word word word
+                                                                word word word word word word word
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4" style="border-left: thin dotted green">
+                                                        <div class="row">
+                                                            <div class="parent" style="height: 100%">
+                                                                <div class="child"><h5>Other Pathways</h5></div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row" style="border-left: 5px solid #a1d99b; border-right: 5px solid #a1d99b">
+                                                            <div class="profileTxt" id="profile_otherPathways">
+                                                                word word word word word word word
+                                                                word word word word word word word
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="row">
+                                                            <div class="parent" style="height: 100%">
+                                                                <div class="child"><h5>Explanation</h5></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="border: thin dotted green">
+                                                            <span class="profileTxt b5sg" id="profile_academicExplanation"></span>                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
 
                                                 <!-- HEADING - WORK / GRAD SCHOOL -->
                                                 <div class="row row-heading" style="height: 5%;">
                                                     <div class="parent" style="height: 100%">
-                                                        <div class="child"><h3>Work & Grad School</h3></div>
+                                                        <div class="child">
+                                                            <h3>Work & Grad School</h3>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <!-- INNER - ACADEMIC PATHWAYS -->
-                                                <div class="row" style="height: 40%;">Work & Grad School</div>
+                                                <!-- INNER - WORK / GRAD SCHOOL -->
+                                                <div class="row" style="height:25%">
+
+                                                    <!-- grad school -->
+                                                    <div class="col-6">
+                                                        <div class="row">
+                                                            <div class="parent" style="height: 100%">
+                                                                <div class="child">
+                                                                    <h5>Grad School</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span class="profileTxt b5sg" id="profile_gradSchool"></span>                                                            </span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span class="profileTxt b5sg" id="profile_gradSchoolExp"></span>                                                           </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- work -->
+                                                    <div class="col-6">
+                                                        <div class="row">
+                                                            <div class="parent" style="height: 100%">
+                                                                <div class="child">
+                                                                    <h5>Career & Internships</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span class="profileTxt b5sg" id="profile_work"></span>                                                            </span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span class="profileTxt b5sg" id="profile_workExp"></span>                                                           </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
 
 
                                                 <!-- HEADING - TRAVEL / LANGUAGES -->
@@ -205,23 +303,92 @@
                                                         <div class="child"><h3>Travel & Languages</h3></div>
                                                     </div>
                                                 </div>
+
                                                 <!-- INNER - TRAVEL / LANGUAGES -->
-                                                <div class="row" style="height: 40%;">Travel & Languages</div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="row">
+                                                            <div class="parent" style="height: 100%">
+                                                                <div class="child">
+                                                                    <h5>Countries Visited</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span class="profileTxt b5sg" id="profile_countries"></span>                                                            </span>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="parent" style="height: 100%">
+                                                                <div class="child">
+                                                                    <h5>Explanation</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span class="profileTxt b5sg" id="profile_countriesExp"></span>                                                            </span>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="parent" style="height: 100%">
+                                                                <div class="child">
+                                                                    <h5>Languages</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span class="profileTxt b5sg" id="profile_languages"></span>                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <!--
+                                                    <div class="col-6" style="margin-top:1%; margin-bottom: 5%;">
+                                                        <div class="row">
+                                                            <h5>Countries visited</h5>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span id="profile_countries">Language 1, Language 2</span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <h5 style="margin-top: 5%">Explanation</h5>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span id="profile_countriesExp">I was born in Pakistan and spent my childhood there.</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6" style="margin-top:1%; margin-bottom: 5%; border-left: thin solid green">
+                                                        <div class="row">
+                                                            <h5>Languages</h5>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span id="profile_languages">Language 1, Language 2</span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <h5 style="margin-top: 5%">Explanation</h5>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span id="profile_languagesExp">I was born in Pakistan and spent my childhood there.</span>
+                                                        </div>
+                                                    </div>-->
+
+                                                </div>
 
 
-                                                <!-- HEADING - Other -->
+                                                <!-- HEADING - ADDITIONAL INFORMATION -->
                                                 <div class="row row-heading" style="height: 5%;">
                                                     <div class="parent" style="height: 100%">
                                                         <div class="child"><h3>Additional Information</h3></div>
                                                     </div>
                                                 </div>
-                                                <!-- INNER - TRAVEL / LANGUAGES -->
-                                                <div class="row" style="height: 40%;">Tutor Role, Peer-Adviser, Extracurriculars</div>
+                                                <!-- INNER - ADDITIONAL INFORMATION -->
+                                                <div class="row" style="height: 20%;">Tutor Role, Peer-Adviser, Extracurriculars</div>
 
                                             </div>
+
+                                            <!-- RIGHT SIDE - PROFILE PIC, CONTACT -->
                                             <div class="col-3">
-                                                <div class="row" style="height: 20%">
-                                                    <img src="img/female-placeholder.jpg" style="width: 100%; border-radius: 50%; border: 20px solid #a1d99b;"/>
+                                                <div class="row" style="height: 20%; border-radius: 50%; border: 20px solid #a1d99b;">
+                                                    <img id ='pictureID' src="img/female-placeholder.jpg" style="width: 100%; border-radius: 50%;"/>
                                                 </div>
                                                 <div class="row" style="height: 25%"></div>
                                                 <div class="row" style="height: 10%;">
@@ -280,8 +447,8 @@
     <script src="js/sunburst.js"></script>
     <script src="js/breadcrumbs.js"></script>
     <script src="js/filters.js"></script>
-    <script src="js/htmlAutomats.js"></script>
-    <script src="js/profileFunctions.js"></script>
+    <script src="js/studentList.js"></script>
+    <script src="js/studentProfile.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

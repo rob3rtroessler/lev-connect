@@ -45,7 +45,11 @@ let svg = d3.select("#sunburstDIV").append("svg")
 
 function drawSunburst(data) {
 
-    console.log('data for sunburst here', data);
+    // one possibility is to empty svg at the beginning
+    //$("#sunburstDIV").empty();
+    svg.selectAll("*").remove();
+
+    console.log(data);
     let root = d3.hierarchy(data);
 
     //console.log('root', root);
@@ -73,10 +77,26 @@ function drawSunburst(data) {
 
         // on click, fire click function!
         .on("click", function(d){
-            console.log('click event fired', d);
-            if(d.data.final === true){
-                console.log('true')
+
+            // if on final 'selection' level
+            if (d.data.status === 'final'){
+                console.log('create student list with the following students:',d.data.id);
+                createStudentList (d.data.id);
+                currentlySelectedProfileId = selectedStudents[0];
+                console.log(selectedStudents[0]);
+                // clickStudentListItem();
+                toProfile();
             }
+            // get depth
+            // then
+            if (d.depth !== 0){
+                //console.log('name:', d.data.name, "parent's name:", d.parent.data.name);
+
+                // create classifier
+                classifier = d.data.name + '.' + d.parent.data.name
+            }
+
+            // click - update sunburst data;
             click(d)
         })
         .on('mouseover', function(d){
@@ -91,6 +111,7 @@ function drawSunburst(data) {
 
 
 function click(d) {
+    console.log(d);
     svg.transition()
         .duration(750)
         .tween("scale", function() {

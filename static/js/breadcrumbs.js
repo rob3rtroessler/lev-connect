@@ -37,14 +37,14 @@ function getAncestor(data) {
         // get parent
         getAncestor(data.parent);
     }
-    console.log(ancestorArray);
+    //console.log(ancestorArray);
 }
 
 
 
 function drawBreadcrumbs() {
 
-    console.log('fired', ancestorArray);
+    //console.log('fired', ancestorArray);
 
     let data = ancestorArray;
 

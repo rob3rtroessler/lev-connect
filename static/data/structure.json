@@ -73,17 +73,14 @@
       ]
     },
     {
-      "name": "Peer Advising",
+      "name": "Tutor Roles & Peer Advisers",
       "color": "#984ea3",
-      "children": [
-        {
-          "name": "Sth",
-          "color": "#984ea3",
-          "children": [
-            {"name": "Africa", "color": "#984ea3", "children": []}
-          ]
-        },
-        {"name": "Sth Else", "color": "#984ea3", "children":[]}
+      "children":
+      [
+        {"name": "Concentration Advisers", "color": "#984ea3", "children": []},
+        {"name": "House Roles & Committees", "color": "#984ea3", "children": []},
+        {"name": "Departmental Peer Advisers", "color": "#984ea3", "children": []},
+        {"name": "Other peer advising positions", "color": "#984ea3", "children": []}
       ]
     }]
 }

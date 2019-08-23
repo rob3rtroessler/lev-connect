@@ -39,6 +39,23 @@ h4 {
   color: rgb(0,90,50);
 }
 
+h5 {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 2vh;
+  color: rgb(0,90,50);
+  margin-top: 2%;
+  margin-bottom: 0;
+}
+
+.profileTxt {
+  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: left;
+  font-weight: lighter;
+  font-size: 1.4vh;
+  margin: 0;
+}
 
 
 
@@ -66,14 +83,6 @@ body {
 
 
 
-
-/*
-  accordion cards
-*/
-
-.btn-link {
-  color: rgba(0, 90, 50, 0.99);;
-}
 
 
 
@@ -141,6 +150,10 @@ body {
   position: center;
   width: 70%;
   border-radius: 50%;
+
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+
 }
 
 
@@ -235,6 +248,10 @@ body {
 
 .dl-text:active {
   text-decoration: none;
+}
+
+.b5sg {
+  border: 5px solid #a1d99b;
 }
 
 

@@ -62,10 +62,13 @@ let replacementLib = [
     {word: 'Mass Media, Communication, Journalism', replacement: 'rep36'},
     {word: 'Philosophy, Ethics', replacement: 'rep37'},
     {word: 'Psychology, Cognitive Science & related fields', replacement: 'rep38'},
-    {word: 'Religious Studies, Divinity', replacement: 'rep39'}
+    {word: 'Religious Studies, Divinity', replacement: 'rep39'},
 
 
     /* TRAVEL & LANGUAGES */
+    {word: 'China, mainland', replacement: 'rep40'},
+    {word: 'China, Hong Kong', replacement: 'rep41'}
+
 ];
 
 
@@ -139,9 +142,18 @@ function createDataStructure (){
 
         // CAT #4 - Tutor Roles & Peer Advisers
         let
-            //TODO: Do we really want that here?
-            TP = structure.children[1].children[0].children[0];
 
+            // Concentration Advisers
+            APA_CA = structure.children[3].children[0],
+
+            // house roles and committees
+            APA_HRC = structure.children[3].children[1],
+
+            // Peer Advisers
+            APA_PA = structure.children[3].children[2],
+
+            // Other Peer Advising Positions
+            APA_OPA = structure.children[3].children[3];
 
 
 
@@ -191,16 +203,24 @@ function createDataStructure (){
             TL_L_ee = [];
 
 
+        // Affiliation and Peer Advising
+        let
+            // Concentration Advisers
+            APA_CA_ee = [],
 
+            // house roles and committees
+            APA_HRC_ee = [],
 
+            // Peer Advisers
+            APA_PA_ee = [],
 
-
-
+            // other peer advisers
+            APA_OPA_ee = [];
 
 
 
         // on top of that predefined structure, load the data from the form
-        d3.csv("/data/data.csv").then(function(data) {
+        d3.csv("/data/data3.csv").then(function(data) {
 
             // now, for each tutor, sort his or her data into the structure
             data.forEach(function(d){
@@ -256,6 +276,15 @@ function createDataStructure (){
                 fillChildren(d, "Non-English Languages", TL_L, TL_L_ee, '#4daf4a');
 
 
+                /* * * * * * * * * * * *
+                *    PEER ADVISING     *
+                * * * * * * * * * * * */
+
+                fillChildren(d, "Concentration advisers (departmental appointment)", APA_CA, APA_CA_ee, '#984ea3');
+                fillChildren(d, "House roles/committees", APA_HRC, APA_HRC_ee, '#984ea3');
+                fillChildren(d, "Dept peer adviser", APA_PA, APA_PA_ee, '#984ea3');
+                fillChildren(d, "Other peer advising positions", APA_OPA, APA_OPA_ee, '#984ea3');
+
 
 
                 FinalData = structure;
@@ -310,7 +339,7 @@ function fillChildren (tutorData, category, categoryLocation, existingExpertise,
 
                 // then push object as new child
                 categoryLocation.children.push(
-                    {"name": expertise, "color": color, "size": 1, id:[tutorData['Last Name']]}
+                    {"name": expertise, "color": color, "size": 1, status: 'final', id:[tutorData['Last Name']]}
                 );
 
             }
@@ -325,7 +354,8 @@ function fillChildren (tutorData, category, categoryLocation, existingExpertise,
                     categoryLocation.children.forEach( child => {
                         if (child.name === expertise) {
                             child.size += 1;
-                            child.id.push(tutorData['Last Name'])
+                            // child.id.push( tutorData['First Name'] + ' ' + tutorData['Last Name'] )
+                            child.id.push( tutorData['Last Name']);
                         }
                     })
                 }
@@ -333,8 +363,11 @@ function fillChildren (tutorData, category, categoryLocation, existingExpertise,
                 // or whether we need to push a new child
                 else {
                     existingExpertise.push(expertise);
+
+                    //let idArray = [tutorData['First Name'] + ' ' + tutorData['Last Name']];
+                    let idArray = [tutorData['Last Name']];
                     categoryLocation.children.push(
-                        {"name": expertise, "color": color, "size": 1, id:[tutorData['Last Name']]});
+                        {"name": expertise, "color": color, "size": 1, status: 'final', id: idArray});
                 }
             }
         });
@@ -352,26 +385,3 @@ function fillChildren (tutorData, category, categoryLocation, existingExpertise,
 
 
 
-let studentData = [
-    {id: 1, name: 'Emily Harrison', picture: 'url', secondaries: 'Emily_Secondaries'},
-    {id: 2, name: 'Judith Murciano-Goroff', picture: 'url'},
-    {id: 3, name: 'Jonathan Abraham', picture: 'url'},
-    {id: 4, name: 'Amy Xu', picture: 'url'},
-    {id: 5, name: 'Bilal Malik', picture: 'url'},
-    {id: 6, name: 'Chris Cleveland', picture: 'url'},
-    {id: 7, name: 'Marek Hlavac', picture: 'url'},
-    {id: 8, name: 'Shervin Tabrizi', picture: 'url'},
-    {id: 9, name: 'Alex Hugon', picture: 'url'},
-    {id: 10, name: 'Diana Tamir', picture: 'url'},
-    {id: 11, name: 'Robert Roessler', picture: 'url'}
-];
-
-// map by id
-let dataByIdArray = studentData.map(obj =>{
-    let rObj = {};
-    rObj['sl-id-' + obj.id] = {name: obj.name, picture: obj.picture};
-    return rObj;
-});
-
-// convert array to obj;
-let dataByIdObj = dataByIdArray.reduce((a, b) => Object.assign(a, b), {});
