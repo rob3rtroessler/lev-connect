@@ -1,6 +1,6 @@
 /* * * * * * * * * * * * * * * * * *
 *                                  *
-*         DATA STRUCTURE           *
+*     DATA STRUCTURE SUNBURST      *
 *                                  *
 * * * * * * * * * * * * * * * * *  */
 
@@ -84,7 +84,7 @@ let FinalData = {};
 // then fill in the data?
 // ultimately, I just want to display the stuff we have.
 
-function createDataStructure (){
+async function createDataStructure (){
 
     // first get predefined, initial data structure
     d3.json("data/structure.json").then(function(structure) {
@@ -224,25 +224,24 @@ function createDataStructure (){
 
             // now, for each tutor, sort his or her data into the structure
             data.forEach(function(d){
-                //console.log(d);
 
                 /* * * * * * * * * * * *
                 *   ACADEMIC PATHWAYS  *
                 * * * * * * * * * * * */
 
                 /* CONCENTRATIONS & SECONDARIES  */
-                fillChildren(d, "Arts & Humanities concentrations/secondaries", AP_C_arts, AP_C_arts_ee, '#e41a1c');
-                fillChildren(d, "Science & Engineering concentrations/secondaries", AP_C_sciences, AP_C_sciences_ee, '#e41a1c');
-                fillChildren(d, "Social Science concentrations/secondaries", AP_C_social, AP_C_social_ee, '#e41a1c');
+                fillChildren(d, "Arts & Humanities concentrations/secondaries", AP_C_arts, AP_C_arts_ee, '0-0-0c');
+                fillChildren(d, "Science & Engineering concentrations/secondaries", AP_C_sciences, AP_C_sciences_ee, '0-0-1c');
+                fillChildren(d, "Social Science concentrations/secondaries", AP_C_social, AP_C_social_ee, '0-0-2c');
 
                 /* RESEARCH  */
-                fillChildren(d, "Arts and Humanities research", AP_R_arts, AP_R_arts_ee, '#e41a1c');
-                fillChildren(d, "Life/Health Sciences research", AP_R_life, AP_R_life_ee, '#e41a1c');
-                fillChildren(d, "Science/Engineering research", AP_R_sciences, AP_R_sciences_ee, '#e41a1c');
-                fillChildren(d, "Social Science/Professional field research", AP_R_social, AP_R_social_ee, '#e41a1c');
+                fillChildren(d, "Arts and Humanities research", AP_R_arts, AP_R_arts_ee, '0-1-0c');
+                fillChildren(d, "Life/Health Sciences research", AP_R_life, AP_R_life_ee, '0-1-1c');
+                fillChildren(d, "Science/Engineering research", AP_R_sciences, AP_R_sciences_ee, '0-1-2c');
+                fillChildren(d, "Social Science/Professional field research", AP_R_social, AP_R_social_ee, '0-1-3c');
 
                 /* OTHER PATHWAYS  */
-                fillChildren(d, "Other pathways", AP_O, AP_O_ee, '#e41a1c');
+                fillChildren(d, "Other pathways", AP_O, AP_O_ee, '0-2c');
 
 
                 /* * * * * * * * * * * * *
@@ -250,16 +249,16 @@ function createDataStructure (){
                 * * * * * * * * * * * * */
 
                 /* INTERNSHIPS & CAREERS */
-                fillChildren(d, "Arts/Entertainment/Media", WG_IC_arts, WG_IC_arts_ee, '#377eb8');
-                fillChildren(d, "Business/Entrepreneurship", WG_IC_business, WG_IC_business_ee, '#377eb8');
-                fillChildren(d, "Gov/Law/Ed/Non-profit", WG_IC_GovEtc, WG_IC_GovEtc_ee, '#377eb8');
-                fillChildren(d, "Health/Life Sciences", WG_IC_health, WG_IC_health_ee, '#377eb8');
-                fillChildren(d, "Tech/Engineering/Environment/Architecture", WG_IC_tech, WG_IC_tech_ee, '#377eb8');
+                fillChildren(d, "Arts/Entertainment/Media", WG_IC_arts, WG_IC_arts_ee, '1-0-0c');
+                fillChildren(d, "Business/Entrepreneurship", WG_IC_business, WG_IC_business_ee, '1-0-1c');
+                fillChildren(d, "Gov/Law/Ed/Non-profit", WG_IC_GovEtc, WG_IC_GovEtc_ee, '1-0-2c');
+                fillChildren(d, "Health/Life Sciences", WG_IC_health, WG_IC_health_ee, '1-0-3c');
+                fillChildren(d, "Tech/Engineering/Environment/Architecture", WG_IC_tech, WG_IC_tech_ee, '1-0-4c');
 
                 /* GRADUATE SCHOOL */
-                fillChildren(d, "Arts/Humanities/Social Sciences grad school", WG_G_arts, WG_G_arts_ee, '#377eb8');
-                fillChildren(d, "Professional grad school", WG_G_prof, WG_G_prof_ee, '#377eb8');
-                fillChildren(d, "Sciences/Engineering grad school", WG_G_science, WG_G_science_ee, '#377eb8');
+                fillChildren(d, "Arts/Humanities/Social Sciences grad school", WG_G_arts, WG_G_arts_ee, '1-1-0c');
+                fillChildren(d, "Professional grad school", WG_G_prof, WG_G_prof_ee, '1-1-1c');
+                fillChildren(d, "Sciences/Engineering grad school", WG_G_science, WG_G_science_ee, '1-1-2c');
 
 
                 /* * * * * * * * * * * *
@@ -267,36 +266,38 @@ function createDataStructure (){
                 * * * * * * * * * * * */
 
                 /* Countries */
-                fillChildren(d, "Africa", TL_C_africa, TL_C_africa_ee, '#4daf4a');
-                fillChildren(d, "Americas", TL_C_americas, TL_C_americas_ee, '#4daf4a');
-                fillChildren(d, "Asia", TL_C_asia, TL_C_asia_ee, '#4daf4a');
-                fillChildren(d, "Australia/Oceania", TL_C_australia, TL_C_australia_ee, '#4daf4a');
-                fillChildren(d, "Europe", TL_C_europe, TL_C_europe_ee, '#4daf4a');
+                fillChildren(d, "Africa", TL_C_africa, TL_C_africa_ee, '2-0-0c');
+                fillChildren(d, "Americas", TL_C_americas, TL_C_americas_ee, '2-0-1c');
+                fillChildren(d, "Asia", TL_C_asia, TL_C_asia_ee, '2-0-2c');
+                fillChildren(d, "Australia/Oceania", TL_C_australia, TL_C_australia_ee, '2-0-3c');
+                fillChildren(d, "Europe", TL_C_europe, TL_C_europe_ee, '2-0-4c');
 
-                fillChildren(d, "Non-English Languages", TL_L, TL_L_ee, '#4daf4a');
+                fillChildren(d, "Non-English Languages", TL_L, TL_L_ee, '2-1c');
 
 
                 /* * * * * * * * * * * *
                 *    PEER ADVISING     *
                 * * * * * * * * * * * */
 
-                fillChildren(d, "Concentration advisers (departmental appointment)", APA_CA, APA_CA_ee, '#984ea3');
-                fillChildren(d, "House roles/committees", APA_HRC, APA_HRC_ee, '#984ea3');
-                fillChildren(d, "Dept peer adviser", APA_PA, APA_PA_ee, '#984ea3');
-                fillChildren(d, "Other peer advising positions", APA_OPA, APA_OPA_ee, '#984ea3');
+                fillChildren(d, "Concentration advisers (departmental appointment)", APA_CA, APA_CA_ee, '3-0c');
+                fillChildren(d, "House roles/committees", APA_HRC, APA_HRC_ee, '3-1c');
+                fillChildren(d, "Dept peer adviser", APA_PA, APA_PA_ee, '3-2c');
+                fillChildren(d, "Other peer advising positions", APA_OPA, APA_OPA_ee, '3-3c');
 
 
 
                 FinalData = structure;
             });
 
+            console.log(FinalData);
+            dataWranglingTwo(FinalData);
             drawSunburst(FinalData);
         });
     });
 }
 
 
-function fillChildren (tutorData, category, categoryLocation, existingExpertise, color) {
+function fillChildren (tutorData, category, categoryLocation, existingExpertise, color, id) {
 
     // first, get the information from the field in the csv that we're interested in
     let tmpStr = tutorData[category];
@@ -339,7 +340,8 @@ function fillChildren (tutorData, category, categoryLocation, existingExpertise,
 
                 // then push object as new child
                 categoryLocation.children.push(
-                    {"name": expertise, "color": color, "size": 1, status: 'final', id:[tutorData['Last Name']]}
+                    {"name": expertise, "color": color, "size": 1, status: 'final', tutorIDs:[tutorData['Last' +
+                ' Name']]}
                 );
 
             }
@@ -355,7 +357,7 @@ function fillChildren (tutorData, category, categoryLocation, existingExpertise,
                         if (child.name === expertise) {
                             child.size += 1;
                             // child.id.push( tutorData['First Name'] + ' ' + tutorData['Last Name'] )
-                            child.id.push( tutorData['Last Name']);
+                            child.tutorIDs.push( tutorData['Last Name']);
                         }
                     })
                 }
@@ -367,7 +369,7 @@ function fillChildren (tutorData, category, categoryLocation, existingExpertise,
                     //let idArray = [tutorData['First Name'] + ' ' + tutorData['Last Name']];
                     let idArray = [tutorData['Last Name']];
                     categoryLocation.children.push(
-                        {"name": expertise, "color": color, "size": 1, status: 'final', id: idArray});
+                        {"name": expertise, "color": color, "size": 1, status: 'final', tutorIDs: idArray});
                 }
             }
         });

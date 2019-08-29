@@ -7,7 +7,7 @@ let dataByIdObj = {};
 
 function createStudentList(selectedNames){
 
-    console.log('reset list');
+    console.log(selectedNames, 'then reset list');
     studentListHtml = '';
     selectedStudents = [];
 
@@ -19,13 +19,19 @@ function createStudentList(selectedNames){
 
         data.forEach( (d,i) => {
 
+            console.log('data', d);
+
             // if a student is listed in the studentArray
             if( selectedNames.includes(d['Last Name']) ) {
 
-                console.log('data per student available:', d);
-
                 // pictureID
                 let pictureID = d['ID'];
+
+                // email
+                let email = d['Please give the email you would prefer to be contacted on by Leverett students'];
+
+                //cv
+                let cv = d['Upload CV or resume here (PDF only):'];
 
                 // concentrations
                 let concentrations = '';
@@ -133,6 +139,8 @@ function createStudentList(selectedNames){
                     id: i,
                     name: d['First Name'] + ' '  + d['Last Name'],
                     pictureID: pictureID,
+                    email: email,
+                    cv: cv,
 
                     // concentration
                     concentrations: concentrations,
@@ -172,6 +180,8 @@ function createStudentList(selectedNames){
                 id: obj.id,
                 name: obj.name,
                 pictureID: obj.pictureID,
+                email: obj.email,
+                cv:obj.cv,
 
                 // concentrations
                 concentrations: obj.concentrations,
@@ -199,7 +209,11 @@ function createStudentList(selectedNames){
         dataByIdObj = dataByIdArray.reduce((a, b) => Object.assign(a, b), {});
 
 
-        // create student tile for each student in selected students
+        // create profile view
+        clickStudentListItem("sl-id-" + selectedStudents[0].id);
+
+
+        // create student tiles for each student in selected students
         selectedStudents.forEach( d => {
 
             studentListHtml +=  `<div class="row student-list-item" id="sl-id-${d.id}"
@@ -230,15 +244,7 @@ function createStudentList(selectedNames){
         // update DOM
         $('#studentList').html(studentListHtml);
 
-        //
-        console.log(selectedStudents, selectedStudents[0]);
-
-
-
     });
-
-
-
 }
 
 

@@ -45,51 +45,33 @@ let svg = d3.select("#sunburstDIV").append("svg")
 
 function drawSunburst(data) {
 
-    // one possibility is to empty svg at the beginning
-    //$("#sunburstDIV").empty();
-    svg.selectAll("*").remove();
+    // TODO: reset sunburst whenever it gets drawn
+
 
     console.log(data);
     let root = d3.hierarchy(data);
 
-    //console.log('root', root);
-
     root.sum(function(d) { return d.size; });
-
-    //console.log(partition(root).descendants()) ;
-
-    //d.depth shows level!
-    // this.data.name shows name.
-    // this.parent shows parent item
 
     // create
     svg.selectAll("path")
         .data(partition(root).descendants())
         .enter().append("path")
         .attr("d", arc)
+        .attr('id', function(d){console.log('test', d); return d.data.color})
         .attr("class", "arcTile" )
         .attr("stroke", "#494949")
-        .style("fill", function(d) {
-            //console.log(d);
-            return d.data.color
-            // return color((d.children ? d : d.parent).data.name);
-        })
+        .style("fill", function(d) { return colorFilter(d.data.color) })
 
         // on click, fire click function!
         .on("click", function(d){
 
             // if on final 'selection' level
-            if (d.data.status === 'final'){
-                console.log('create student list with the following students:',d.data.id);
-                createStudentList (d.data.id);
-                currentlySelectedProfileId = selectedStudents[0];
-                console.log(selectedStudents[0]);
-                // clickStudentListItem();
-                toProfile();
-            }
+            if (d.data.status === 'final'){ profileView(d.data.tutorIDs); }
+
             // get depth
-            // then
             if (d.depth !== 0){
+
                 //console.log('name:', d.data.name, "parent's name:", d.parent.data.name);
 
                 // create classifier
@@ -101,17 +83,19 @@ function drawSunburst(data) {
         })
         .on('mouseover', function(d){
             // gather data and build array;
-            buildAncestors(d);
-            drawBreadcrumbs();
+            buildAncestors(d)
+                .then(updateBreadcrumbs(ancestorObj));
+        })
+        .on('mouseout', function(d){
+            let empty ={};
+            updateBreadcrumbs(empty)
         })
         .append("title")
         .text(function(d) { return d.data.name + "\n" + formatNumber(d.value); });
-
 }
 
 
 function click(d) {
-    console.log(d);
     svg.transition()
         .duration(750)
         .tween("scale", function() {
@@ -121,7 +105,18 @@ function click(d) {
             return function(t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); };
         })
         .selectAll("path")
-        .attrTween("d", function(d) { return function() { return arc(d); }; });
+        .attrTween("d", function(d) { return function() { return arc(d); }; })
+        .style('fill', function(d){
+            return colorFilter(d.data.color)
+        });
 }
 
 d3.select(self.frameElement).style("height", height + "px");
+
+
+
+function profileView(data){
+    console.log('in profileView()', data);
+    createStudentList(data);
+    toProfile();
+}

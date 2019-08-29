@@ -1,3 +1,41 @@
+
+/* * * * * * * * * * * * * * *
+*                            *
+*      FULL-TEXT SEARCH      *
+*                            *
+* * * * * * * * * * * * * * */
+
+#fullTextSearch input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid rgba(0, 90, 50, 0.81);;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+#fullTextSearch button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: rgba(0, 90, 50, 0.81);
+    color: white;
+    font-size: 17px;
+    border: 1px solid rgba(0, 90, 50, 0.81);;
+    border-left: none;
+    cursor: pointer;
+}
+
+#fullTextSearch button:hover {
+    background: rgba(0, 90, 50, 0.99);;
+}
+
+#fullTextSearch::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
 /*
   accordion cards
 */
@@ -5,3 +43,26 @@
 .btn-link {
     color: rgba(0, 90, 50, 0.99);;
 }
+
+.btnText {
+    font-size: 2.5vh;
+}
+.btnText:link {
+    text-decoration: none;
+}
+.btnText:hover {
+    text-decoration: none;
+}
+
+.btnText:visited {
+    text-decoration: none;
+}
+
+.btnText:active {
+    text-decoration: none;
+}
+.btnText::selection {
+    text-decoration: none;
+}
+
+

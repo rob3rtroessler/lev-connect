@@ -275,39 +275,3 @@ body {
   display: none;
 }
 
-
-/* * * * * * * * * * * * * * *
-*                            *
-*      FULL-TEXT SEARCH      *
-*                            *
-* * * * * * * * * * * * * * */
-
-#textSearch input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid rgba(0, 90, 50, 0.81);;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-}
-#textSearch button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: rgba(0, 90, 50, 0.81);
-  color: white;
-  font-size: 17px;
-  border: 1px solid rgba(0, 90, 50, 0.81);;
-  border-left: none;
-  cursor: pointer;
-}
-
-#textSearch button:hover {
-  background: rgba(0, 90, 50, 0.99);;
-}
-
-#textSearch::after {
-  content: "";
-  clear: both;
-  display: table;
-}

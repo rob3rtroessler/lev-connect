@@ -1,7 +1,54 @@
+
+
 /* * * * * * * * * * * * * * * * * *
 *                                  *
-*         SUNBURST VIEW            *
+*           BREADCRUMBS            *
 *                                  *
+* * * * * * * * * * * * * * * * *  */
+
+
+/* * * * * * * * * * * * * * * * * *
+*         ANCESTORS/DATA           *
+* * * * * * * * * * * * * * * * *  */
+
+let ancestorArray = [];
+let ancestorObj ={};
+
+async function buildAncestors (data) {
+
+    // first, reset ancestorArray;
+    ancestorArray = [];
+    ancestorObj ={};
+
+    // then check whether we need to build ancestor array at all
+    if (data.depth >= 1) {
+        getAncestor(data);
+    }
+}
+
+function getAncestor(data) {
+
+    // first push data into array
+    let key = data.depth;
+    let tmpObj = {
+        name : data.data.name,
+        depth: data.depth,
+        color: data.data.color
+    };
+
+    ancestorArray.push(tmpObj);
+    ancestorObj[key] = tmpObj;
+
+    // check
+    if (data.depth > 1){
+        // get parent
+        getAncestor(data.parent);
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * *
+*           BREADCRUMBS            *
 * * * * * * * * * * * * * * * * *  */
 
 let breadcrumb = $('#breadcrumbs'),
@@ -13,123 +60,113 @@ let breadcrumbDIV = d3.select('#breadcrumbs').append('svg')
     .attr("height", breacrumHeight);
 
 
-let ancestorArray = [];
+/* initiate the four breadcrumbs */
+function initiateBreadcrumbs (){
 
-function buildAncestors (data) {
+    // variables
+    let width = $('#breadcrumbs').width(),
+        height = $('#breadcrumbs').height();
 
-    // first, reset ancestorArray;
-    ancestorArray = [];
+    // dimensions
+    let partitionHeight = height/6,
+        partitionWidth = width,
+        border = 3;
 
-    // then check whether we need to build ancestor array at all
-    if (data.depth >= 1) {
-        getAncestor(data);
-    }
-}
+    /* initialize 'start' breadcrumb */
+    breadcrumbDIV.append('polygon')
+        .attr('id', 'polygonOne')
+        .attr('points', createPointsOne(0, partitionWidth, partitionHeight))
+        .attr('stroke', 'black')
+        .attr('stroke-width', '0.7px')
+        .attr('fill', 'white')
+        .attr('opacity', 1);
 
-function getAncestor(data) {
-
-    // first push data into array
-    let tmpObj = {name : data.data.name, depth: data.depth, color: data.data.color};
-    ancestorArray.push(tmpObj);
-
-    // check
-    if (data.depth > 1){
-        // get parent
-        getAncestor(data.parent);
-    }
-    //console.log(ancestorArray);
-}
-
-
-
-function drawBreadcrumbs() {
-
-    //console.log('fired', ancestorArray);
-
-    let data = ancestorArray;
-
-
-    breadcrumbDIV.selectAll('.path')
-        .data(data)
-        .enter()
-        .append('path')
-        .attr('class', 'breadcrumb')
-        .attr('x', 20)
-        .attr('y', function(d){return (d.depth) * 50})
-        .attr('height', 30)
-        .attr('width', 100)
-        .attr('fill', function(d){return d.color})
-        .text('text', function(d){return d.name})
-        .transition()
-}
-
-
-function initializeBreadcrumbTrail() {
-    // Add the svg area.
-    var trail = d3.select("#sequence").append("svg:svg")
-        .attr("width", width)
-        .attr("height", 50)
-        .attr("id", "trail");
-    // Add the label at the end, for the percentage.
-    trail.append("svg:text")
-        .attr("id", "endlabel")
-        .style("fill", "#000");
-}
-
-// Generate a string that describes the points of a breadcrumb polygon.
-function breadcrumbPoints(d, i) {
-    var points = [];
-    points.push("0,0");
-    points.push(b.w + ",0");
-    points.push(b.w + b.t + "," + (b.h / 2));
-    points.push(b.w + "," + b.h);
-    points.push("0," + b.h);
-    if (i > 0) { // Leftmost breadcrumb; don't include 6th vertex.
-        points.push(b.t + "," + (b.h / 2));
-    }
-    return points.join(" ");
-}
-
-// Update the breadcrumb trail to show the current sequence and percentage.
-function updateBreadcrumbs(nodeArray, percentageString) {
-
-    // Data join; key function combines name and depth (= position in sequence).
-    var g = d3.select("#trail")
-        .selectAll("g")
-        .data(nodeArray, function(d) { return d.name + d.depth; });
-
-    // Add breadcrumb and label for entering nodes.
-    var entering = g.enter().append("svg:g");
-
-    entering.append("svg:polygon")
-        .attr("points", breadcrumbPoints)
-        .style("fill", function(d) { return colors(d.name); });
-
-    entering.append("svg:text")
-        .attr("x", (b.w + b.t) / 2)
-        .attr("y", b.h / 2)
-        .attr("dy", "0.35em")
+    breadcrumbDIV.append('text')
+        .attr('id', 'polygonOneText')
+        .attr('class', 'polygonText')
+        .attr("x", partitionWidth/2)
+        .attr("y", partitionHeight/2)
+        .attr("fill", "#000000")
         .attr("text-anchor", "middle")
-        .text(function(d) { return d.name; });
+        .text('Current Selection');
 
-    // Set position for entering and updating nodes.
-    g.attr("transform", function(d, i) {
-        return "translate(" + i * (b.w + b.s) + ", 0)";
-    });
+    /* initialize other breadcrumbs */
+    createBreadcrumbElement('polygonTwo', partitionHeight+border);
+    createBreadcrumbElement('polygonThree', 2*(partitionHeight+border));
+    createBreadcrumbElement('polygonFour', 3*(partitionHeight+border));
+    createBreadcrumbElement('polygonFive', 4*(partitionHeight+border));
 
-    // Remove exiting nodes.
-    g.exit().remove();
+    function createBreadcrumbElement(id, start){
 
-    // Now move and update the percentage at the end.
-    d3.select("#trail").select("#endlabel")
-        .attr("x", (nodeArray.length + 0.5) * (b.w + b.s))
-        .attr("y", b.h / 2)
-        .attr("dy", "0.35em")
-        .attr("text-anchor", "middle")
-        .text(percentageString);
+        breadcrumbDIV.append('polygon')
+            .attr('id', id)
+            .attr('points', createPointsTwo(start, partitionWidth, partitionHeight))
+            .attr('stroke', 'black')
+            .attr('stroke-width', '0.7px')
+            .attr('fill', '#ffffff')
+            .attr('opacity', 0);
 
-    // Make the breadcrumb trail visible, if it's hidden.
-    d3.select("#trail")
-        .style("visibility", "");
+        breadcrumbDIV.append('text')
+            .attr('id', id + 'Text')
+            .attr('class', 'polygonText')
+            .attr("x", partitionWidth/2)
+            .attr("y", partitionHeight/2 + start - border)
+            .attr("fill", "#000000")
+            .attr("text-anchor", "middle")
+            .text('');
+    }
+}
 
+/* update the four breadcrumbs */
+function updateBreadcrumbs (data) {
+
+    updateBreadcrumbElement('polygonTwo', '1');
+    updateBreadcrumbElement('polygonThree', '2');
+    updateBreadcrumbElement('polygonFour', '3');
+    updateBreadcrumbElement('polygonFive', '4');
+
+
+    function updateBreadcrumbElement(name, number){
+        // update 2nd polygon, i.e. first layer
+        if(! (number in data) ){
+            d3.select('#' + name)
+                .attr('opacity',0);
+            d3.select('#' + name + 'Text').text(' ')
+        }
+        else {
+            d3.select('#' + name)
+                .attr('fill', function(d){
+                    return colorFilter(data[number].color)
+                })
+                .attr('opacity',1);
+
+            d3.select('#' + name + 'Text')
+                .text(function(d){return data[number].name})
+        }
+    }
+}
+
+function createPointsOne(startpos, partitionWidth, partitionHeight){
+
+    let pointsAbstract =
+        0 + ',' + startpos + ' ' + // left, top
+        0 + ',' + (startpos + partitionHeight/2) + ' ' + // left, bottom
+        partitionWidth/2 +',' + (startpos + partitionHeight) + ' ' +
+        partitionWidth + ',' + (startpos + partitionHeight/2) + ' ' +
+        partitionWidth + ',' + startpos + ' ';
+
+    return pointsAbstract;
+}
+
+function createPointsTwo(startpos, partitionWidth, partitionHeight){
+
+    let pointsAbstract =
+        0 + ',' + (startpos - partitionHeight/2) + ' ' + // left, top
+        0 + ',' + (startpos + partitionHeight/2) + ' ' + // left, bottom
+        partitionWidth/2 +',' + (startpos + partitionHeight) + ' ' + // center bottom
+        partitionWidth + ',' + (startpos + partitionHeight/2) + ' ' + // right bottom
+        partitionWidth + ',' + (startpos - partitionHeight/2) + ' ' + // right top
+        partitionWidth/2 +',' + (startpos) + ' '; // center top;
+
+    return pointsAbstract;
 }

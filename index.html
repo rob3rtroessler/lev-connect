@@ -14,15 +14,16 @@
     <!-- bootrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!-- typeahead css -->
-    <link rel="stylesheet" href="css/typeahead.css">
+    <link rel="stylesheet" href="css/semantic.css">
 
     <!-- own css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/toggle.css">
+    <link rel="stylesheet" href="css/breadcrumbs.css">
     <link rel="stylesheet" href="css/sunburst.css">
     <link rel="stylesheet" href="css/accordion.css">
     <link rel="stylesheet" href="css/profile.css">
+
 </head>
 
 <body>
@@ -71,7 +72,8 @@
                             <div class="row" style="height: 90%; border-top: thin solid green;">
 
                                 <!-- SECOND ROW - LEFT SIDE -->
-                                <div class="col-2" id='breadcrumbs' style="background: grey"></div>
+                                <div class="col-2" id='breadcrumbs'>
+                                    </div>
                                 <div class="col-6">
 
                                     <!-- SUNBURST VIS -->
@@ -85,75 +87,174 @@
                                     <div class="row" style="height: 100%; background: #f7fcf5; border: 5px solid transparent">
 
                                         <div id="accordion" style="width: 100%;">
-                                            <div class="card" style="margin-top:5%; margin-bottom: 5%;">
 
-
-                                                <form id="textSearch">
+                                            <!-- FULL TEXT SEARCH -->
+                                            <div class="card" style="margin-top:2%; margin-bottom: 2%;">
+                                                <form id="fullTextSearch">
                                                     <input type="text" placeholder="Full-text search.." name="search">
                                                     <button type="submit"><i class="fa fa-search"></i></button>
                                                 </form>
-
-
                                             </div>
+
+                                            <!-- ACADEMIC PATHWAYS -->
                                             <div class="card">
-                                                <div class="card-header p-0" id="headingOne" style="background-color: #c7e9c0;">
+                                                <div class="card-header p-2" id="headingOne" style="background-color: #c7e9c0;">
                                                     <h5 class="mb-0">
-                                                        <button class="btn btn-link" data-toggle="collapse" data-target="#Academic Pathways" aria-expanded="true" aria-controls="collapseOne">
-                                                            Academics
+                                                        <button class="btn btn-link btnText" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                            Academic Pathways
                                                         </button>
                                                     </h5>
                                                 </div>
-                                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                                    <div class="card-body">concentraitions & secondaries</div>
+                                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                    <div class="card-body">
+
+                                                        <div style="width: 100%">
+                                                            <div class="ui fluid search selection dropdown">
+                                                                <input type="hidden" name="country">
+                                                                <i class="dropdown icon"></i>
+                                                                <div id="concentrationMenuDefault" class="default text">Concentrations & Secondaries...</div>
+                                                                <div class="menu" id="concentrationMenu">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div style="width: 100%; margin-top: 2%">
+                                                            <div class="ui fluid search selection dropdown">
+                                                                <input type="hidden" name="country">
+                                                                <i class="dropdown icon"></i>
+                                                                <div class="default text">Research...</div>
+                                                                <div class="menu" id="researchMenu">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div style="width: 100%; margin-top: 2%">
+                                                            <div class="ui fluid search selection dropdown">
+                                                                <input type="hidden" name="country">
+                                                                <i class="dropdown icon"></i>
+                                                                <div class="default text">Other Pathways...</div>
+                                                                <div class="menu" id="otherPathwaysMenu">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
                                                 </div>
                                             </div>
 
+                                            <!-- WORK AND GRAD SCHOOL -->
                                             <div class="card">
-                                                <div class="card-header p-0" id="headingTwo" style="background-color: #c7e9c0;">
+                                                <div class="card-header p-2" id="headingTwo" style="background-color: #c7e9c0;">
                                                     <h5 class="mb-0">
-                                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        <button class="btn btn-link btnText" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                                             Work and Grad School
                                                         </button>
                                                     </h5>
                                                 </div>
                                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                                    <div class="card-body">contents cat #2, i.e. search fields</div>
+                                                    <div class="card-body">
+
+                                                        <div style="width: 100%">
+                                                            <div class="ui fluid search selection dropdown">
+                                                                <input type="hidden" name="country">
+                                                                <i class="dropdown icon"></i>
+                                                                <div class="default text">Internships & Careers...</div>
+                                                                <div class="menu" id="internshipsMenu">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div style="width: 100%; margin-top: 2%">
+                                                            <div class="ui fluid search selection dropdown">
+                                                                <input type="hidden" name="country">
+                                                                <i class="dropdown icon"></i>
+                                                                <div class="default text">Graduate School...</div>
+                                                                <div class="menu" id="gradSchoolMenu">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
                                             </div>
 
+                                            <!-- INTERNATIONAL EXPERTISE -->
                                             <div class="card">
-                                                <div class="card-header p-0" id="headingThree" style="background-color: #c7e9c0;">
+                                                <div class="card-header p-2" id="headingThree" style="background-color: #c7e9c0;">
                                                     <h5 class="mb-0">
-                                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                        <button class="btn btn-link btnText" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                                             International Expertise
                                                         </button>
                                                     </h5>
                                                 </div>
                                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                                    <div class="card-body">contents cat #3</div>
+                                                    <div class="card-body">
+                                                        <div style="width: 100%">
+                                                            <div class="ui fluid search selection dropdown">
+                                                                <input type="hidden" name="country">
+                                                                <i class="dropdown icon"></i>
+                                                                <div class="default text">Countries...</div>
+                                                                <div class="menu" id="countriesMenu">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 100%; margin-top: 2%">
+                                                            <div class="ui fluid search selection dropdown">
+                                                                <input type="hidden" name="country">
+                                                                <i class="dropdown icon"></i>
+                                                                <div class="default text">Languages...</div>
+                                                                <div class="menu" id="languagesMenu">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
 
+                                            <!-- AFFILIATION AND PEER ADVISING -->
                                             <div class="card">
-                                                <div class="card-header p-0" id="headingFour" style="background-color: #c7e9c0;">
+                                                <div class="card-header p-2" id="headingFour" style="background-color: #c7e9c0;">
                                                     <h5 class="mb-0">
-                                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                                        <button class="btn btn-link btnText" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
                                                             Affiliation and Peer Advising
                                                         </button>
                                                     </h5>
                                                 </div>
                                                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                                                    <div class="card-body">contents cat #4</div>
+                                                    <div class="card-body">
+                                                        <div style="width: 100%">
+                                                            <div class="ui fluid search selection dropdown">
+                                                                <input type="hidden" name="country">
+                                                                <i class="dropdown icon"></i>
+                                                                <div class="default text">Concentration Advisers...</div>
+                                                                <div class="menu" id="concentrationAdviserMenu">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 100%; margin-top: 2%">
+                                                            <div class="ui fluid search selection dropdown">
+                                                                <input type="hidden" name="country">
+                                                                <i class="dropdown icon"></i>
+                                                                <div class="default text">House Roles...</div>
+                                                                <div class="menu" id="houseRolesMenu">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="width: 100%; margin-top: 2%">
+                                                            <div class="ui fluid search selection dropdown">
+                                                                <input type="hidden" name="country">
+                                                                <i class="dropdown icon"></i>
+                                                                <div class="default text">Departmental Peer Advisers...</div>
+                                                                <div class="menu" id="deptPeerAdviserMenu">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <button style="height: 50px" onclick="toProfile()">click</button>
-                                        <button style="height: 50px" onclick="toAcc('collapseTwo')">click two</button>
-
-
                                     </div>
-
                                 </div>
                             </div>
 
@@ -188,38 +289,33 @@
                                                         <div class="child"><h3>Academic Pathways</h3></div>
                                                     </div>
                                                 </div>
+
                                                 <!-- INNER - ACADEMIC PATHWAYS -->
                                                 <div class="row" style="margin-bottom: 4%;">
 
                                                     <div class="col-4" style="border-right: thin dotted green">
                                                         <div class="row">
                                                             <div class="parent" style="height: 100%">
-                                                                <div class="child"><h5>Concentrations and Secondaries</h5></div>
+                                                                <div class="child">
+                                                                    <h5>Concentrations and Secondaries</h5>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <span class="profileTxt" id="profile_concentrations">
-                                                                History, Near Eastern Languages and Civilizations, Religion,
-                                                                Comparative Study of, Romance Languages and Literatures,
-                                                                South Asian Studies, Educational Studies, European History,
-                                                                Politics, Societies, Government, History, Near Eastern Languages and
-                                                                Civilizations, Social Studies, South Asian Studies
-                                                            </span>
+                                                            <span class="profileTxt" id="profile_concentrations"></span>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-4">
                                                         <div class="row">
                                                             <div class="parent" style="height: 100%">
-                                                                <div class="child"><h5>Research</h5></div>
+                                                                <div class="child">
+                                                                    <h5>Research</h5>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="row" style="border-left: 5px solid #a1d99b; border-right: 5px solid #a1d99b">
-                                                            <span class="profileTxt" id="profile_research">
-                                                                word word word word word word word
-                                                                word word word word word word word
-                                                                word word word word word word word
-                                                            </span>
+                                                            <span class="profileTxt" id="profile_research"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-4" style="border-left: thin dotted green">
@@ -248,7 +344,6 @@
                                                     </div>
                                                 </div>
 
-
                                                 <!-- HEADING - WORK / GRAD SCHOOL -->
                                                 <div class="row row-heading" style="height: 5%;">
                                                     <div class="parent" style="height: 100%">
@@ -258,22 +353,29 @@
                                                     </div>
                                                 </div>
                                                 <!-- INNER - WORK / GRAD SCHOOL -->
-                                                <div class="row" style="height:25%">
+                                                <div class="row" style="margin-bottom: 4%;">
 
                                                     <!-- grad school -->
                                                     <div class="col-6">
-                                                        <div class="row">
+                                                        <div class="row" style="border-right: thin dotted green">
                                                             <div class="parent" style="height: 100%">
                                                                 <div class="child">
                                                                     <h5>Grad School</h5>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <span class="profileTxt b5sg" id="profile_gradSchool"></span>                                                            </span>
+                                                        <div class="row" style="border-right: thin dotted green">
+                                                            <span class="profileTxt b5sg" id="profile_gradSchool"></span>
                                                         </div>
-                                                        <div class="row">
-                                                            <span class="profileTxt b5sg" id="profile_gradSchoolExp"></span>                                                           </span>
+                                                        <div class="row" style="border-right: thin dotted green">
+                                                            <div class="parent" style="height: 100%">
+                                                                <div class="child">
+                                                                    <h5>Explanation</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="border-right: thin dotted green">
+                                                            <span class="profileTxt b5sg" id="profile_gradSchoolExp"></span>
                                                         </div>
                                                     </div>
 
@@ -287,13 +389,19 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <span class="profileTxt b5sg" id="profile_work"></span>                                                            </span>
+                                                            <span class="profileTxt b5sg" id="profile_work"></span>
                                                         </div>
                                                         <div class="row">
-                                                            <span class="profileTxt b5sg" id="profile_workExp"></span>                                                           </span>
+                                                            <div class="parent" style="height: 100%">
+                                                                <div class="child">
+                                                                    <h5>Explanation</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span class="profileTxt b5sg" id="profile_workExp"></span>
                                                         </div>
                                                     </div>
-
                                                 </div>
 
 
@@ -306,7 +414,9 @@
 
                                                 <!-- INNER - TRAVEL / LANGUAGES -->
                                                 <div class="row">
-                                                    <div class="col-12">
+
+                                                    <!-- countries -->
+                                                    <div class="col-6" style="border-right: thin dotted green">
                                                         <div class="row">
                                                             <div class="parent" style="height: 100%">
                                                                 <div class="child">
@@ -315,9 +425,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <span class="profileTxt b5sg" id="profile_countries"></span>                                                            </span>
+                                                            <span class="profileTxt b5sg" id="profile_countries"></span>
                                                         </div>
-
                                                         <div class="row">
                                                             <div class="parent" style="height: 100%">
                                                                 <div class="child">
@@ -326,9 +435,12 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <span class="profileTxt b5sg" id="profile_countriesExp"></span>                                                            </span>
+                                                            <span class="profileTxt b5sg" id="profile_countriesExp"></span>
                                                         </div>
+                                                    </div>
 
+                                                    <!-- languages -->
+                                                    <div class="col-6">
                                                         <div class="row">
                                                             <div class="parent" style="height: 100%">
                                                                 <div class="child">
@@ -337,40 +449,19 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <span class="profileTxt b5sg" id="profile_languages"></span>                                                            </span>
+                                                            <span class="profileTxt b5sg" id="profile_languages"></span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="parent" style="height: 100%">
+                                                                <div class="child">
+                                                                    <h5>Explanation</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <span class="profileTxt b5sg" id="profile_languagesExp"></span>
                                                         </div>
                                                     </div>
-
-                                                    <!--
-                                                    <div class="col-6" style="margin-top:1%; margin-bottom: 5%;">
-                                                        <div class="row">
-                                                            <h5>Countries visited</h5>
-                                                        </div>
-                                                        <div class="row">
-                                                            <span id="profile_countries">Language 1, Language 2</span>
-                                                        </div>
-                                                        <div class="row">
-                                                            <h5 style="margin-top: 5%">Explanation</h5>
-                                                        </div>
-                                                        <div class="row">
-                                                            <span id="profile_countriesExp">I was born in Pakistan and spent my childhood there.</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6" style="margin-top:1%; margin-bottom: 5%; border-left: thin solid green">
-                                                        <div class="row">
-                                                            <h5>Languages</h5>
-                                                        </div>
-                                                        <div class="row">
-                                                            <span id="profile_languages">Language 1, Language 2</span>
-                                                        </div>
-                                                        <div class="row">
-                                                            <h5 style="margin-top: 5%">Explanation</h5>
-                                                        </div>
-                                                        <div class="row">
-                                                            <span id="profile_languagesExp">I was born in Pakistan and spent my childhood there.</span>
-                                                        </div>
-                                                    </div>-->
-
                                                 </div>
 
 
@@ -394,7 +485,7 @@
                                                 <div class="row" style="height: 10%;">
                                                     <div class="parent-dl" style="height: 100%">
                                                         <div class="child-dl">
-                                                            <a class="dl-text" href="your CV">
+                                                            <a class="dl-text" id='downloadCV' href="" target="_blank">
                                                                 <span class="dl-text">download CV</span><img src="img/pdf.png" style="border-left: 5px solid transparent; width: 50px; height: 40px">
                                                             </a>
                                                         </div>
@@ -403,7 +494,7 @@
                                                 <div class="row" style="height: 10%;">
                                                     <div class="parent-dl" style="height: 100%">
                                                         <div class="child-dl">
-                                                            <a class="dl-text" href="email">
+                                                            <a id='contactViaEmail' class="dl-text" href="">
                                                                 <span class="dl-text">contact via email</span> <img src="img/gmail.png" style="border-left: 5px solid transparent; width: 50px; height: 40px">
                                                             </a>
                                                         </div>
@@ -438,12 +529,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
+    <script src="js/libs/semantic.js"></script>
 
-    <!-- typeahead -->
-    <script src="js/libs/typeahead.js"></script>
 
     <!-- own scripts -->
     <script src="js/dataWrangling.js"></script>
+    <script src="js/dataWranglingTwo.js"></script>
+    <script src="js/colorManager.js"></script>
     <script src="js/sunburst.js"></script>
     <script src="js/breadcrumbs.js"></script>
     <script src="js/filters.js"></script>

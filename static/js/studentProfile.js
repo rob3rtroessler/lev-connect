@@ -71,6 +71,9 @@ profileDiv.on('mouseout', function(){
 
 let currentlySelectedProfileId = '';
 
+
+
+
 /* * * * * * * * * * * * * * * * * *
 *                                  *
 *        HELPER FUNCTIONS          *
@@ -87,7 +90,7 @@ function hoveredListItem () {
 
 }
 
-
+/* mouse over student list item */
 function mouseoverStudentListItem(id) {
     // when hovering, remove active class from all items and add to hovered one
     $('.student-list-item').removeClass('student-list-item-active');
@@ -95,25 +98,38 @@ function mouseoverStudentListItem(id) {
     $('#' + id).addClass('student-list-item-active');
 }
 
+/* mouse out student list item */
 function mouseoutStudentListItem() {
     // when hovering, remove active class from all items and add to previously selected one
     $('.student-list-item').removeClass('student-list-item-active');
     $('#' + currentlySelectedProfileId).addClass('student-list-item-active');
 }
 
+/* mouse click student list item */
 function clickStudentListItem(id) {
 
+    // change currently selected
+    // console.log('idcheck', id);
     currentlySelectedProfileId = id;
 
     // get profile data
     let data = dataByIdObj[id];
 
-
+    console.log(data);
     /* fill according html elements */
 
 
     // name
     $('#profile_nameField').html(data.name);
+
+    // picture
+    $('#pictureID').attr('src', 'img/' + data.pictureID + '.jpg');
+
+    // email
+    $('#contactViaEmail').attr('href', 'mailto:' + data.email);
+
+    // cv
+    $('#downloadCV').attr('href', data.cv);
 
     // ACADEMICPATHWAYS
     $('#profile_concentrations').html(data.concentrations);
@@ -135,7 +151,7 @@ function clickStudentListItem(id) {
 
 
 
-    $('#pictureID').attr('src', 'img/' + data.pictureID + '.jpg');
+
 
 
     // travel
