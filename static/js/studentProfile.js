@@ -5,14 +5,12 @@
 *                                  *
 * * * * * * * * * * * * * * * * *  */
 
-
-
 /* * * * * * * * * * * * * * * * * *
 *          STUDENT LIST            *
 * * * * * * * * * * * * * * * * *  */
 
 // HiTS - responsive scrolling currently disabled
-enableScrolling('studentList');
+//enableScrolling('studentList');
 
 /*
 
@@ -37,16 +35,14 @@ $('.student-list-item').on('mouseover', function(){
 
 });
 
-
 /* * * * * * * * * * * * * * * * * *
 *             PROFILE              *
 * * * * * * * * * * * * * * * * *  */
 
 // PROFILE - responsive scrolling currently disabled
-enableScrolling('profile');
+//enableScrolling('profile');
 
 /*
-
 let profileDiv = $('#profile');
 
 // make div scrollable
@@ -115,7 +111,7 @@ function clickStudentListItem(id) {
     // get profile data
     let data = dataByIdObj[id];
 
-    console.log(data);
+    console.log('hello, here', data);
     /* fill according html elements */
 
 
@@ -131,7 +127,7 @@ function clickStudentListItem(id) {
     // cv
     $('#downloadCV').attr('href', data.cv);
 
-    // ACADEMICPATHWAYS
+    // ACADEMIC PATHWAYS
     $('#profile_concentrations').html(data.concentrations);
     $('#profile_research').html(data.research);
     $('#profile_otherPathways').html(data.otherPathways);
@@ -148,11 +144,6 @@ function clickStudentListItem(id) {
     $('#profile_countriesExp').html(data.countriesExp);
     $('#profile_languages').html(data.languages);
     $('#profile_languagesExp').html(data.languagesExp);
-
-
-
-
-
 
     // travel
     if(data.europe !== 'none'){ $('#profile_travelEuropeField').html(data.europe); }

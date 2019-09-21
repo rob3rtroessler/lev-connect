@@ -8,7 +8,8 @@
 createDataStructure()
     .then( initiateCarousel() )
     .then( initiateBreadcrumbs() )
-    .then( initiateDropdowns() );
+    .then( initiateDropdowns() )
+    .then( testfunc() );
 
 // INITIATION FUNCTIONS
 function initiateDropdowns(){
@@ -60,14 +61,15 @@ $("#headingOne").click(
 function testfunc(){
     console.log('running');
 
-    let test = d3.select("white");
-    console.log(test);
-    test.dispatch('click');
+    let test = d3.select("white").append('text').text('string');
+    console.log(test.dispatch('click'));
 
-    function run () {
 
-    }
+
+
 }
+
+
 
 
 

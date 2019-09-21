@@ -19,7 +19,7 @@ function createStudentList(selectedNames){
 
         data.forEach( (d,i) => {
 
-            console.log('data', d);
+            console.log('data - where is explanation?', d);
 
             // if a student is listed in the studentArray
             if( selectedNames.includes(d['Last Name']) ) {

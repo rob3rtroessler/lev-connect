@@ -47,18 +47,20 @@ function drawSunburst(data) {
 
     // TODO: reset sunburst whenever it gets drawn
 
-
     console.log(data);
     let root = d3.hierarchy(data);
 
     root.sum(function(d) { return d.size; });
+
+    console.log(root);
+
 
     // create
     svg.selectAll("path")
         .data(partition(root).descendants())
         .enter().append("path")
         .attr("d", arc)
-        .attr('id', function(d){console.log('test', d); return d.data.color})
+        .attr('id', function(d){/*console.log('test', d);*/ return d.data.color})
         .attr("class", "arcTile" )
         .attr("stroke", "#494949")
         .style("fill", function(d) { return colorFilter(d.data.color) })
@@ -66,13 +68,14 @@ function drawSunburst(data) {
         // on click, fire click function!
         .on("click", function(d){
 
-            // if on final 'selection' level
-            if (d.data.status === 'final'){ profileView(d.data.tutorIDs); }
+            // if click event is fired for an arc tile on the highest level
+            if (d.data.status === 'final'){
+                // switch to the profile view and show the correct students
+                profileView(d.data.tutorIDs);
+            }
 
             // get depth
             if (d.depth !== 0){
-
-                //console.log('name:', d.data.name, "parent's name:", d.parent.data.name);
 
                 // create classifier
                 classifier = d.data.name + '.' + d.parent.data.name
