@@ -29,10 +29,10 @@
 
 <body>
 
-    <div class="container-fluid" style="height: 100%; background-color: #f7fcf5; overflow-y: hidden; max-height: 100%">
+    <div class="container-fluid" style="height: 100vh; background-color: #f7fcf5; overflow-y: hidden">
 
         <!-- HEADING -->
-        <div class="row" style="height: 12%">
+        <div class="row" style="height: 12vh">
             <div class="col-1">
                 <div class="row" style="height: 100%">
                     <div class="col-4 offset-4">
@@ -52,13 +52,13 @@
 
 
         <!-- MAIN -->
-        <div class="row" style="height: 88%; max-height: 88%; border-bottom: 5px solid #f7fcf5; border-left: 5px solid #f7fcf5; border-right: 5px solid #f7fcf5">
+        <div class="row" style="height: 88vh; padding-bottom: 5px; padding-left: 5px; padding-right: 5px">
 
             <!-- LEV CONNECT WRAPPER || CAROUSEL -->
-            <div class="col-12" style="background-color: white; border: thin solid green; border-radius: 5px; padding-right: 0; padding-left: 0">
+            <div class="col-12" style="border: thin solid green; border-radius: 5px; padding-right: 0; padding-left: 0">
 
                 <!-- INITIATING CAROUSEL - OUTER WRAPPER -->
-                <div id="carousel" class="carousel slide" data-ride="carousel" style="height: 100%; max-height: 100%">
+                <div id="carousel" class="carousel slide" data-ride="carousel" style="height: 87.3vh">
 
                     <!-- CAROUSEL INNER -->
                     <div class="carousel-inner" style="height: 100%">
@@ -92,7 +92,7 @@
                                             <!-- FULL TEXT SEARCH -->
                                             <div class="card" style="margin-top:2%; margin-bottom: 2%;">
                                                 <form id="fullTextSearch">
-                                                    <input type="text" placeholder="Full-text search.." name="search">
+                                                    <input type="text" placeholder="Full-text search coming soon.." name="search" disabled>
                                                     <button type="submit"><i class="fa fa-search"></i></button>
                                                 </form>
                                             </div>
@@ -264,17 +264,17 @@
                         <!-- CAROUSEL SECOND PAGE - PROFILES -->
                         <div class="carousel-item" style="height: 100%; max-height: 100%">
                             <div class="container-fluid" style="height: 100%; max-height: 100%">
-                                <div class="row" style="height: 100%; max-height: 100%">
+                                <div class="row" style="height: 88vh; max-height: 100%">
 
 
                                     <!-- LEFT SIDE - STUDENT LIST -->
-                                    <div class="col-3" id='studentList' style="background: #c7e9c0;">
+                                    <div class="col-3" id='studentList' style="background: #c7e9c0; height: 88vh; overflow-y: scroll">
                                         <!-- DYNAMICALLY FILLED - studentList.js -->
                                     </div>
 
                                     <!-- RIGHT SIDE - PROFILE -->
                                     <div class="col-9" style="background: #a1d99b; overflow-y: scroll">
-                                        <div class="row" style="height:100%;">
+                                        <div class="row" style="height:88vh;">
                                             <div class="col-10 offset-1">
 
                                                 <!-- img first -->
@@ -412,9 +412,6 @@
                                                         <div class="child"><h3>Additional Information</h3></div>
                                                     </div>
                                                 </div>
-
-
-                                                <div class="row" style="height: 100%"></div>
 
 
 
