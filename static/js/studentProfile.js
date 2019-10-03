@@ -92,6 +92,8 @@ function mouseoverStudentListItem(id) {
     $('.student-list-item').removeClass('student-list-item-active');
     // $('#' + currentlySelectedProfileId).addClass('student-list-item-active');
     $('#' + id).addClass('student-list-item-active');
+
+    document.getE
 }
 
 /* mouse out student list item */
