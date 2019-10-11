@@ -7,25 +7,37 @@ const client = new Client({
     user: "postgres",
     password: "Ajtibms12",
     port:5432,
-    database: "postgres"
+    database: "lev-connect"
     });
 
 
 
+
+// create email table
+/*client.connect();
+ client.query('CREATE TABLE email_list(id SERIAL PRIMARY KEY, email_address VARCHAR(40) not null)', [], (err, res) => {
+    console.log(err ? err.stack : res);
+    client.end()
+});*/
+
 // populate db;
+/*
+client.connect();
 fs.createReadStream('email_list.csv')
     .pipe(csv.parse())
     .on('error', error => console.error(error))
     .on('data', function(row) {
         console.log(row[0]);
+        client.query('insert into email_list(email_address) values ($1)', [row[0]], (err, res) => {
+        console.log(err? err.stack : res);
+        console.log('inserted');
+        })
 
     })
-    .on('end', rowCount => console.log(`logged ${rowCount}`));
+    .on('end', rowCount => console.log(`done. inserted ${rowCount} rows`));
 
+*/
 
-let listArray = ['email1', 'email2', 'email3'];
-
-// client.connect();
 
 
 // insert new user
@@ -35,15 +47,6 @@ let listArray = ['email1', 'email2', 'email3'];
 });*/
 
 
-// create email table
-/* client.query('CREATE TABLE email_list(id SERIAL PRIMARY KEY, email_address VARCHAR(40) not null)', [], (err, res) => {
-    console.log(err ? err.stack : res);
-    client.end()
-});*/
-
-//
-
-client.connect();
 // insert emails;
 /*listArray.forEach(function (d){
 
@@ -55,12 +58,16 @@ client.connect();
 
 
 // select user;
-client.query('SELECT * from email_list where email_address = ($1)', ['email3'], (err, res) => {
+client.connect();
+client.query('SELECT * from email_list', [], (err, res) => {
     console.log(err ? err.stack : res.rows);
     client.end()
 });
 
+
+
 /*
+
 client.connect()
     .then( ()=> console.log("connected successfully") )
 //    .then( () => client.query('DROP TABLE public.usersTwo'))
@@ -76,4 +83,5 @@ client.connect()
     .finally(() => {
         console.log('dropped');
         client.end()
-    });*/
+    });
+*/

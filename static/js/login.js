@@ -1,11 +1,41 @@
+
+const loginBtn = document.getElementById('login');
+const signupBtn = document.getElementById('signup');
+
+loginBtn.addEventListener('click', (e) => {
+    let parent = e.target.parentNode.parentNode;
+    Array.from(e.target.parentNode.parentNode.classList).find((element) => {
+        if(element !== "slide-up") {
+            parent.classList.add('slide-up')
+        }else{
+            signupBtn.parentNode.classList.add('slide-up')
+            parent.classList.remove('slide-up')
+        }
+    });
+});
+
+signupBtn.addEventListener('click', (e) => {
+    let parent = e.target.parentNode;
+    Array.from(e.target.parentNode.classList).find((element) => {
+        if(element !== "slide-up") {
+            parent.classList.add('slide-up')
+        }else{
+            loginBtn.parentNode.parentNode.classList.add('slide-up')
+            parent.classList.remove('slide-up')
+        }
+    });
+});
+
+
 function signUp() {
 
     // get values
     let signUpEmail = document.querySelector('#signUpEmail').value;
     let signUpName = document.querySelector('#signUpName').value;
-    let signUpPassword = document.querySelector('#signUpPw').value;
+    let signUpPassword = document.querySelector('#signUpPassword').value;
+    let signUpConfirmation = document.querySelector('#signUpConfirmation').value;
 
-    console.log(signUpEmail, signUpName, signUpPassword, JSON.stringify({signUpEmail, signUpName, signUpPassword}) );
+    console.log(signUpEmail, signUpName, signUpPassword, JSON.stringify({signUpEmail, signUpName, signUpPassword, signUpConfirmation}) );
 
 
     // then fetch data
@@ -16,15 +46,15 @@ function signUp() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({signUpEmail, signUpName, signUpPassword})
+            body: JSON.stringify({signUpEmail, signUpName, signUpPassword, signUpConfirmation})
         }
     )
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
+            console.log(data);
             // then check data;
             if (data.permission){
-                window.location.href='/';
+                document.getElementById("myNav").style.height = "0%";
             }
         })
 }

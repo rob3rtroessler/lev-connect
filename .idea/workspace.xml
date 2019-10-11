@@ -2,19 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b04edb3-e5d8-4e8b-bcd3-50b1bd1c29e8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/email_list.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/postgres-test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_postgres.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_wwwhisper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/login.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postgres/createUsersTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postgres/populateEmails.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postgres/postgres-test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/email_list.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postgres-test.js" beforeDir="false" afterPath="$PROJECT_DIR$/postgres/createEmailTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/login.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/login.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +47,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/GoogleDrive/Forschung/09_DigitaleProjekte/05_lev-connect/static/js/studentProfile.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/postgres" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -60,17 +59,19 @@
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\css" />
+      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\postgres" />
+      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect" />
+      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\js\libs" />
+      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\img" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\postgres" />
       <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect" />
       <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static" />
       <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\css" />
       <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\data" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect" />
-      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\js\libs" />
-      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\img" />
-      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -117,7 +118,8 @@
       <workItem from="1569246863081" duration="3007000" />
       <workItem from="1570066981209" duration="1174000" />
       <workItem from="1570641255921" duration="13851000" />
-      <workItem from="1570746948540" duration="9153000" />
+      <workItem from="1570746948540" duration="10409000" />
+      <workItem from="1570772718084" duration="12909000" />
     </task>
     <servers />
   </component>
