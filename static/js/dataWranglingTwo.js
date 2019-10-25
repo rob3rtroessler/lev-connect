@@ -40,18 +40,18 @@ function dataWranglingTwo(data){
     let array_concentrationAdviser = [];
     let array_houseRoles = [];
 
-    computeHits(loc_concentrations, array_concentrations, '#concentrationMenu', 1); // concentrations
-    computeHits(loc_research, array_research, '#researchMenu', 2);
-    computeHitsLessLevels(loc_otherPathways, array_otherPathways, '#otherPathwaysMenu', 3);
+    computeHits(loc_concentrations, array_concentrations, '#concentrationMenu', '0_0'); // concentrations
+    computeHits(loc_research, array_research, '#researchMenu', '0_1');
+    computeHitsLessLevels(loc_otherPathways, array_otherPathways, '#otherPathwaysMenu', '0_2');
 
-    computeHits(loc_internships, array_internships, '#internshipsMenu', 4);
-    computeHits(loc_gradSchool, array_gradSchool, '#gradSchoolMenu', 5);
+    computeHits(loc_internships, array_internships, '#internshipsMenu', '1_0');
+    computeHits(loc_gradSchool, array_gradSchool, '#gradSchoolMenu', '1_1');
 
-    computeHits(loc_countries, array_countries, '#countriesMenu', 6);
-    computeHitsLessLevels(loc_languages, array_languages, '#languagesMenu', 7);
+    computeHits(loc_countries, array_countries, '#countriesMenu', '2_0');
+    computeHitsLessLevels(loc_languages, array_languages, '#languagesMenu', '2_1');
 
-    computeHitsLessLevels(loc_concentrationAdviser, array_concentrationAdviser, '#concentrationAdviserMenu', 8);
-    computeHitsLessLevels(loc_houseRoles, array_houseRoles, '#houseRolesMenu', 9);
+    computeHitsLessLevels(loc_concentrationAdviser, array_concentrationAdviser, '#concentrationAdviserMenu', '3_0');
+    computeHitsLessLevels(loc_houseRoles, array_houseRoles, '#houseRolesMenu', '3_1');
 
 }
 
@@ -116,13 +116,14 @@ function createOptions(array, div, idRoot){
 
     // populate tmpHtmlString and add ids
     array.forEach(function(d,i){
-        let tmpId = idRoot + '-' + i;
-        tmpHtmlString += `<div class="item" id="${tmpId}">${d.name} (${d.size})</div>`;
+        let tmpId = 'dd__' + idRoot + '_' + i;
+        console.log(tmpId);
+        tmpHtmlString += `<div class="item ${tmpId}" id="${tmpId}" onmouseover="highlightSunburst('${tmpId}')">${d.name} (${d.size})</div>`;
     });
 
     // attach string to according div element
     $(div).html(tmpHtmlString);
 
     // use formerly created ids to add according event listener
-    array.forEach(function(d,i){ $('#' + idRoot + '-' + i).click(() => profileView(d.tutorIDs)) })
+    array.forEach(function(d,i){ $('#' + idRoot + '-' + i).click( () => profileView(d.tutorIDs) ) })
 }

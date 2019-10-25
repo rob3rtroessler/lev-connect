@@ -230,18 +230,18 @@ async function createDataStructure (){
                 * * * * * * * * * * * */
 
                 /* CONCENTRATIONS & SECONDARIES  */
-                fillChildren(d, "Arts & Humanities concentrations/secondaries", AP_C_arts, AP_C_arts_ee, '0-0-0c');
-                fillChildren(d, "Science & Engineering concentrations/secondaries", AP_C_sciences, AP_C_sciences_ee, '0-0-1c');
-                fillChildren(d, "Social Science concentrations/secondaries", AP_C_social, AP_C_social_ee, '0-0-2c');
+                fillChildren(d, "Arts & Humanities concentrations/secondaries", AP_C_arts, AP_C_arts_ee, '0_0_0c');
+                fillChildren(d, "Science & Engineering concentrations/secondaries", AP_C_sciences, AP_C_sciences_ee, '0_0_1c');
+                fillChildren(d, "Social Science concentrations/secondaries", AP_C_social, AP_C_social_ee, '0_0_2c');
 
                 /* RESEARCH  */
-                fillChildren(d, "Arts and Humanities research", AP_R_arts, AP_R_arts_ee, '0-1-0c');
-                fillChildren(d, "Life/Health Sciences research", AP_R_life, AP_R_life_ee, '0-1-1c');
-                fillChildren(d, "Science/Engineering research", AP_R_sciences, AP_R_sciences_ee, '0-1-2c');
-                fillChildren(d, "Social Science/Professional field research", AP_R_social, AP_R_social_ee, '0-1-3c');
+                fillChildren(d, "Arts and Humanities research", AP_R_arts, AP_R_arts_ee, '0_1_0c');
+                fillChildren(d, "Life/Health Sciences research", AP_R_life, AP_R_life_ee, '0_1_1c');
+                fillChildren(d, "Science/Engineering research", AP_R_sciences, AP_R_sciences_ee, '0_1_2c');
+                fillChildren(d, "Social Science/Professional field research", AP_R_social, AP_R_social_ee, '0_1_3c');
 
                 /* OTHER PATHWAYS  */
-                fillChildren(d, "Other pathways", AP_O, AP_O_ee, '0-2c');
+                fillChildren(d, "Other pathways", AP_O, AP_O_ee, '0_2c');
 
 
                 /* * * * * * * * * * * * *
@@ -249,16 +249,16 @@ async function createDataStructure (){
                 * * * * * * * * * * * * */
 
                 /* INTERNSHIPS & CAREERS */
-                fillChildren(d, "Arts/Entertainment/Media", WG_IC_arts, WG_IC_arts_ee, '1-0-0c');
-                fillChildren(d, "Business/Entrepreneurship", WG_IC_business, WG_IC_business_ee, '1-0-1c');
-                fillChildren(d, "Gov/Law/Ed/Non-profit", WG_IC_GovEtc, WG_IC_GovEtc_ee, '1-0-2c');
-                fillChildren(d, "Health/Life Sciences", WG_IC_health, WG_IC_health_ee, '1-0-3c');
-                fillChildren(d, "Tech/Engineering/Environment/Architecture", WG_IC_tech, WG_IC_tech_ee, '1-0-4c');
+                fillChildren(d, "Arts/Entertainment/Media", WG_IC_arts, WG_IC_arts_ee, '1_0_0c');
+                fillChildren(d, "Business/Entrepreneurship", WG_IC_business, WG_IC_business_ee, '1_0_1c');
+                fillChildren(d, "Gov/Law/Ed/Non-profit", WG_IC_GovEtc, WG_IC_GovEtc_ee, '1_0_2c');
+                fillChildren(d, "Health/Life Sciences", WG_IC_health, WG_IC_health_ee, '1_0_3c');
+                fillChildren(d, "Tech/Engineering/Environment/Architecture", WG_IC_tech, WG_IC_tech_ee, '1_0_4c');
 
                 /* GRADUATE SCHOOL */
-                fillChildren(d, "Arts/Humanities/Social Sciences grad school", WG_G_arts, WG_G_arts_ee, '1-1-0c');
-                fillChildren(d, "Professional grad school", WG_G_prof, WG_G_prof_ee, '1-1-1c');
-                fillChildren(d, "Sciences/Engineering grad school", WG_G_science, WG_G_science_ee, '1-1-2c');
+                fillChildren(d, "Arts/Humanities/Social Sciences grad school", WG_G_arts, WG_G_arts_ee, '1_1_0c');
+                fillChildren(d, "Professional grad school", WG_G_prof, WG_G_prof_ee, '1_1_1c');
+                fillChildren(d, "Sciences/Engineering grad school", WG_G_science, WG_G_science_ee, '1_1_2c');
 
 
                 /* * * * * * * * * * * *
@@ -266,23 +266,23 @@ async function createDataStructure (){
                 * * * * * * * * * * * */
 
                 /* Countries */
-                fillChildren(d, "Africa", TL_C_africa, TL_C_africa_ee, '2-0-0c');
-                fillChildren(d, "Americas", TL_C_americas, TL_C_americas_ee, '2-0-1c');
-                fillChildren(d, "Asia", TL_C_asia, TL_C_asia_ee, '2-0-2c');
-                fillChildren(d, "Australia/Oceania", TL_C_australia, TL_C_australia_ee, '2-0-3c');
-                fillChildren(d, "Europe", TL_C_europe, TL_C_europe_ee, '2-0-4c');
+                fillChildren(d, "Africa", TL_C_africa, TL_C_africa_ee, '2_0_0c');
+                fillChildren(d, "Americas", TL_C_americas, TL_C_americas_ee, '2_0_1c');
+                fillChildren(d, "Asia", TL_C_asia, TL_C_asia_ee, '2_0_2c');
+                fillChildren(d, "Australia/Oceania", TL_C_australia, TL_C_australia_ee, '2_0_3c');
+                fillChildren(d, "Europe", TL_C_europe, TL_C_europe_ee, '2_0_4c');
 
-                fillChildren(d, "Non-English Languages", TL_L, TL_L_ee, '2-1c');
+                fillChildren(d, "Non-English Languages", TL_L, TL_L_ee, '2_1c');
 
 
                 /* * * * * * * * * * * *
                 *    PEER ADVISING     *
                 * * * * * * * * * * * */
 
-                fillChildren(d, "Concentration advisers (departmental appointment)", APA_CA, APA_CA_ee, '3-0c');
-                fillChildren(d, "House roles/committees", APA_HRC, APA_HRC_ee, '3-1c');
-                fillChildren(d, "Dept peer adviser", APA_PA, APA_PA_ee, '3-2c');
-                fillChildren(d, "Other peer advising positions", APA_OPA, APA_OPA_ee, '3-3c');
+                fillChildren(d, "Concentration advisers (departmental appointment)", APA_CA, APA_CA_ee, '3_0c');
+                fillChildren(d, "House roles/committees", APA_HRC, APA_HRC_ee, '3_1c');
+                fillChildren(d, "Dept peer adviser", APA_PA, APA_PA_ee, '3_2c');
+                fillChildren(d, "Other peer advising positions", APA_OPA, APA_OPA_ee, '3_3c');
 
 
 

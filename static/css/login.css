@@ -1,3 +1,37 @@
+
+.ahashakeheartache {
+    -webkit-animation: kf_shake 0.4s 1 linear;
+    -moz-animation: kf_shake 0.4s 1 linear;
+    -o-animation: kf_shake 0.4s 1 linear;
+}
+@-webkit-keyframes kf_shake {
+    0% { -webkit-transform: translate(30px); }
+    20% { -webkit-transform: translate(-30px); }
+    40% { -webkit-transform: translate(15px); }
+    60% { -webkit-transform: translate(-15px); }
+    80% { -webkit-transform: translate(8px); }
+    100% { -webkit-transform: translate(0px); }
+}
+@-moz-keyframes kf_shake {
+    0% { -moz-transform: translate(30px); }
+    20% { -moz-transform: translate(-30px); }
+    40% { -moz-transform: translate(15px); }
+    60% { -moz-transform: translate(-15px); }
+    80% { -moz-transform: translate(8px); }
+    100% { -moz-transform: translate(0px); }
+}
+@-o-keyframes kf_shake {
+    0% { -o-transform: translate(30px); }
+    20% { -o-transform: translate(-30px); }
+    40% { -o-transform: translate(15px); }
+    60% { -o-transform: translate(-15px); }
+    80% { -o-transform: translate(8px); }
+    100% { -o-origin-transform: translate(0px); }
+}
+
+
+
+
 /* The Overlay (background) */
 .overlay {
     /* Height & width depends on how you want to reveal the overlay (see JS below) */
@@ -79,7 +113,7 @@
     border-radius: 15px;
     background-color: #fff;
     overflow: hidden;
-    margin-top: 50px;
+    margin-top: 1vh;
     opacity: 1;
     visibility: visible;
     -webkit-transition: all 0.3s ease;
@@ -88,7 +122,6 @@
     border: 0;
     outline: none;
     box-shadow: none;
-    display: block;
     height: 30px;
     line-height: 30px;
     padding: 8px 15px;
@@ -96,6 +129,7 @@
     width: 100%;
     font-size: 12px;
 }
+
 .form-structor .signup .form-holder .input:last-child {
     border-bottom: 0;
 }
@@ -120,7 +154,7 @@
 }
 .form-structor .signup .submit-btn:hover {
     transition: all 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.6 );
 }
 .form-structor .login {
     position: absolute;
@@ -194,7 +228,7 @@
     color: rgba(0, 0, 0, 0.4);
 }
 .form-structor .login .center .submit-btn {
-    background-color: #6b92a4;
+    background-color: #a1d99b;
     color: rgba(256, 256, 256, 0.7);
     border: 0;
     border-radius: 15px;

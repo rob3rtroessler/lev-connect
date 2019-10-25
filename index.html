@@ -31,17 +31,18 @@
 <body>
 
 <!-- The overlay & Login -->
+<!--
 <div id="myNav" class="overlay" style="width: 100%; height: 100%;">
     <div style="margin-top: 21vh; margin-left: 35vw; margin-right: 35vw; height: 60vh; width: 30vw;">
-        <div class="form-structor" style="border:thin solid green">
+        <div id="form" class="form-structor" style="border:thin solid green">
             <div class="signup">
-                <h5 class="form-title" id="signup"><span>or</span>Sign up</h5>
-                <div style='border:thin solid grey; height: 50px; background-size: 50px 50px; background-position: center; background-repeat: no-repeat; background-image: url("img/background/levLogo.png")'></div>
+                <h5 class="form-title" id="signup" style="margin:0; padding:0">Sign up</h5>
+                <div style='margin-top: 4.4vh; height: 50px; background-size: 50px 50px; background-position: center; background-repeat: no-repeat; background-image: url("img/background/levLogo.png")'></div>
                 <div class="form-holder">
                     <input id="signUpName" type="text" class="input" placeholder="Name" />
                     <input id="signUpEmail" type="email" class="input" placeholder="Email" />
                     <input id="signUpPassword" type="password" class="input" placeholder="Password" />
-                    <input id="signUpConfirmation" type="text" class="input" placeholder="Confirmation" />
+                    <input id="signUpConfirmation" type="password" class="input" placeholder="Confirmation" />
                 </div>
                 <button class="submit-btn" onclick=signUp()>Sign up</button>
             </div>
@@ -59,436 +60,428 @@
         </div>
     </div>
 </div>
+-->
 
 
-    <div class="container-fluid" style="height: 100vh; background-color: #f7fcf5; overflow-y: hidden">
+<div class="container-fluid" style="height: 100vh; background-color: #f7fcf5; overflow-y: hidden">
 
-        <!-- HEADING -->
-        <div class="row" style="height: 12vh">
-            <div class="col-1">
-                <div class="row" style="height: 100%">
-                    <div class="col-4 offset-4">
-                        <div class="row" style="height: 67%"></div>
-                        <div class="row" id='exitBox' onclick="toSunburst()"></div>
-                    </div>
+    <!-- HEADING -->
+    <div class="row" style="height: 12vh">
+        <div class="col-1">
+            <div class="row" style="height: 100%">
+                <div class="col-4 offset-4">
+                    <div class="row" style="height: 67%"></div>
+                    <div class="row" id='exitBox' onclick="toSunburst()"></div>
                 </div>
             </div>
-            <div class="col-2"></div>
-            <div class="col-6">
-                <div class="row justify-content-center align-items-center" style="height: 100%">
-                    <h1>LEV-CONNECT</h1>
-                </div>
-            </div>
-            <div class="col-3" id='logo'></div>
         </div>
-
-
-        <!-- MAIN -->
-        <div class="row" style="height: 88vh; padding-bottom: 5px; padding-left: 5px; padding-right: 5px">
-
-            <!-- LEV CONNECT WRAPPER || CAROUSEL -->
-            <div class="col-12" style="border: thin solid green; border-radius: 5px; padding-right: 0; padding-left: 0">
-
-                <!-- INITIATING CAROUSEL - OUTER WRAPPER -->
-                <div id="carousel" class="carousel slide" data-ride="carousel" style="height: 87.3vh">
-
-                    <!-- CAROUSEL INNER -->
-                    <div class="carousel-inner" style="height: 100%">
-
-                        <!-- CAROUSEL FIRST PAGE -->
-                        <div class="carousel-item active" style="height: 100%">
-
-                            <!-- FIRST ROW - FILTERS -->
-                            <div class="row" id="filters" style="height: 10%; background-color: #c7e9c0;"></div>
-
-                            <!-- SECOND ROW - MAIN -->
-                            <div class="row" style="height: 90%; border-top: thin solid green;">
-
-                                <!-- SECOND ROW - LEFT SIDE -->
-                                <div class="col-2" id='breadcrumbs'>
-                                    </div>
-                                <div class="col-6">
-
-                                    <!-- SUNBURST VIS -->
-                                    <div class="row" id="sunburstDIV" style="height: 100%"></div>
-
-                                </div>
-
-                                <!-- SECOND ROW - RIGHT SIDE -->
-                                <div class="col-4" style="border-left: thin solid rgba(0,128,0,0.15);">
-
-                                    <div class="row" style="height: 100%; background: #f7fcf5; border: 5px solid transparent">
-
-                                        <div id="accordion" style="width: 100%;">
-
-                                            <!-- FULL TEXT SEARCH -->
-                                            <div class="card" style="margin-top:2%; margin-bottom: 2%;">
-                                                <form id="fullTextSearch">
-                                                    <input type="text" placeholder="Full-text search coming soon.." name="search" disabled>
-                                                    <button type="submit"><i class="fa fa-search"></i></button>
-                                                </form>
-                                            </div>
-
-                                            <!-- ACADEMIC PATHWAYS -->
-                                            <div class="card">
-                                                <div class="card-header p-2" id="headingOne" style="background-color: #c7e9c0;" onclick="testfunc()">
-                                                    <h5 class="mb-0">
-                                                        <button class="btn btn-link btnText" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                            Academic Pathways
-                                                        </button>
-                                                    </h5>
-                                                </div>
-                                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                                    <div class="card-body">
-
-                                                        <div style="width: 100%">
-                                                            <div class="ui fluid search selection dropdown">
-                                                                <input type="hidden" name="country">
-                                                                <i class="dropdown icon"></i>
-                                                                <div id="concentrationMenuDefault" class="default text">Concentrations & Secondaries...</div>
-                                                                <div class="menu" id="concentrationMenu">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div style="width: 100%; margin-top: 2%">
-                                                            <div class="ui fluid search selection dropdown">
-                                                                <input type="hidden" name="country">
-                                                                <i class="dropdown icon"></i>
-                                                                <div class="default text">Research...</div>
-                                                                <div class="menu" id="researchMenu">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div style="width: 100%; margin-top: 2%">
-                                                            <div class="ui fluid search selection dropdown">
-                                                                <input type="hidden" name="country">
-                                                                <i class="dropdown icon"></i>
-                                                                <div class="default text">Other Pathways...</div>
-                                                                <div class="menu" id="otherPathwaysMenu">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- WORK AND GRAD SCHOOL -->
-                                            <div class="card">
-                                                <div class="card-header p-2" id="headingTwo" style="background-color: #c7e9c0;">
-                                                    <h5 class="mb-0">
-                                                        <button class="btn btn-link btnText" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                            Work and Grad School
-                                                        </button>
-                                                    </h5>
-                                                </div>
-                                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                                    <div class="card-body">
-
-                                                        <div style="width: 100%">
-                                                            <div class="ui fluid search selection dropdown">
-                                                                <input type="hidden" name="country">
-                                                                <i class="dropdown icon"></i>
-                                                                <div class="default text">Internships & Careers...</div>
-                                                                <div class="menu" id="internshipsMenu">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div style="width: 100%; margin-top: 2%">
-                                                            <div class="ui fluid search selection dropdown">
-                                                                <input type="hidden" name="country">
-                                                                <i class="dropdown icon"></i>
-                                                                <div class="default text">Graduate School...</div>
-                                                                <div class="menu" id="gradSchoolMenu">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- INTERNATIONAL EXPERTISE -->
-                                            <div class="card">
-                                                <div class="card-header p-2" id="headingThree" style="background-color: #c7e9c0;">
-                                                    <h5 class="mb-0">
-                                                        <button class="btn btn-link btnText" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                            International Expertise
-                                                        </button>
-                                                    </h5>
-                                                </div>
-                                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                                    <div class="card-body">
-                                                        <div style="width: 100%">
-                                                            <div class="ui fluid search selection dropdown">
-                                                                <input type="hidden" name="country">
-                                                                <i class="dropdown icon"></i>
-                                                                <div class="default text">Countries...</div>
-                                                                <div class="menu" id="countriesMenu">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div style="width: 100%; margin-top: 2%">
-                                                            <div class="ui fluid search selection dropdown">
-                                                                <input type="hidden" name="country">
-                                                                <i class="dropdown icon"></i>
-                                                                <div class="default text">Languages...</div>
-                                                                <div class="menu" id="languagesMenu">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- AFFILIATION AND PEER ADVISING -->
-                                            <div class="card">
-                                                <div class="card-header p-2" id="headingFour" style="background-color: #c7e9c0;">
-                                                    <h5 class="mb-0">
-                                                        <button class="btn btn-link btnText" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                                                            Affiliation and Peer Advising
-                                                        </button>
-                                                    </h5>
-                                                </div>
-                                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                                                    <div class="card-body">
-                                                        <div style="width: 100%">
-                                                            <div class="ui fluid search selection dropdown">
-                                                                <input type="hidden" name="country">
-                                                                <i class="dropdown icon"></i>
-                                                                <div class="default text">Concentration Advisers...</div>
-                                                                <div class="menu" id="concentrationAdviserMenu">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div style="width: 100%; margin-top: 2%">
-                                                            <div class="ui fluid search selection dropdown">
-                                                                <input type="hidden" name="country">
-                                                                <i class="dropdown icon"></i>
-                                                                <div class="default text">House Roles...</div>
-                                                                <div class="menu" id="houseRolesMenu">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div style="width: 100%; margin-top: 2%">
-                                                            <div class="ui fluid search selection dropdown">
-                                                                <input type="hidden" name="country">
-                                                                <i class="dropdown icon"></i>
-                                                                <div class="default text">Departmental Peer Advisers...</div>
-                                                                <div class="menu" id="deptPeerAdviserMenu">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- CAROUSEL SECOND PAGE - PROFILES -->
-                        <div class="carousel-item" style="height: 100%; max-height: 100%">
-                            <div class="container-fluid" style="height: 100%; max-height: 100%">
-                                <div class="row" style="height: 88vh; max-height: 100%">
-
-
-                                    <!-- LEFT SIDE - STUDENT LIST -->
-                                    <div class="col-3" id='studentList' style="background: #c7e9c0; height: 88vh; overflow-y: scroll">
-                                        <!-- DYNAMICALLY FILLED - studentList.js -->
-                                    </div>
-
-                                    <!-- RIGHT SIDE - PROFILE -->
-                                    <div class="col-9" style="background: #a1d99b; overflow-y: scroll">
-                                        <div class="row" style="height:88vh;">
-                                            <div class="col-10 offset-1">
-
-                                                <!-- img first -->
-                                                <div class="row" style="padding-top: 4vh; padding-bottom: 2vh">
-                                                    <img id ='pictureID' src="img/female-placeholder.jpg" style="position: relative; margin-left: auto; margin-right: auto; display: block; border-radius: 50%;"/>
-                                                </div>
-
-                                                <!-- name -->
-                                                <div class="row">
-                                                    <div class="parent-dl">
-                                                        <div class="child-d1"><h2 id="profile_nameField"></h2></div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- pdf & cv -->
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="parent-dl" style="height: 100%">
-                                                            <div class="child-dl" style="text-align: right">
-                                                                <a class="dl-text" id='downloadCV' href="" target="_blank">
-                                                                    <span class="dl-text">resume</span><img src="img/pdf.png" style="border-left: 5px solid transparent; width: 5vh; height: 4vh">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="parent-dl" style="height: 100%">
-                                                            <div class="child-dl" style="text-align: left">
-                                                                <a id='contactViaEmail' class="dl-text" href="">
-                                                                    <img src="img/gmail.png" style="border-left: 5px solid transparent; width: 5vh; height: 4vh">
-                                                                    <span class="dl-text">email</span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- HEADING - ACADEMIC PATHWAYS -->
-                                                <div class="row row-heading">
-                                                    <div class="parent">
-                                                        <div class="child"><h3>Academic Pathways</h3></div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- INNER - ACADEMIC PATHWAYS -->
-                                                <div class="row" style="padding-top: 2vh">
-                                                    <div class="col-6"><h5 style="text-align: right">Concentrations and Secondaries</h5></div>
-                                                    <div class="col-6"><span class="profileTxt" id="profile_concentrations"></span></div>
-                                                </div>
-
-                                                <div class="row" style="padding-top: 1vh">
-                                                    <div class="col-6"><h5 style="text-align: right">Research</h5></div>
-                                                    <div class="col-6"><span class="profileTxt" id="profile_research"></span></div>
-                                                </div>
-                                                <div class="row" style="padding-top: 1vh">
-                                                    <div class="col-6"><h5 style="text-align: right">Other Pathways</h5></div>
-                                                    <div class="col-6"><span class="profileTxt" id="profile_otherPathways"></span></div>
-                                                </div>
-                                                <div class="row" style="padding-top: 4vh">
-                                                    <div class="col-12">
-                                                        <div class="quoteContainer">
-                                                            <span class="profileTxt quote" id="profile_academicExplanation"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- HEADING - WORK / GRAD SCHOOL -->
-                                                <div class="row row-heading">
-                                                    <div class="parent">
-                                                        <div class="child">
-                                                            <h3>Work & Grad School</h3>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- INNER - WORK / GRAD SCHOOL -->
-                                                <div class="row" style="padding-top: 2vh">
-                                                    <div class="col-6"><h5 style="text-align: right">Career & Internships</h5></div>
-                                                    <div class="col-6"><span class="profileTxt" id="profile_work"></span></div>
-                                                </div>
-                                                <div class="row" style="padding-top: 1vh">
-                                                    <div class="col-6"><h5 style="text-align: right">Grad School</h5></div>
-                                                    <div class="col-6"><span class="profileTxt" id="profile_gradSchool"></span></div>
-                                                </div>
-                                                <div class="row" style="padding-top: 4vh">
-                                                    <div class="col-12">
-                                                        <div class="quoteContainer">
-                                                            <span class="profileTxt quote" id="profile_workExp"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row" style="padding-top: 1vh">
-                                                    <div class="col-12">
-                                                        <div class="quoteContainer">
-                                                            <span class="profileTxt quote" id="profile_gradSchoolExp"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- HEADING - TRAVEL / LANGUAGES -->
-                                                <div class="row row-heading">
-                                                    <div class="parent">
-                                                        <div class="child"><h3>Travel & Languages</h3></div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- INNER - WORK / GRAD SCHOOL -->
-                                                <div class="row" style="padding-top: 2vh">
-                                                    <div class="col-6"><h5 style="text-align: right">Countries Visited</h5></div>
-                                                    <div class="col-6"><span class="profileTxt" id="profile_countries"></span></div>
-                                                </div>
-                                                <div class="row" style="padding-top: 1vh">
-                                                    <div class="col-6"><h5 style="text-align: right">Languages</h5></div>
-                                                    <div class="col-6"><span class="profileTxt" id="profile_languages"></span></div>
-                                                </div>
-                                                <div class="row" style="padding-top: 4vh">
-                                                    <div class="col-12">
-                                                        <div class="quoteContainer">
-                                                            <span class="profileTxt quote" id="profile_countriesExp"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row" style="padding-top: 1vh">
-                                                    <div class="col-12">
-                                                        <div class="quoteContainer">
-                                                            <span class="profileTxt quote" id="profile_languagesExp"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <!-- HEADING - ADDITIONAL INFORMATION -->
-                                                <div class="row row-heading">
-                                                    <div class="parent" style="height: 100%">
-                                                        <div class="child"><h3>Additional Information</h3></div>
-                                                    </div>
-                                                </div>
-
-
-
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-            <!-- LEV CONNECT -->
+        <div class="col-2"></div>
+        <div class="col-6">
+            <div class="row justify-content-center align-items-center" style="height: 100%">
+                <h1>LEV-CONNECT</h1>
             </div>
-
         </div>
+        <div class="col-3" id='logo' onclick="window.location.assign('https://leverett.harvard.edu')"></div>
     </div>
 
 
-    <!-- SCRIPTS -->
+    <!-- MAIN -->
+    <div class="row" style="height: 88vh; padding-bottom: 5px; padding-left: 5px; padding-right: 5px">
 
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+        <!-- LEV CONNECT WRAPPER || CAROUSEL -->
+        <div class="col-12" style="border: thin solid green; border-radius: 5px; padding-right: 0; padding-left: 0">
 
-    <script src="js/libs/semantic.js"></script>
+            <!-- INITIATING CAROUSEL - OUTER WRAPPER -->
+            <div id="carousel" class="carousel slide" data-ride="carousel" style="height: 87.3vh">
+
+                <!-- CAROUSEL INNER -->
+                <div class="carousel-inner" style="height: 100%">
+
+                    <!-- CAROUSEL FIRST PAGE -->
+                    <div class="carousel-item active" style="height: 100%">
+
+                        <!-- FIRST ROW - FILTERS -->
+                        <div class="row" id="filters" style="height: 10%; background-color: #c7e9c0;"></div>
+
+                        <!-- SECOND ROW - MAIN -->
+                        <div class="row" style="height: 90%; border-top: thin solid green;">
+
+                            <!-- SECOND ROW - LEFT SIDE -->
+                            <div class="col-2" id='breadcrumbs' style="background: white"></div>
+                            <div class="col-6">
+
+                                <!-- SUNBURST VIS -->
+                                <div class="row" id="sunburstDIV" style="height: 100%"></div>
+
+                            </div>
+
+                            <!-- SECOND ROW - RIGHT SIDE -->
+                            <div class="col-4" style="border-left: thin solid rgba(0,128,0,0.15);">
+
+                                <div class="row" style="height: 100%; background: #f7fcf5; border: 5px solid transparent">
+
+                                    <div id="accordion" style="width: 100%;">
+
+                                        <!-- FULL TEXT SEARCH -->
+                                        <div class="card" style="margin-top:2%; margin-bottom: 2%;">
+                                            <form id="fullTextSearch">
+                                                <input type="text" placeholder="Full-text search coming soon.." name="search" disabled>
+                                                <button type="submit"><i class="fa fa-search"></i></button>
+                                            </form>
+                                        </div>
+
+                                        <!-- ACADEMIC PATHWAYS -->
+                                        <div class="card">
+                                            <div class="card-header p-2" id="headingOne" style="background-color: #c7e9c0;" onclick="triggerSunburst('sb__0')">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link btnText" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        Academic Pathways
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                <div class="card-body">
+
+                                                    <div style="width: 100%">
+                                                        <div id='acc__0_0' class="ui fluid search selection dropdown">
+                                                            <input id="concentrationInput" type="hidden" name="country">
+                                                            <i class="dropdown icon"></i>
+                                                            <div id="concentrationMenuDefault" class="default text">Concentrations & Secondaries...</div>
+                                                            <div class="menu" id="concentrationMenu">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div style="width: 100%; margin-top: 2%">
+                                                        <div id='acc__0_1' class="ui fluid search selection dropdown">
+                                                            <input type="hidden" name="country">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">Research...</div>
+                                                            <div class="menu" id="researchMenu">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div style="width: 100%; margin-top: 2%">
+                                                        <div id='acc__0_2' class="ui fluid search selection dropdown">
+                                                            <input type="hidden" name="country">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">Other Pathways...</div>
+                                                            <div class="menu" id="otherPathwaysMenu">
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
 
-    <!-- own scripts -->
-    <script src="js/dataWrangling.js"></script>
-    <script src="js/dataWranglingTwo.js"></script>
-    <script src="js/colorManager.js"></script>
-    <script src="js/sunburst.js"></script>
-    <script src="js/breadcrumbs.js"></script>
-    <script src="js/filters.js"></script>
-    <script src="js/studentList.js"></script>
-    <script src="js/studentProfile.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/main.js"></script>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- WORK AND GRAD SCHOOL -->
+                                        <div class="card">
+                                            <div class="card-header p-2" id="headingTwo" style="background-color: #c7e9c0;" onclick="triggerSunburst('sb__1')">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link btnText" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        Work and Grad School
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                                <div class="card-body">
+
+                                                    <div style="width: 100%">
+                                                        <div id='acc__1_0' class="ui fluid search selection dropdown">
+                                                            <input type="hidden" name="country">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">Internships & Careers...</div>
+                                                            <div class="menu" id="internshipsMenu">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div style="width: 100%; margin-top: 2%">
+                                                        <div id='acc__1_1' class="ui fluid search selection dropdown">
+                                                            <input type="hidden" name="country">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">Graduate School...</div>
+                                                            <div class="menu" id="gradSchoolMenu">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- INTERNATIONAL EXPERTISE -->
+                                        <div class="card">
+                                            <div class="card-header p-2" id="headingThree" style="background-color: #c7e9c0;" onclick="triggerSunburst('sb__2')">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link btnText" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                        International Expertise
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <div style="width: 100%">
+                                                        <div id='acc__2_0' class="ui fluid search selection dropdown">
+                                                            <input type="hidden" name="country">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">Countries...</div>
+                                                            <div class="menu" id="countriesMenu">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div style="width: 100%; margin-top: 2%">
+                                                        <div id='acc__2_1' class="ui fluid search selection dropdown">
+                                                            <input type="hidden" name="country">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">Languages...</div>
+                                                            <div class="menu" id="languagesMenu">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- AFFILIATION AND PEER ADVISING -->
+                                        <div class="card">
+                                            <div class="card-header p-2" id="headingFour" style="background-color: #c7e9c0;" onclick="triggerSunburst('sb__3')">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link btnText" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                                        Affiliation and Peer Advising
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <div style="width: 100%">
+                                                        <div id='acc__3_0' class="ui fluid search selection dropdown">
+                                                            <input type="hidden" name="country">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">Concentration Advisers...</div>
+                                                            <div class="menu" id="concentrationAdviserMenu">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div style="width: 100%; margin-top: 2%">
+                                                        <div id='acc__3_1' class="ui fluid search selection dropdown">
+                                                            <input type="hidden" name="country">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">House Roles...</div>
+                                                            <div class="menu" id="houseRolesMenu">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div style="width: 100%; margin-top: 2%">
+                                                        <div id='acc__3_2' class="ui fluid search selection dropdown">
+                                                            <input type="hidden" name="country">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">Departmental Peer Advisers...</div>
+                                                            <div class="menu" id="deptPeerAdviserMenu">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- CAROUSEL SECOND PAGE - PROFILES -->
+                    <div class="carousel-item" style="height: 100%; max-height: 100%">
+                        <div class="container-fluid" style="height: 100%; max-height: 100%">
+                            <div class="row" style="height: 88vh; max-height: 100%">
+
+
+                                <!-- LEFT SIDE - STUDENT LIST -->
+                                <div class="col-3" id='studentList' style="background: #c7e9c0; height: 88vh; overflow-y: scroll">
+                                    <!-- DYNAMICALLY FILLED - studentList.js -->
+                                </div>
+
+                                <!-- RIGHT SIDE - PROFILE -->
+                                <div class="col-9" style="background: #a1d99b; overflow-y: scroll">
+                                    <div class="row" style="height:88vh;">
+                                        <div class="col-10 offset-1">
+
+                                            <!-- img first -->
+                                            <div class="row" style="padding-top: 4vh; padding-bottom: 2vh">
+                                                <img id ='pictureID' src="img/female-placeholder.jpg" onerror="this.src='img/bunny.jpg'" style="position: relative; margin-left: auto; margin-right: auto; display: block; border-radius: 50%;"/>
+                                            </div>
+
+                                            <!-- name -->
+                                            <div class="row">
+                                                <div class="parent-dl">
+                                                    <div class="child-d1"><h2 id="profile_nameField"></h2></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- pdf & cv -->
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="parent-dl" style="height: 100%">
+                                                        <div class="child-dl" style="text-align: right">
+                                                            <a class="dl-text" id='downloadCV' href="" target="_blank">
+                                                                <span class="dl-text">resume</span><img src="img/pdf.png" style="border-left: 5px solid transparent; width: 5vh; height: 4vh">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="parent-dl" style="height: 100%">
+                                                        <div class="child-dl" style="text-align: left">
+                                                            <a id='contactViaEmail' class="dl-text" href="">
+                                                                <img src="img/gmail.png" style="border-left: 5px solid transparent; width: 5vh; height: 4vh">
+                                                                <span class="dl-text">email</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- HEADING - ACADEMIC PATHWAYS -->
+                                            <div class="row row-heading">
+                                                <div class="parent">
+                                                    <div class="child"><h3>Academic Pathways</h3></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- INNER - ACADEMIC PATHWAYS -->
+                                            <div class="row" style="padding-top: 2vh">
+                                                <div class="col-6"><h5 style="text-align: right">Concentrations and Secondaries</h5></div>
+                                                <div class="col-6"><span class="profileTxt" id="profile_concentrations"></span></div>
+                                            </div>
+
+                                            <div class="row" style="padding-top: 1vh">
+                                                <div class="col-6"><h5 style="text-align: right">Research</h5></div>
+                                                <div class="col-6"><span class="profileTxt" id="profile_research"></span></div>
+                                            </div>
+                                            <div class="row" style="padding-top: 1vh">
+                                                <div class="col-6"><h5 style="text-align: right">Other Pathways</h5></div>
+                                                <div class="col-6"><span class="profileTxt" id="profile_otherPathways"></span></div>
+                                            </div>
+                                            <div class="row" style="padding-top: 4vh">
+                                                <div class="col-12">
+                                                    <div class="quoteContainer">
+                                                        <span class="profileTxt quote" id="profile_academicExplanation"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- HEADING - WORK / GRAD SCHOOL -->
+                                            <div class="row row-heading">
+                                                <div class="parent">
+                                                    <div class="child">
+                                                        <h3>Work & Grad School</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- INNER - WORK / GRAD SCHOOL -->
+                                            <div class="row" style="padding-top: 2vh">
+                                                <div class="col-6"><h5 style="text-align: right">Career & Internships</h5></div>
+                                                <div class="col-6"><span class="profileTxt" id="profile_work"></span></div>
+                                            </div>
+                                            <div class="row" style="padding-top: 1vh">
+                                                <div class="col-6"><h5 style="text-align: right">Grad School</h5></div>
+                                                <div class="col-6"><span class="profileTxt" id="profile_gradSchool"></span></div>
+                                            </div>
+                                            <div class="row" style="padding-top: 4vh">
+                                                <div class="col-12">
+                                                    <div class="quoteContainer">
+                                                        <span class="profileTxt quote" id="profile_workExp"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 1vh">
+                                                <div class="col-12">
+                                                    <div class="quoteContainer">
+                                                        <span class="profileTxt quote" id="profile_gradSchoolExp"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- HEADING - TRAVEL / LANGUAGES -->
+                                            <div class="row row-heading">
+                                                <div class="parent">
+                                                    <div class="child"><h3>Travel & Languages</h3></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- INNER - WORK / GRAD SCHOOL -->
+                                            <div class="row" style="padding-top: 2vh">
+                                                <div class="col-6"><h5 style="text-align: right">Countries Visited</h5></div>
+                                                <div class="col-6"><span class="profileTxt" id="profile_countries"></span></div>
+                                            </div>
+                                            <div class="row" style="padding-top: 1vh">
+                                                <div class="col-6"><h5 style="text-align: right">Languages</h5></div>
+                                                <div class="col-6"><span class="profileTxt" id="profile_languages"></span></div>
+                                            </div>
+                                            <div class="row" style="padding-top: 4vh">
+                                                <div class="col-12">
+                                                    <div class="quoteContainer">
+                                                        <span class="profileTxt quote" id="profile_countriesExp"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 1vh">
+                                                <div class="col-12">
+                                                    <div class="quoteContainer">
+                                                        <span class="profileTxt quote" id="profile_languagesExp"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- HEADING - ADDITIONAL INFORMATION -->
+                                            <div class="row row-heading">
+                                                <div class="parent" style="height: 100%">
+                                                    <div class="child"><h3>Additional Information</h3></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- LEV CONNECT -->
+        </div>
+
+
+    </div>
+</div>
+
+
+<!-- SCRIPTS -->
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="js/libs/semantic.js"></script>
+
+<!-- own scripts -->
+<script src="js/dataWrangling.js"></script>
+<script src="js/dataWranglingTwo.js"></script>
+<script src="js/colorManager.js"></script>
+<script src="js/sunburst.js"></script>
+<script src="js/breadcrumbs.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/studentList.js"></script>
+<script src="js/studentProfile.js"></script>
+<script src="js/login.js"></script>
+<script src="js/accordeon.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

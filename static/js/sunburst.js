@@ -5,6 +5,7 @@
 *                                  *
 * * * * * * * * * * * * * * * * *  */
 
+let allArcs;
 
 // define dimensions
 let sunburstDIV = $('#sunburstDIV'),
@@ -36,8 +37,23 @@ let arc = d3.arc()
 // append svg drawing area with origin in the center
 let svg = d3.select("#sunburstDIV").append("svg")
     .attr("width", width)
+    .attr("height", height);
+
+
+let background = svg.append('g')
+    .attr('class', 'testClass')
+    .append('rect')
+    .attr("width", width)
     .attr("height", height)
-    .append("g")
+    .attr("fill", 'white')
+    .on('mouseover', function(){
+        console.log('test', new Date());
+        setTimeout(function(){
+            hideAccordionTabs();
+        }, 200);
+    });
+
+let sunbrust = svg.append("g")
     .attr("transform", "translate(" + width / 2 + "," + (height / 2) + ")");
 
 
@@ -55,18 +71,40 @@ function drawSunburst(data) {
     console.log(root);
 
 
-    // create
-    svg.selectAll("path")
+    // create arcTiles
+    allArcs = sunbrust.selectAll("path")
         .data(partition(root).descendants())
         .enter().append("path")
         .attr("d", arc)
-        .attr('id', function(d){/*console.log('test', d);*/ return d.data.color})
-        .attr("class", "arcTile" )
+        .attr('id', function(d){
+            if(d.data.color === 'white'){
+                return 'select'
+            } else {
+                return getSunburstIdByHierarchy(d.data.color);
+            }
+        })
+        .attr("class", "arcTile")
         .attr("stroke", "#494949")
         .style("fill", function(d) { return colorFilter(d.data.color) })
 
         // on click, fire click function!
         .on("click", function(d){
+
+            console.log('in clicked');
+
+            // first, update accordionTracker
+            if (d.data.color === 'white'){
+                console.log('resetting accordionTracker');
+                accordionTracker = '';
+            } else {
+                accordionTracker = 'sb__' + d.data.color;
+            }
+
+            buildAncestors(d)
+                .then(updateBreadcrumbs(ancestorObj)); // ancestorObj is a global variable/object
+
+            // then update lastClickedObject based on the tile that we hovered last and that we store in ancestorObj
+            lastClickedObject = ancestorObj;
 
             // if click event is fired for an arc tile on the highest level
             if (d.data.status === 'final'){
@@ -74,32 +112,39 @@ function drawSunburst(data) {
                 profileView(d.data.tutorIDs);
             }
 
-            // get depth
-            if (d.depth !== 0){
-
-                // create classifier
-                classifier = d.data.name + '.' + d.parent.data.name
-            }
-
             // click - update sunburst data;
             click(d)
         })
         .on('mouseover', function(d){
-            // gather data and build array;
+
+            // first, update breadcrumbs, i.e. 1) gather data, 2) build array, and 3) update breadcrumbs;
             buildAncestors(d)
-                .then(updateBreadcrumbs(ancestorObj));
+                .then(updateBreadcrumbs(ancestorObj)); // ancestorObj is a global variable/object
+
+            // then, update accordion, i.e. 1) trigger, 2) grab inner drop downs
+            triggerAccordion(d.data.color);
+            $(getAccordionIdByHierarchy(d.data.color) + ' .text').css('color', colorFilter(d.data.color)); // just first two levels!!
+            triggerAccordionInner(getAccordionIdByHierarchy(d.data.color), d.data.name, colorFilter(d.data.color));
         })
         .on('mouseout', function(d){
-            let empty ={};
-            updateBreadcrumbs(empty)
+
+            // reset breadcrumbs on mouseout according to selection
+            updateBreadcrumbs(lastClickedObject);
+
+            //restore default text, text color, and border-color
+            $(getAccordionIdByHierarchy(d.data.color)).dropdown('restore default text');
+            $(getAccordionIdByHierarchy(d.data.color) + ' .text').css('color', 'rgba(191, 191, 191, 0.87)');
+            $(getAccordionIdByHierarchy(d.data.color)).css('border-color', 'rgba(0, 0, 0, 0.1)');
+
         })
         .append("title")
         .text(function(d) { return d.data.name + "\n" + formatNumber(d.value); });
+
 }
 
 
 function click(d) {
-    svg.transition()
+    sunbrust.transition()
         .duration(750)
         .tween("scale", function() {
             let xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
@@ -118,8 +163,13 @@ d3.select(self.frameElement).style("height", height + "px");
 
 
 
+
 function profileView(data){
     console.log('in profileView()', data);
     createStudentList(data);
     toProfile();
+}
+
+function getSunburstIdByHierarchy (hierarchy) {
+    return 'sb__' + hierarchy;
 }

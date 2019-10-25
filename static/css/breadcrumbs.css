@@ -3,3 +3,11 @@
     font-weight: 300;
     font-size: 2.0vh;
 }
+
+.polygonText:hover {
+    cursor: pointer;
+}
+
+#polygonOne:hover {
+    cursor: pointer;
+}

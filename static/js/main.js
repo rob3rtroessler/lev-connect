@@ -8,8 +8,7 @@
 createDataStructure()
     .then( initiateCarousel() )
     .then( initiateBreadcrumbs() )
-    .then( initiateDropdowns() )
-    .then( testfunc() );
+    .then( initiateDropdowns() );
 
 // INITIATION FUNCTIONS
 function initiateDropdowns(){
@@ -28,19 +27,36 @@ function initiateCarousel(){
 
 // HELPER FUNCTIONS
 function toProfile(){
-    $('#carousel').carousel(1);
-    $('#exitBox').show();
+    setTimeout(function(){
+        $('#carousel').carousel(1);
+        $('#exitBox').show();
+    }, 700);
 
     $('.ui.dropdown').dropdown({
         "clearable": true
     });
 }
 function toSunburst(){
+
+    // navigate to sunburst view
     $('#carousel').carousel(0);
+
+    // hide exitBox
     $('#exitBox').hide();
 
-    // TODO: RESET SUNBURST
+    // reset lastClickedObject
+    lastClickedObject = {};
+    ancestorObj = {};
+    updateBreadcrumbs({});
+
+    // with a delay of half a second, reset sunburst
+    setTimeout(function(){
+        // reset sunburst
+        d3.select('#select').dispatch('click');
+        hideAccordionTabs();
+    }, 500)
 }
+
 function toAcc(name){
 
     // classifier - would be nice if I could just send a classifier like 1.2.1
@@ -54,20 +70,6 @@ function identifyClassifier(){
 }
 
 
-$("#headingOne").click(
-  function(){testfunc()}
-);
-
-function testfunc(){
-    console.log('running');
-
-    let test = d3.select("white").append('text').text('string');
-    console.log(test.dispatch('click'));
-
-
-
-
-}
 
 
 

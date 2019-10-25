@@ -8,7 +8,7 @@ loginBtn.addEventListener('click', (e) => {
         if(element !== "slide-up") {
             parent.classList.add('slide-up')
         }else{
-            signupBtn.parentNode.classList.add('slide-up')
+            signupBtn.parentNode.classList.add('slide-up');
             parent.classList.remove('slide-up')
         }
     });
@@ -24,6 +24,12 @@ signupBtn.addEventListener('click', (e) => {
             parent.classList.remove('slide-up')
         }
     });
+});
+
+
+
+$('#form').on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e){
+    $('#form').delay(200).removeClass('ahashakeheartache');
 });
 
 
@@ -55,6 +61,9 @@ function signUp() {
             // then check data;
             if (data.permission){
                 document.getElementById("myNav").style.height = "0%";
+            }
+            else {
+                $('#form').addClass('ahashakeheartache');
             }
         })
 }

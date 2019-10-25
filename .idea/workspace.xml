@@ -2,18 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b04edb3-e5d8-4e8b-bcd3-50b1bd1c29e8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/postgres/createUsersTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/postgres/populateEmails.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/postgres/postgres-test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/email_list.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postgres-test.js" beforeDir="false" afterPath="$PROJECT_DIR$/postgres/createEmailTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/breadcrumbs.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/breadcrumbs.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/login.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/data/structure.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/data/structure.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/accordeon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/accordeon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/breadcrumbs.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/breadcrumbs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/colorManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/colorManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/dataWrangling.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/dataWrangling.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/dataWranglingTwo.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/dataWranglingTwo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/studentList.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/studentList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/sunburst.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/sunburst.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +52,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/GoogleDrive/Forschung/09_DigitaleProjekte/05_lev-connect/static/js/studentProfile.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/postgres" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Harvard University (Teaching, Courses, Affiliations, Bureaucracy)/Teaching/TF - CS171/lab6" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -119,7 +124,9 @@
       <workItem from="1570066981209" duration="1174000" />
       <workItem from="1570641255921" duration="13851000" />
       <workItem from="1570746948540" duration="10409000" />
-      <workItem from="1570772718084" duration="12909000" />
+      <workItem from="1570772718084" duration="19136000" />
+      <workItem from="1571705836977" duration="58554000" />
+      <workItem from="1571978308054" duration="3253000" />
     </task>
     <servers />
   </component>

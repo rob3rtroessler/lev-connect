@@ -19,7 +19,7 @@ function createStudentList(selectedNames){
 
         data.forEach( (d,i) => {
 
-            console.log('data - where is explanation?', d);
+            //console.log('data - where is explanation?', d);
 
             // if a student is listed in the studentArray
             if( selectedNames.includes(d['Last Name']) ) {
@@ -226,7 +226,7 @@ function createStudentList(selectedNames){
                                                 >                                              
                                                     <div class="sl-parent" style="height: 100%">
                                                         <div class="sl-child"> <img class="portraitMini" 
-                                                        src="img/${d.pictureID}.jpg"></div>
+                                                        src="img/${d.pictureID}.jpg" onerror="this.src='img/bunny.jpg'"></div>
                                                     </div>
                                                 </div>
                                             </div>

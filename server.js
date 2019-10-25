@@ -31,38 +31,40 @@ app.get('/login',function(req,res){
 app.post('/signup', function (req, res) {
 
     // store values
-  let {signUpEmail, signUpName, signUpPassword, signUpConfirmation} = req.body;
+    let {signUpEmail, signUpName, signUpPassword, signUpConfirmation} = req.body;
 
-  // error checking
-  errorChecking(signUpEmail, signUpName, signUpPassword, signUpConfirmation, function (message) {
+    // error checking via callback
+    errorChecking(signUpEmail, signUpName, signUpPassword, signUpConfirmation, function (message) {
 
-    // immediate feedback in case of error
-    if (!message.permission){
-      res.json(message);
-    }
-
-    // else, more tests
-    pool.connect((err, client, done) => {
-      if (err) throw err;
-      client.query('SELECT * from email_list where email_address = ($1)', [signUpEmail], (err, sqlres) => {
-        done();
-        if (err) {
-          console.log(err.stack)
-        }
-        else if (sqlres.rows.length === 0 || sqlres.rows[0].email_address !== signUpEmail) {
-
-          message.permission = false;
-          message.message = 'use your Harvard Email address';
-          console.log('no Harvard email used', message);
+        // immediate feedback if no permission
+        if (!message.permission){
           res.json(message);
         }
+
+        // else, more tests
         else {
-          console.log('everything fine', message);
-          res.json(message);
+            pool.connect((err, client, done) => {
+                if (err) throw err;
+                client.query('SELECT * from email_list where email_address = ($1)', [signUpEmail], (err, sqlres) => {
+                    done();
+                    if (err) {
+                        console.log(err.stack)
+                    }
+                    else if (sqlres.rows.length === 0 || sqlres.rows[0].email_address !== signUpEmail) {
+
+                        message.permission = false;
+                        message.message = 'use your Harvard Email address';
+                        console.log('no Harvard email used', message);
+                        res.json(message);
+                    }
+                    else {
+                        console.log('everything fine', message);
+                        res.json(message);
+                    }
+                })
+            })
         }
-      })
     })
-  })
 });
 
 function errorChecking(email, name, password, confirmation, callback) {

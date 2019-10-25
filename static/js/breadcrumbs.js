@@ -12,19 +12,21 @@
 * * * * * * * * * * * * * * * * *  */
 
 let ancestorArray = [];
-let ancestorObj ={};
+let ancestorObj = {};
+let lastClickedObject = {};
 
 async function buildAncestors (data) {
 
     // first, reset ancestorArray;
     ancestorArray = [];
-    ancestorObj ={};
+    ancestorObj = {};
 
     // then check whether we need to build ancestor array at all
     if (data.depth >= 1) {
         getAncestor(data);
     }
 }
+
 
 function getAncestor(data) {
 
@@ -59,7 +61,6 @@ let breadcrumbDIV = d3.select('#breadcrumbs').append('svg')
     .attr("width", breadcrumbWidth)
     .attr("height", breacrumHeight);
 
-
 /* initiate the four breadcrumbs */
 function initiateBreadcrumbs (){
 
@@ -79,7 +80,10 @@ function initiateBreadcrumbs (){
         .attr('stroke', 'black')
         .attr('stroke-width', '0.7px')
         .attr('fill', 'white')
-        .attr('opacity', 1);
+        .attr('opacity', 1)
+        .on('mouseover', function(d){d3.select(this).attr('stroke-width', '1.2px').attr('fill','#d8d8d8')})
+        .on('mouseout', function(d){d3.select(this).attr('stroke-width', '0.7px').attr('fill','white')})
+        .on('click', function(d){d3.select('#select').dispatch('click')});
 
     breadcrumbDIV.append('text')
         .attr('id', 'polygonOneText')
@@ -88,7 +92,7 @@ function initiateBreadcrumbs (){
         .attr("y", partitionHeight/2)
         .attr("fill", "#000000")
         .attr("text-anchor", "middle")
-        .text('Current Selection');
+        .text('start selecting');
 
     /* initialize other breadcrumbs */
     createBreadcrumbElement('polygonTwo', partitionHeight+border);
@@ -138,7 +142,14 @@ function updateBreadcrumbs (data) {
                 .attr('fill', function(d){
                     return colorFilter(data[number].color)
                 })
-                .attr('opacity',1);
+                .attr('opacity', 1)
+                .on('click', function(d){
+                    // get color
+                    console.log(data[number].color);
+
+                    // dispatch
+                    // d3.select('#select').dispatch('click')
+                });
 
             d3.select('#' + name + 'Text')
                 .text(function(d){return data[number].name})
