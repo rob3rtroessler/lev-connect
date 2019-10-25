@@ -26,9 +26,18 @@ app.get('/login',function(req,res){
   res.sendFile(__dirname + '/login.html');
 });
 
-
-
 app.post('/signup', function (req, res) {
+    let {signUpEmail, signUpName, signUpPassword, signUpConfirmation} = req.body;
+
+    let responseObject = {
+        permission: true,
+        message: 'easy access'
+    };
+    res.json(responseObject);
+});
+
+
+app.post('/signupTwo', function (req, res) {
 
     // store values
     let {signUpEmail, signUpName, signUpPassword, signUpConfirmation} = req.body;

@@ -125,5 +125,5 @@ function createOptions(array, div, idRoot){
     $(div).html(tmpHtmlString);
 
     // use formerly created ids to add according event listener
-    array.forEach(function(d,i){ $('#' + idRoot + '-' + i).click( () => profileView(d.tutorIDs) ) })
+    array.forEach(function(d,i){ $('#' + 'dd__' + idRoot + '_' + i).click( () => profileView(d.tutorIDs) ) })
 }
