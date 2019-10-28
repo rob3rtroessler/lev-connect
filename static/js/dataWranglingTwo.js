@@ -125,5 +125,10 @@ function createOptions(array, div, idRoot){
     $(div).html(tmpHtmlString);
 
     // use formerly created ids to add according event listener
-    array.forEach(function(d,i){ $('#' + 'dd__' + idRoot + '_' + i).click( () => profileView(d.tutorIDs) ) })
+    array.forEach(function(d,i){
+        console.log('element in array', d);
+        $('#' + 'dd__' + idRoot + '_' + i).click( () => profileView(d.tutorIDs) )
+
+        // alternative: grab sunburst element here, and dispatch the sunburst's click event and fire it here;
+    })
 }
