@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const { Pool } = require('pg');
 const pool = new Pool({
   user: "postgres",
-  password: "Ajtibms12",
+  password: "test",
   port:5432,
   database: "lev-connect"
 });
@@ -18,57 +18,108 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
+// init bcrypt
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+
+// index
 app.get('/',function(req,res){
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/login',function(req,res){
-  res.sendFile(__dirname + '/login.html');
-});
 
-app.post('/signup', function (req, res) {
-    let {signUpEmail, signUpName, signUpPassword, signUpConfirmation} = req.body;
-
-    let responseObject = {
-        permission: true,
-        message: 'easy access'
-    };
-    res.json(responseObject);
-});
-
-
-app.post('/signupTwo', function (req, res) {
+// login route
+app.post('/login',function(req,resRoute){
 
     // store values
-    let {signUpEmail, signUpName, signUpPassword, signUpConfirmation} = req.body;
+    let {loginEmail, loginPassword} = req.body;
+
+    // callback - checkout a client
+    pool.connect((err, client, done) => {
+        if (err) throw err;
+
+        // get row from users -> error checking
+        client.query('SELECT * FROM users WHERE email = $1', [loginEmail], (err, resSqlSelect) => {
+            done();
+
+            let responseObject = {
+                permission: false,
+                message: ''
+            };
+
+            if (err) {
+                console.log(err.stack);
+            }
+            else {
+                if (resSqlSelect.rows[0] === undefined) {
+                    responseObject.message = `this email doesn't exist!`;
+                    resRoute.json(responseObject);
+                }
+                else if (!bcrypt.compareSync(loginPassword, resSqlSelect.rows[0].password)) {
+                    responseObject.message = `password doesn't match!`;
+                    resRoute.json(responseObject);
+                }
+                else if (bcrypt.compareSync(loginPassword, resSqlSelect.rows[0].password)) {
+                    responseObject.permission = true;
+                    responseObject.message = `welcome to Lev-Connect`;
+                    resRoute.json(responseObject);
+                }
+            }
+        });
+    });
+});
+
+
+// register route
+app.post('/register', function (req, resRoute) {
+
+    // store values
+    let {signUpEmail, signUpPassword, signUpConfirmation} = req.body;
 
     // error checking via callback
-    errorChecking(signUpEmail, signUpName, signUpPassword, signUpConfirmation, function (message) {
+    errorChecking(signUpEmail, signUpPassword, signUpConfirmation, function (message) {
 
         // immediate feedback if no permission
         if (!message.permission){
-          res.json(message);
+            resRoute.json(message);
         }
 
         // else, more tests
         else {
-            pool.connect((err, client, done) => {
-                if (err) throw err;
-                client.query('SELECT * from email_list where email_address = ($1)', [signUpEmail], (err, sqlres) => {
+            pool.connect((errPool, client, done) => {
+                if (errPool) throw errPool;
+                client.query('SELECT * from email_list where email_address = ($1)', [signUpEmail], (errSQLSelect, resSqlSelect) => {
                     done();
-                    if (err) {
-                        console.log(err.stack)
+                    if (errSQLSelect) {
+                        console.log(errSQLSelect.stack)
                     }
-                    else if (sqlres.rows.length === 0 || sqlres.rows[0].email_address !== signUpEmail) {
+                    else if (resSqlSelect.rows.length === 0 || resSqlSelect.rows[0].email_address !== signUpEmail) {
 
                         message.permission = false;
                         message.message = 'use your Harvard Email address';
                         console.log('no Harvard email used', message);
-                        res.json(message);
+                        resRoute.json(message);
                     }
                     else {
                         console.log('everything fine', message);
-                        res.json(message);
+
+                        // hash pw
+                        bcrypt.hash(signUpPassword, saltRounds, function(errHash, hash) {
+
+                            // enter new user into table 'users' using callback - store hash rather than actual pw.
+                            client.query('INSERT INTO users(email, password) VALUES ($1, $2)', [signUpEmail, hash], (errSqlInsert, resSqlInsert) => {
+                                if (errSqlInsert) {
+                                    console.log(errSqlInsert.stack);
+                                    message.permission = false;
+                                    message.message = 'this email is already registered';
+                                    resRoute.json(message);
+                                } else {
+                                    console.log(resSqlInsert.rows[0]);
+                                    resRoute.json(message);
+                                }
+                            });
+                        });
                     }
                 })
             })
@@ -76,20 +127,13 @@ app.post('/signupTwo', function (req, res) {
     })
 });
 
-function errorChecking(email, name, password, confirmation, callback) {
+function errorChecking(email, password, confirmation, callback) {
 
   // no email entered
   if (!email){
     let responseObject = {
       permission: false,
       message: 'please enter an email address'
-    };
-    callback(responseObject);
-  }
-  else if (!name){
-    let responseObject = {
-      permission: false,
-      message: 'please enter a name'
     };
     callback(responseObject);
   }
@@ -103,7 +147,7 @@ function errorChecking(email, name, password, confirmation, callback) {
   else {
     let responseObject = {
       permission: true,
-      message: `welcome to Lev-Connect, ${name}`
+      message: `welcome to Lev-Connect!`
     };
     callback(responseObject);
   }

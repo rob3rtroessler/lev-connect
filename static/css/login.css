@@ -70,46 +70,46 @@
     background-position: left bottom;
     background-size: 500px;
 }
-.form-structor .signup {
+.form-structor .register {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     width: 65%;
     z-index: 5;
     -webkit-transition: all 0.3s ease;
 }
-.form-structor .signup.slide-up {
+.form-structor .register.slide-up {
     top: 5%;
     -webkit-transform: translate(-50%, 0%);
     -webkit-transition: all 0.3s ease;
 }
-.form-structor .signup.slide-up .form-holder, .form-structor .signup.slide-up .submit-btn {
+.form-structor .register.slide-up .form-holder, .form-structor .register.slide-up .submit-btn {
     opacity: 0;
     visibility: hidden;
 }
-.form-structor .signup.slide-up .form-title {
+.form-structor .register.slide-up .form-title {
     font-size: 1em;
     cursor: pointer;
 }
-.form-structor .signup.slide-up .form-title span {
+.form-structor .register.slide-up .form-title span {
     margin-right: 5px;
     opacity: 1;
     visibility: visible;
     -webkit-transition: all 0.3s ease;
 }
-.form-structor .signup .form-title {
+.form-structor .register .form-title {
     color: #fff;
     font-size: 1.7em;
     text-align: center;
 }
-.form-structor .signup .form-title span {
+.form-structor .register .form-title span {
     color: rgba(0, 0, 0, 0.4);
     opacity: 0;
     visibility: hidden;
     -webkit-transition: all 0.3s ease;
 }
-.form-structor .signup .form-holder {
+.form-structor .register .form-holder {
     border-radius: 15px;
     background-color: #fff;
     overflow: hidden;
@@ -118,7 +118,7 @@
     visibility: visible;
     -webkit-transition: all 0.3s ease;
 }
-.form-structor .signup .form-holder .input {
+.form-structor .register .form-holder .input {
     border: 0;
     outline: none;
     box-shadow: none;
@@ -130,13 +130,13 @@
     font-size: 12px;
 }
 
-.form-structor .signup .form-holder .input:last-child {
+.form-structor .register .form-holder .input:last-child {
     border-bottom: 0;
 }
-.form-structor .signup .form-holder .input::-webkit-input-placeholder {
+.form-structor .register .form-holder .input::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.4);
 }
-.form-structor .signup .submit-btn {
+.form-structor .register .submit-btn {
     background-color: rgba(0, 0, 0, 0.4);
     color: rgba(256, 256, 256, 0.7);
     border: 0;
@@ -152,7 +152,7 @@
     visibility: visible;
     -webkit-transition: all 0.3s ease;
 }
-.form-structor .signup .submit-btn:hover {
+.form-structor .register .submit-btn:hover {
     transition: all 0.3s ease;
     background-color: rgba(0, 0, 0, 0.6 );
 }

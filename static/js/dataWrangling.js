@@ -157,7 +157,7 @@ async function createDataStructure (){
 
 
 
-            /* EXPERTISE ARRAYS */
+        /* EXPERTISE ARRAYS */
 
         // Academic Pathways
         let

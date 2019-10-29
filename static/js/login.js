@@ -32,27 +32,58 @@ $('#form').on('webkitAnimationEnd oanimationend msAnimationEnd animationend', fu
     $('#form').delay(200).removeClass('ahashakeheartache');
 });
 
-
-function signUp() {
+// register - being called on register btn click
+function register() {
 
     // get values
     let signUpEmail = document.querySelector('#signUpEmail').value;
-    let signUpName = document.querySelector('#signUpName').value;
     let signUpPassword = document.querySelector('#signUpPassword').value;
     let signUpConfirmation = document.querySelector('#signUpConfirmation').value;
+    //let signUpUsername = document.querySelector('#signUpName').value;
 
-    console.log(signUpEmail, signUpName, signUpPassword, JSON.stringify({signUpEmail, signUpName, signUpPassword, signUpConfirmation}) );
+    console.log(signUpEmail, signUpPassword, JSON.stringify({signUpEmail, signUpPassword, signUpConfirmation}) );
 
 
     // then fetch data
     fetch(
-        `/signup`,
+        `/register`,
         {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({signUpEmail, signUpName, signUpPassword, signUpConfirmation})
+            body: JSON.stringify({signUpEmail, signUpPassword, signUpConfirmation})
+        }
+    )
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            // then check data;
+            if (data.permission){
+                document.getElementById("myNav").style.height = "0%";
+            }
+            else {
+                $('#form').addClass('ahashakeheartache');
+            }
+        })
+}
+
+// login - being called on register btn click
+function login() {
+
+    // get values
+    let loginEmail = document.querySelector('#loginEmail').value;
+    let loginPassword = document.querySelector('#loginPassword').value;
+
+    // then fetch data
+    fetch(
+        `/login`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({loginEmail, loginPassword})
         }
     )
         .then((response) => response.json())

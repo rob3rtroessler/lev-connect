@@ -34,26 +34,25 @@
 <div id="myNav" class="overlay" style="width: 100%; height: 100%;">
     <div style="margin-top: 21vh; margin-left: 35vw; margin-right: 35vw; height: 60vh; width: 30vw;">
         <div id="form" class="form-structor" style="border:thin solid green">
-            <div class="signup">
+            <div class="register">
                 <h5 class="form-title" id="signup" style="margin:0; padding:0">Sign up</h5>
-                <div style='margin-top: 4.4vh; height: 50px; background-size: 50px 50px; background-position: center; background-repeat: no-repeat; background-image: url("img/background/levLogo.png")'></div>
+                <div style='margin-top: 35px; height: 50px; background-size: 50px 50px; background-position: center; background-repeat: no-repeat; background-image: url("img/background/levLogo.png")'></div>
                 <div class="form-holder">
-                    <input id="signUpName" type="text" class="input" placeholder="Name" />
                     <input id="signUpEmail" type="email" class="input" placeholder="Email" />
                     <input id="signUpPassword" type="password" class="input" placeholder="Password" />
                     <input id="signUpConfirmation" type="password" class="input" placeholder="Confirmation" />
                 </div>
-                <button class="submit-btn" onclick=signUp()>Sign up</button>
+                <button class="submit-btn" onclick=register()>Sign up</button>
             </div>
 
             <div class="login slide-up">
                 <div class="center">
-                    <h2 class="form-title" id="login"><span>or</span>Log in</h2>
+                    <h2 class="form-title" id="login">Log in</h2>
                     <div class="form-holder">
-                        <input type="email" class="input" placeholder="Email" />
-                        <input type="password" class="input" placeholder="Password" />
+                        <input id="loginEmail" type="email" class="input" placeholder="Email" />
+                        <input id="loginPassword" type="password" class="input" placeholder="Password" />
                     </div>
-                    <button class="submit-btn">Log in</button>
+                    <button class="submit-btn" onclick=login()>Log in</button>
                 </div>
             </div>
         </div>

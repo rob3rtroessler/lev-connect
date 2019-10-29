@@ -1,3 +1,3 @@
-# HLB Digital
+# Lev-Connect
 
-https://hlb-project.herokuapp.com/
+website: https://lev-connect.herokuapp.com/

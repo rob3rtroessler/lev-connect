@@ -10,7 +10,7 @@ const client = new Client({
     database: "lev-connect"
     });
 
-let text = 'CREATE TABLE users(id SERIAL PRIMARY KEY, firstname VARCHAR(40) not null, lastname VARCHAR(40) not null, email VARCHAR(40) not null, password VARCHAR(40) not null)'
+let text = 'CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(40) not null UNIQUE, password VARCHAR(80) not null)';
 
 // create email table
 client.connect();
@@ -18,3 +18,6 @@ client.connect();
     console.log(err ? err.stack : res);
     client.end()
 });
+
+
+
