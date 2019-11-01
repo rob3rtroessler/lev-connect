@@ -61,15 +61,8 @@ let sunbrust = svg.append("g")
 
 function drawSunburst(data) {
 
-    // TODO: reset sunburst whenever it gets drawn
-
-    console.log(data);
     let root = d3.hierarchy(data);
-
     root.sum(function(d) { return d.size; });
-
-    console.log(root);
-
 
     // create arcTiles
     allArcs = sunbrust.selectAll("path")

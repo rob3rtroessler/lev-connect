@@ -4,10 +4,10 @@ const csv = require('fast-csv');
 
 const { Client } = require('pg');
 const client = new Client({
-    user: "postgres",
-    password: "Ajtibms12",
+    user: "vxvomjalsoktdz",
+    password: "f70fabdaabde93ae33b33e031658714c9f6b02da1d7e9043554902b059460d5e",
     port:5432,
-    database: "lev-connect"
+    database: "d4h6gl41uecc6l"
     });
 
 

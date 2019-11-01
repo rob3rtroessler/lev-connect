@@ -63,6 +63,8 @@ function register() {
                 document.getElementById("myNav").style.height = "0%";
             }
             else {
+                $('#errorMessage').show();
+                $('#errorMessage').html(data.message);
                 $('#form').addClass('ahashakeheartache');
             }
         })
@@ -94,7 +96,13 @@ function login() {
                 document.getElementById("myNav").style.height = "0%";
             }
             else {
+                $('#errorMessage').show();
+                $('#errorMessage').html(data.message);
                 $('#form').addClass('ahashakeheartache');
             }
         })
+}
+
+function testRoute(){
+
 }

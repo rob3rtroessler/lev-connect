@@ -2,13 +2,18 @@ const express = require("express");
 const path = require('path');
 const bodyParser = require('body-parser');
 
+
 // postgres
 const { Pool } = require('pg');
 const pool = new Pool({
-  user: "postgres",
+/*  user: "postgres",
   password: "test",
   port:5432,
-  database: "lev-connect"
+  database: "lev-connect"*/
+    user: "vxvomjalsoktdz",
+    password: "f70fabdaabde93ae33b33e031658714c9f6b02da1d7e9043554902b059460d5e",
+    port:5432,
+    database: "d4h6gl41uecc6l"
 });
 
 // init express
@@ -24,10 +29,13 @@ const saltRounds = 10;
 
 
 // index
-app.get('/',function(req,res){
+app.get('/', function(req,res){
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/test', function(req,res){
+    res.json({error: 'missing or invalid authorization header'});
+});
 
 // login route
 app.post('/login',function(req,resRoute){

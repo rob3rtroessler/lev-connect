@@ -289,7 +289,6 @@ async function createDataStructure (){
                 FinalData = structure;
             });
 
-            console.log(FinalData);
             dataWranglingTwo(FinalData);
             drawSunburst(FinalData);
         });
