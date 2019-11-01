@@ -10,6 +10,7 @@ const pool = new Pool({
   password: "test",
   port:5432,
   database: "lev-connect"*/
+    host: 'ec2-54-235-163-246.compute-1.amazonaws.com',
     user: "vxvomjalsoktdz",
     password: "f70fabdaabde93ae33b33e031658714c9f6b02da1d7e9043554902b059460d5e",
     port:5432,
