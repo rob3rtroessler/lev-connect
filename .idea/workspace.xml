@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b04edb3-e5d8-4e8b-bcd3-50b1bd1c29e8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/postgres/seeds" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postgres/createUsersTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/postgres/createUsersTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +113,7 @@
       <workItem from="1571705836977" duration="58554000" />
       <workItem from="1571978308054" duration="18970000" />
       <workItem from="1572383505035" duration="7475000" />
-      <workItem from="1572631385064" duration="15371000" />
+      <workItem from="1572631385064" duration="15957000" />
     </task>
     <servers />
   </component>
