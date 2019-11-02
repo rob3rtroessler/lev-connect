@@ -1,14 +1,14 @@
 # webstorm
-.idea/
+.idea
 
 #postgres
-postres/
+postres
 
 # private
-#private/
+private
 
 # trash
-trash/
+trash
 
 
 # Logs
