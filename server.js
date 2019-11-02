@@ -1,42 +1,60 @@
 const express = require("express");
 const path = require('path');
 const bodyParser = require('body-parser');
+require('dotenv').config({ path: 'private/.env' });
 
-
-// postgres
-const { Pool } = require('pg');
-const pool = new Pool({
-/*  user: "postgres",
-  password: "test",
-  port:5432,
-  database: "lev-connect"*/
-    host: 'ec2-54-235-163-246.compute-1.amazonaws.com',
-    user: "vxvomjalsoktdz",
-    password: "f70fabdaabde93ae33b33e031658714c9f6b02da1d7e9043554902b059460d5e",
-    port:5432,
-    database: "d4h6gl41uecc6l"
-});
-
-// init express
+// express
 const app = express();
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// postgres
+const { Pool } = require('pg');
+const pool = new Pool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    port: 5432,
+    database: process.env.d4h6gl41uecc6l
+});
+
+/*
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    port: 5432,
+    database: process.env.d4h6gl41uecc6l
+
+    user: "postgres",
+    password: "test",
+    port:5432,
+    database: "lev-connect"
+*/
 
 // init bcrypt
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+// init nodemailer
+const nodemailer = require('nodemailer');
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASSWORD
+    }
+});
+let mailOptions = {
+    from: `levconnect.harvard@gmail.com`,
+    to: `placeholder`,
+    subject: 'Lev-Connect Registration',
+    text: 'placeholder'
+};
+
 
 // index
-app.get('/', function(req,res){
-  res.sendFile(__dirname + '/index.html');
-});
-
-app.get('/test', function(req,res){
-    res.json({error: 'missing or invalid authorization header'});
-});
+app.get('/', function(req,res){ res.sendFile(__dirname + '/index.html'); });
 
 // login route
 app.post('/login',function(req,resRoute){
@@ -79,7 +97,6 @@ app.post('/login',function(req,resRoute){
     });
 });
 
-
 // register route
 app.post('/register', function (req, resRoute) {
 
@@ -114,19 +131,44 @@ app.post('/register', function (req, resRoute) {
                         console.log('everything fine', message);
 
                         // hash pw
-                        bcrypt.hash(signUpPassword, saltRounds, function(errHash, hash) {
+                        bcrypt.hash(signUpPassword, saltRounds, function(errHashPw, hashedPassword) {
 
-                            // enter new user into table 'users' using callback - store hash rather than actual pw.
-                            client.query('INSERT INTO users(email, password) VALUES ($1, $2)', [signUpEmail, hash], (errSqlInsert, resSqlInsert) => {
-                                if (errSqlInsert) {
-                                    console.log(errSqlInsert.stack);
-                                    message.permission = false;
-                                    message.message = 'this email is already registered';
-                                    resRoute.json(message);
-                                } else {
-                                    console.log(resSqlInsert.rows[0]);
-                                    resRoute.json(message);
-                                }
+                            let tokenBeforeHashing = hashedPassword + signUpEmail;
+
+                            // hash token;
+                            bcrypt.hash(tokenBeforeHashing, saltRounds, function(errHashToken, hashedToken) {
+
+                                // make sure there's no problem with hashedToken;
+                                hashedToken = hashedToken.split('/').join('');
+
+                                // new: enter user info in table up_for_registration
+                                client.query('INSERT INTO registration(email, password, token) VALUES ($1, $2, $3)', [signUpEmail, hashedPassword, hashedToken], (errSqlInsert, resSqlInsert) => {
+                                    if (errSqlInsert) {
+                                        console.log(errSqlInsert.stack);
+                                        message.permission = false;
+                                        message.message = 'this email has already been registered';
+                                        resRoute.json(message);
+                                    } else {
+                                        console.log('sending email');
+                                        mailOptions.to = signUpEmail;
+                                        mailOptions.html = `<h1>Welcome to Lev-Connect!</h1> <p>you have tried to register with the following email: ${signUpEmail}. Please verify your account by clicking on the following <a href="http://lev-connect.herokuapp.com/confirmation/${hashedToken}">link</a>`;
+                                        //mailOptions.html = `<h1>Welcome to Lev-Connect!</h1> <p>you have tried to register with the following email: ${signUpEmail}. Please verify your account by clicking on the following <a href="http://localhost:8000/confirmation/${hashedToken}">link</a>`;
+
+                                        transporter.sendMail(mailOptions, function (err, res) {
+                                            if(err){
+                                                console.log('Error');
+                                            } else {
+                                                console.log('Email Sent');
+                                            }
+                                        });
+
+                                        // send email;
+                                        message.permission = false;
+                                        message.message = 'an authorization email has been sent to ' + signUpEmail + '. Please follow the provided link to activate your account.';
+
+                                        resRoute.json(message);
+                                    }
+                                });
                             });
                         });
                     }
@@ -134,6 +176,58 @@ app.post('/register', function (req, resRoute) {
             })
         }
     })
+});
+
+// confirmation
+app.get('/confirmation/:token', function(req,res){
+
+    // first, store token and
+    let token = req.params.token;
+
+    // use it to check it against the registration table
+    pool.connect((err, client, done) => {
+        if (err) throw err;
+
+        // get row from users -> error checking
+        client.query('SELECT * FROM registration WHERE token = $1', [token], (errSql, resSqlSelect) => {
+            done();
+
+            // initiate response object;
+            let responseObject = {
+                permission: false,
+                message: ''
+            };
+
+            // throw error
+            if (errSql) {
+                console.log(err.stack);
+                res.status(400).send('an error occurred in the database - please contact levconnect.harvard@gmail.com!');
+            }
+
+            else if (resSqlSelect.rows[0] === undefined) {
+                res.status(400).send(`access token not valid!`)
+            }
+
+            // otherwise, more error checking
+            else {
+                let {email, password} = resSqlSelect.rows[0];
+
+                // insert info into users -> create new user
+                client.query('INSERT INTO users(email, password) VALUES ($1, $2)', [email, password], (errSqlInsert, resSqlInsert) => {
+                    // if there's an error
+                    if (errSqlInsert) {
+                        console.log(errSqlInsert.stack);
+                        res.status(400).send(`Your email is already registered!`)
+                    }
+                    else {
+                        console.log(`the email ${email} has successfully been registered. redirecting to index`);
+                        res.redirect('http://lev-connect.herokuapp.com/');
+                        // res.redirect('http://localhost:8000');
+                    }
+                });
+            }
+        });
+    });
 });
 
 function errorChecking(email, password, confirmation, callback) {

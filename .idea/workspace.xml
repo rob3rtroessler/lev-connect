@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b04edb3-e5d8-4e8b-bcd3-50b1bd1c29e8" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/postgres/seeds" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postgres/createUsersTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/postgres/createUsersTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,19 +54,19 @@
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\private" />
+      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect" />
+      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\trash" />
+      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\css" />
+      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\postgres" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\postgres" />
       <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect" />
       <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static" />
       <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\css" />
       <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\data" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\trash" />
-      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect" />
-      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\css" />
-      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\postgres" />
-      <recent name="D:\GoogleDrive\Forschung\09_DigitaleProjekte\05_lev-connect\static\js\libs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -113,7 +118,7 @@
       <workItem from="1571705836977" duration="58554000" />
       <workItem from="1571978308054" duration="18970000" />
       <workItem from="1572383505035" duration="7475000" />
-      <workItem from="1572631385064" duration="1896000" />
+      <workItem from="1572631385064" duration="15371000" />
     </task>
     <servers />
   </component>

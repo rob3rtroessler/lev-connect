@@ -1,3 +1,16 @@
+# webstorm
+.idea/
+
+#postgres
+postres/
+
+# private
+private/
+
+# trash
+trash/
+
+
 # Logs
 logs
 *.log
@@ -55,7 +68,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+private/.env
 
 # next.js build output
 .next

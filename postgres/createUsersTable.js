@@ -11,6 +11,7 @@ const client = new Client({
     });
 
 let text = 'CREATE TABLE users(id SERIAL PRIMARY KEY, email VARCHAR(40) not null UNIQUE, password VARCHAR(80) not null)';
+let registration = 'CREATE TABLE registration(id SERIAL PRIMARY KEY, email VARCHAR(40) not null UNIQUE, password VARCHAR(80) not null, token VARCHAR(80))';
 
 // create email table
 client.connect();
