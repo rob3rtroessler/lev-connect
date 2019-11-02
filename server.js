@@ -16,7 +16,7 @@ const pool = new Pool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     port: 5432,
-    database: process.env.d4h6gl41uecc6l
+    database: process.env.DB_DATABASE
 });
 
 /*
