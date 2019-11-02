@@ -259,15 +259,19 @@ body {
 
 
 #exitBox {
-  height: 33%;
-  border-left: thin solid green;
-  border-right: thin solid green;
-  border-top: thin solid green;
-  background: white;
-  background-image: url("../img/back.png");
+  height: 100%;
+  background-image: url("../img/backbtn/back.jpg");
+  -webkit-filter: grayscale(100%);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   display: none;
 }
+
+#exitBox:hover {
+  background-image: url("../img/backbtn/back.jpg");
+  -webkit-filter: grayscale(0%);
+  cursor: pointer;
+}
+
 

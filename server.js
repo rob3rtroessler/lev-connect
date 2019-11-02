@@ -1,13 +1,14 @@
 const express = require("express");
 const path = require('path');
 const bodyParser = require('body-parser');
-//require('dotenv').config();
+const favicon = require('serve-favicon');
 
 // express
 const app = express();
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(favicon(path.join(__dirname,'static','img','favicon','favicon.png')));
 
 // postgres
 const { Pool } = require('pg');
@@ -19,8 +20,6 @@ const pool = new Pool({
     database: process.env.DB_DATABASE
 });
 
-console.log(process.env.DB_HOST);
-console.log(pool);
 /*
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
