@@ -19,6 +19,8 @@ const pool = new Pool({
     database: process.env.DB_DATABASE
 });
 
+console.log(process.env.DB_HOST);
+console.log(pool);
 /*
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
