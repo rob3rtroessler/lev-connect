@@ -1,20 +1,47 @@
 
-// variables
+/* * * * * * * * * * * * * * * * * *
+*                                  *
+*          STUDENT LIST            *
+*                                  *
+* * * * * * * * * * * * * * * * *  */
+
+
+
+/* * * * * * * * * * * * * * * * * *
+*        GLOBAL VARIABLES          *
+* * * * * * * * * * * * * * * * *  */
+
 let studentListHtml = '';
 let selectedStudents = [];
 let dataByIdObj = {};
 
 
+
+/* * * * * * * * * * * * * * * * * *
+*            BEHAVIOR              *
+* * * * * * * * * * * * * * * * *  */
+
+$('.student-list-item').on('mouseover', function(){
+    // make all passive
+    $('.student-list-item').removeClass('student-list-item-active');
+    // highlight selected
+    $(this).addClass('student-list-item-active');
+
+});
+
+
+
+/* * * * * * * * * * * * * * * * * *
+*            FUNCTIONS             *
+* * * * * * * * * * * * * * * * *  */
+
 function createStudentList(selectedNames){
 
-    console.log(selectedNames, 'then reset list');
     studentListHtml = '';
     selectedStudents = [];
 
-
-
     // first look up all the students by last name, i.e. iterate over all
-    d3.csv("/data/data3.csv").then(function(data) {
+    d3.csv("/data/dataFinal.csv").then(function(data) {
 
 
         data.forEach( (d,i) => {
@@ -22,10 +49,10 @@ function createStudentList(selectedNames){
             //console.log('data - where is explanation?', d);
 
             // if a student is listed in the studentArray
-            if( selectedNames.includes(d['Last Name']) ) {
+            if( selectedNames.includes(d['ID']) ) {
 
                 // pictureID
-                let pictureID = d['ID'];
+                let id = d['ID'];
 
                 // email
                 let email = d['Please give the email you would prefer to be contacted on by Leverett students'];
@@ -82,7 +109,7 @@ function createStudentList(selectedNames){
                     gradSchool += d['Professional grad school'];
                 }
                 gradSchool += ';';
-                gradSchoolExp = d['Enter explanation Grad'];
+                let gradSchoolExp = d['Enter explanation Grad'];
 
                 /* work */
                 let work = '';
@@ -102,7 +129,7 @@ function createStudentList(selectedNames){
                     work += d['Tech/Engineering/Environment/Architecture'];
                 }
                 work += ';';
-                workExp = d['Enter explanation Career'];
+                let workExp = d['Enter explanation Career'];
 
 
 
@@ -127,8 +154,11 @@ function createStudentList(selectedNames){
 
                 let countriesExp = d['Enter explanation Countries'];
 
+                // languages
                 let languages = d['Non-English Languages'];
                 let languagesExp = d['Explain Lang'];
+
+
 
 
 
@@ -136,11 +166,11 @@ function createStudentList(selectedNames){
                 let studentItem = {
 
                     // meta info
-                    id: i,
+                    id: id,
                     name: d['First Name'] + ' '  + d['Last Name'],
-                    pictureID: pictureID,
+                    pictureID: id,
                     email: email,
-                    cv: cv,
+                    cvID: id,
 
                     // concentration
                     concentrations: concentrations,
@@ -158,7 +188,10 @@ function createStudentList(selectedNames){
                     countries: countries,
                     countriesExp: countriesExp,
                     languages: languages,
-                    languagesExp: languagesExp,
+                    languagesExp: languagesExp
+
+                    //
+                    // TODO!!!!
 
 
                 };
@@ -181,7 +214,7 @@ function createStudentList(selectedNames){
                 name: obj.name,
                 pictureID: obj.pictureID,
                 email: obj.email,
-                cv:obj.cv,
+                cvID:obj.cvID,
 
                 // concentrations
                 concentrations: obj.concentrations,

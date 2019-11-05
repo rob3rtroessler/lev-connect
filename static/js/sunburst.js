@@ -158,7 +158,6 @@ d3.select(self.frameElement).style("height", height + "px");
 
 
 function profileView(data){
-    console.log('in profileView()', data);
     createStudentList(data);
     toProfile();
 }

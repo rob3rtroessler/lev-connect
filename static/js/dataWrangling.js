@@ -220,7 +220,7 @@ async function createDataStructure (){
 
 
         // on top of that predefined structure, load the data from the form
-        d3.csv("/data/data3.csv").then(function(data) {
+        d3.csv("/data/dataFinal.csv").then(function(data) {
 
             // now, for each tutor, sort his or her data into the structure
             data.forEach(function(d){
@@ -296,7 +296,7 @@ async function createDataStructure (){
 }
 
 
-function fillChildren (tutorData, category, categoryLocation, existingExpertise, color, id) {
+function fillChildren (tutorData, category, categoryLocation, existingExpertise, color) {
 
     // first, get the information from the field in the csv that we're interested in
     let tmpStr = tutorData[category];
@@ -339,8 +339,7 @@ function fillChildren (tutorData, category, categoryLocation, existingExpertise,
 
                 // then push object as new child
                 categoryLocation.children.push(
-                    {"name": expertise, "color": color, "size": 1, status: 'final', tutorIDs:[tutorData['Last' +
-                ' Name']]}
+                    {"name": expertise, "color": color, "size": 1, status: 'final', tutorIDs:[tutorData['ID']]}
                 );
 
             }
@@ -356,7 +355,7 @@ function fillChildren (tutorData, category, categoryLocation, existingExpertise,
                         if (child.name === expertise) {
                             child.size += 1;
                             // child.id.push( tutorData['First Name'] + ' ' + tutorData['Last Name'] )
-                            child.tutorIDs.push( tutorData['Last Name']);
+                            child.tutorIDs.push( tutorData['ID']);
                         }
                     })
                 }
@@ -366,7 +365,7 @@ function fillChildren (tutorData, category, categoryLocation, existingExpertise,
                     existingExpertise.push(expertise);
 
                     //let idArray = [tutorData['First Name'] + ' ' + tutorData['Last Name']];
-                    let idArray = [tutorData['Last Name']];
+                    let idArray = [tutorData['ID']];
                     categoryLocation.children.push(
                         {"name": expertise, "color": color, "size": 1, status: 'final', tutorIDs: idArray});
                 }

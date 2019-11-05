@@ -5,75 +5,19 @@
 *                                  *
 * * * * * * * * * * * * * * * * *  */
 
-/* * * * * * * * * * * * * * * * * *
-*          STUDENT LIST            *
-* * * * * * * * * * * * * * * * *  */
-
-// HiTS - responsive scrolling currently disabled
-//enableScrolling('studentList');
-
-/*
-
-let studentListDiv = $('#studentList');
-
-// make div scrollable
-studentListDiv.on('mouseover', function(){
-    enableScrolling('studentList')
-});
-
-// hide scrollbar
-studentListDiv.on('mouseout', function(){
-    removeScrolling ('studentList')
-});
-
-*/
-
-$('.student-list-item').on('mouseover', function(){
-    // make all passive
-    $('.student-list-item').removeClass('student-list-item-active');
-    $(this).addClass('student-list-item-active');
-
-});
-
-/* * * * * * * * * * * * * * * * * *
-*             PROFILE              *
-* * * * * * * * * * * * * * * * *  */
-
-// PROFILE - responsive scrolling currently disabled
-//enableScrolling('profile');
-
-/*
-let profileDiv = $('#profile');
-
-// make div scrollable
-profileDiv.on('mouseover', function(){
-    enableScrolling('profile')
-});
-
-// hide scrollbar
-profileDiv.on('mouseout', function(){
-    removeScrolling ('profile')
-});
-
-*/
 
 
 
 /* * * * * * * * * * * * * * * * * *
-*                                  *
 *        GLOBAL VARIABLES          *
-*                                  *
 * * * * * * * * * * * * * * * * *  */
 
 let currentlySelectedProfileId = '';
 
 
 
-
 /* * * * * * * * * * * * * * * * * *
-*                                  *
 *        HELPER FUNCTIONS          *
-*                                  *
 * * * * * * * * * * * * * * * * *  */
 
 function enableScrolling (id){
@@ -92,8 +36,6 @@ function mouseoverStudentListItem(id) {
     $('.student-list-item').removeClass('student-list-item-active');
     // $('#' + currentlySelectedProfileId).addClass('student-list-item-active');
     $('#' + id).addClass('student-list-item-active');
-
-    document.getE
 }
 
 /* mouse out student list item */
@@ -107,15 +49,18 @@ function mouseoutStudentListItem() {
 function clickStudentListItem(id) {
 
     // change currently selected
-    // console.log('idcheck', id);
     currentlySelectedProfileId = id;
 
     // get profile data
     let data = dataByIdObj[id];
 
-    console.log('hello, here', data);
-    /* fill according html elements */
+    // log
+    // console.log(`data for student with id=${id}`, data);
 
+
+    /* * * * * * * * * * * * * * * * * *
+    *   fill according html elements   *
+    * * * * * * * * * * * * * * * * * */
 
     // name
     $('#profile_nameField').html(data.name);
@@ -127,7 +72,8 @@ function clickStudentListItem(id) {
     $('#contactViaEmail').attr('href', 'mailto:' + data.email);
 
     // cv
-    $('#downloadCV').attr('href', data.cv);
+    $('#downloadCV').attr('href', 'data/CVs/CV_id_' + data.cvID + '.pdf');
+        //);
 
     // ACADEMIC PATHWAYS
     $('#profile_concentrations').html(data.concentrations);
@@ -147,6 +93,23 @@ function clickStudentListItem(id) {
     $('#profile_languages').html(data.languages);
     $('#profile_languagesExp').html(data.languagesExp);
 
-    // travel
-    if(data.europe !== 'none'){ $('#profile_travelEuropeField').html(data.europe); }
+    // array of fields that can potentially be filled out as 'none'
+    let potentialNones = ['work', 'workExp', 'gradSchool', 'gradSchoolExp', 'countries', 'countriesExp', 'languages', 'languagesExp'];
+
+    // hiding none-cases
+    potentialNones.forEach(function (field) {
+
+        // special 'hiding' for languages and countries
+        if ( (data[field] === 'none' || data[field] === '') && (field === 'languages' || field === 'countries')){
+            $('#profile_' + field).parent().parent().hide();
+        }
+        // hiding
+        else if (data[field] === 'none' || data[field] === ''){
+            $('#profile_' + field).parent().hide();
+        }
+        else {
+            $('#profile_' + field).parent().show();
+            $('#profile_' + field).parent().parent().show();
+        }
+    })
 }
