@@ -39,7 +39,7 @@ let svg = d3.select("#sunburstDIV").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-
+// implement a background that hides accordion-tabs that were not selected/locked
 let background = svg.append('g')
     .attr('class', 'testClass')
     .append('rect')
@@ -47,16 +47,13 @@ let background = svg.append('g')
     .attr("height", height)
     .attr("fill", 'white')
     .on('mouseover', function(){
-        console.log('test', new Date());
         setTimeout(function(){
             hideAccordionTabs();
         }, 200);
     });
 
-let sunbrust = svg.append("g")
+let sunburst = svg.append("g")
     .attr("transform", "translate(" + width / 2 + "," + (height / 2) + ")");
-
-
 
 
 function drawSunburst(data) {
@@ -65,7 +62,7 @@ function drawSunburst(data) {
     root.sum(function(d) { return d.size; });
 
     // create arcTiles
-    allArcs = sunbrust.selectAll("path")
+    allArcs = sunburst.selectAll("path")
         .data(partition(root).descendants())
         .enter().append("path")
         .attr("d", arc)
@@ -137,7 +134,7 @@ function drawSunburst(data) {
 
 
 function click(d) {
-    sunbrust.transition()
+    sunburst.transition()
         .duration(750)
         .tween("scale", function() {
             let xd = d3.interpolate(x.domain(), [d.x0, d.x1]),

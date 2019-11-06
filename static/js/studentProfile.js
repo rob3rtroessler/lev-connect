@@ -93,18 +93,22 @@ function clickStudentListItem(id) {
     $('#profile_languages').html(data.languages);
     $('#profile_languagesExp').html(data.languagesExp);
 
+    // ADDITIONAL INFO
+    $('#profile_additionalInfo').html(data.additionalInfo);
+
+
     // array of fields that can potentially be filled out as 'none'
-    let potentialNones = ['work', 'workExp', 'gradSchool', 'gradSchoolExp', 'countries', 'countriesExp', 'languages', 'languagesExp'];
+    let potentialNones = ['work', 'workExp', 'gradSchool', 'gradSchoolExp', 'countries', 'countriesExp', 'languages', 'languagesExp', 'additionalInfo'];
 
     // hiding none-cases
     potentialNones.forEach(function (field) {
 
         // special 'hiding' for languages and countries
-        if ( (data[field] === 'none' || data[field] === '') && (field === 'languages' || field === 'countries')){
+        if ( (data[field] === 'none' || data[field] === '' || data[field] === ';') && (field === 'languages' || field === 'countries')){
             $('#profile_' + field).parent().parent().hide();
         }
         // hiding
-        else if (data[field] === 'none' || data[field] === ''){
+        else if (data[field] === 'none' || data[field] === 'None' || data[field] === 'no' || data[field] === '' || data[field] === ';'){
             $('#profile_' + field).parent().hide();
         }
         else {

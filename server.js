@@ -25,7 +25,7 @@ const pool = new Pool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     port: 5432,
-    database: process.env.d4h6gl41uecc6l
+    database: process.env.DB_DATABASE
 
     user: "postgres",
     password: "test",
@@ -53,6 +53,23 @@ let mailOptions = {
     text: 'placeholder'
 };
 
+//
+const csv = require('csv-parser');
+const fs = require('fs');
+const tutorData = [];
+
+fs.createReadStream('private/dataFinal.csv')
+    .pipe(csv())
+    .on('data', (data) => tutorData.push(data))
+    .on('end', () => {
+        // success case, the file was saved
+        console.log('data wrangling done');
+    });
+
+
+/* * * * * * * * * * * *
+*        ROUTES        *
+ * * * * * * * * * * * */
 
 // index
 app.get('/', function(req,res){ res.sendFile(__dirname + '/index.html'); });
@@ -73,7 +90,8 @@ app.post('/login',function(req,resRoute){
 
             let responseObject = {
                 permission: false,
-                message: ''
+                message: '',
+                data: {}
             };
 
             if (err) {
@@ -81,7 +99,7 @@ app.post('/login',function(req,resRoute){
             }
             else {
                 if (resSqlSelect.rows[0] === undefined) {
-                    responseObject.message = `this email doesn't exist!`;
+                    responseObject.message = `there's no account with this email!`;
                     resRoute.json(responseObject);
                 }
                 else if (!bcrypt.compareSync(loginPassword, resSqlSelect.rows[0].password)) {
@@ -91,6 +109,7 @@ app.post('/login',function(req,resRoute){
                 else if (bcrypt.compareSync(loginPassword, resSqlSelect.rows[0].password)) {
                     responseObject.permission = true;
                     responseObject.message = `welcome to Lev-Connect`;
+                    responseObject.data = {data: tutorData};
                     resRoute.json(responseObject);
                 }
             }

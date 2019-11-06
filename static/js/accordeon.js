@@ -34,8 +34,8 @@ function triggerAccordionInner (id,text, color) {
 //
 function triggerAccordion(hierarchy) {
 
-    console.log('triggerAccordion()', 'currently selected:', accordionTracker);
-
+    // logs
+    // console.log('triggerAccordion()', 'currently selected:', accordionTracker);
 
     // store first character/level of hierarchy in variable 'identifier'
     let identifier = hierarchy.charAt(0);
@@ -65,7 +65,10 @@ function triggerAccordion(hierarchy) {
 
 //
 function hideAccordionTabs() {
-    console.log('hideAccordionTabs()', 'currently selected:', accordionTracker);
+
+    // logs
+    //console.log('hideAccordionTabs()', 'currently selected:', accordionTracker);
+
     if (accordionTracker === ''){
         $('#collapseOne').collapse('hide');
         $('#collapseTwo').collapse('hide');
@@ -75,9 +78,11 @@ function hideAccordionTabs() {
 }
 
 
-// triggerSunburst; gets fired when accordion trabs are clicked
+// triggerSunburst; gets fired when accordion tabs are clicked
 function triggerSunburst(id) {
-    console.log('triggerSunburst()', id, accordionTracker);
+
+    // logs
+    // console.log('triggerSunburst()', id, accordionTracker);
 
     if (accordionTracker === id){
         console.log('accordionTracker equal id -> reset');
@@ -91,8 +96,7 @@ function triggerSunburst(id) {
 }
 
 
-// asd
+//
 function highlightSunburst(id){
-    console.log('jau', id);
     d3.selectAll('.arcTile').attr('opacity', 1);
 }

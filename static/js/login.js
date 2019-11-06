@@ -90,9 +90,11 @@ function login() {
     )
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
+
             // then check data;
             if (data.permission){
+                globalTutorData = data.data.data;
+                start();
                 document.getElementById("myNav").style.height = "0%";
             }
             else {
