@@ -58,7 +58,7 @@ const csv = require('csv-parser');
 const fs = require('fs');
 const tutorData = [];
 
-fs.createReadStream('private/dataFinal.csv')
+fs.createReadStream('dataFinal.csv')
     .pipe(csv())
     .on('data', (data) => tutorData.push(data))
     .on('end', () => {
