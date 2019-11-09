@@ -171,7 +171,7 @@ app.post('/register', function (req, resRoute) {
                                     } else {
                                         console.log('sending email');
                                         mailOptions.to = signUpEmail;
-                                        mailOptions.html = `<h1>Welcome to Lev-Connect!</h1> <p>you have tried to register with the following email: ${signUpEmail}. Please verify your account by clicking on the following <a href="http://lev-connect.herokuapp.com/confirmation/${hashedToken}">link</a>`;
+                                        mailOptions.html = `<h1>Welcome to Lev-Connect!</h1> <p>you have tried to register with the following email: ${signUpEmail}. Please verify your account by clicking on the following <a href="https://lev-connect.herokuapp.com/confirmation/${hashedToken}">link</a>`;
                                         //mailOptions.html = `<h1>Welcome to Lev-Connect!</h1> <p>you have tried to register with the following email: ${signUpEmail}. Please verify your account by clicking on the following <a href="http://localhost:8000/confirmation/${hashedToken}">link</a>`;
 
                                         transporter.sendMail(mailOptions, function (err, res) {

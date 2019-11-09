@@ -1,7 +1,11 @@
 insert into email_list(email_address)
 values
-('leveretthousedean@fas.harvard.edu'),
+('hgambhir@jd19.law.harvard.edu'),
 ('awatanabe@g.harvard.edu'),
+('jlansford@g.harvard.edu'),
+('chcleveland@fas.harvard.edu'),
+('alex_miller@hst.harvard.edu')
+('leveretthousedean@fas.harvard.edu'),
 ('mmelend@g.harvard.edu'),
 ('joyce.zhang@post.harvard.edu'),
 ('udodiriokwandu@g.harvard.edu'),

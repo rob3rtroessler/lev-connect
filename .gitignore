@@ -7,6 +7,9 @@ postgres
 # private
 private
 
+#sql
+sql
+
 # trash
 trash
 
