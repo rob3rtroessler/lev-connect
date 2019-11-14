@@ -143,7 +143,7 @@ app.post('/register', function (req, resRoute) {
                     else if (resSqlSelect.rows.length === 0 || resSqlSelect.rows[0].email_address !== signUpEmail) {
 
                         message.permission = false;
-                        message.message = 'use your Harvard Email address';
+                        message.message = 'use your Harvard Email address; if you continue having problems please contact levconnect.harvard@gmail.com';
                         console.log('no Harvard email used', message);
                         resRoute.json(message);
                     }
@@ -166,7 +166,7 @@ app.post('/register', function (req, resRoute) {
                                     if (errSqlInsert) {
                                         console.log(errSqlInsert.stack);
                                         message.permission = false;
-                                        message.message = 'this email has already been registered';
+                                        message.message = 'this email has already been registered; if you continue having problems please contact levconnect.harvard@gmail.com';
                                         resRoute.json(message);
                                     } else {
                                         console.log('sending email');
@@ -241,8 +241,8 @@ app.get('/confirmation/:token', function(req,res){
                     }
                     else {
                         console.log(`the email ${email} has successfully been registered. redirecting to index`);
-                        res.redirect('http://lev-connect.herokuapp.com/');
-                        // res.redirect('http://localhost:8000');
+                        res.redirect('https://lev-connect.herokuapp.com/');
+                        // res.redirect('https://localhost:8000/#login');
                     }
                 });
             }
