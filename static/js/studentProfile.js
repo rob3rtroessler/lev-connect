@@ -69,7 +69,7 @@ function clickStudentListItem(id) {
     $('#pictureID').attr('src', 'img/' + data.pictureID + '.jpg');
 
     // email
-    $('#contactViaEmail').attr('href', 'mailto:' + data.email);
+    $('#contactViaEmail').attr('href', 'mailto:' + data.email + `?subject=RSVP%20for%20New%20Years%20Eve%20Party%20&body=Hi%20Bob,%0d%0dI%20would%20like%20to%20RSVP%20to%20your%20party%20invitation.%20Here%20are%20my%20details:%0d%0dName:%20Eryka%20Adams%0dNumber%20of%20Guest:%0d`);
 
     // cv
     $('#downloadCV').attr('href', 'data/CVs/CV_id_' + data.cvID + '.pdf');
