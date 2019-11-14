@@ -49,7 +49,7 @@ function createStudentList(selectedNames){
             // if a student is listed in the studentArray
         if( selectedNames.includes(d['ID']) ) {
 
-            // console.log('stundent object', d);
+            console.log('stundent object', d);
 
             // pictureID
             let id = d['ID'];
